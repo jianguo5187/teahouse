@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.BetkjMapper">
+    
+    <resultMap type="com.ruoyi.system.domain.vo.BetkjRespVo" id="BetkjResult">
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="periods"    column="periods"    />
+        <result property="status"    column="status"    />
+        <result property="betOpenTime"    column="bet_open_time"    />
+        <result property="openResult"    column="open_result"    />
+        <result property="countMoney"    column="count_money"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="gameType"    column="game_type"    />
+        <result property="systemOpenType"    column="system_open_type"    />
+        <result property="gameOpenCode"    column="game_open_code"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.GameListRespVO" id="GameListResult">
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="periods"    column="periods"    />
+        <result property="recordTime"    column="record_time"    />
+        <result property="countMoney"    column="count_money"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="betMoney"    column="bet_money"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.GameDetailRespVO" id="GameDetailResult">
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="periods"    column="periods"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="status"    column="status"    />
+        <result property="openCode"    column="open_code"    />
+        <result property="openFlg"    column="open_flg"    />
+        <result property="recordTime"    column="record_time"    />
+    </resultMap>
+
+    <select id="selectBetkjList" resultMap="BetkjResult">
+        select
+              kj.periods as periods
+            , kj.status as status
+            , case when kj.status = '1' then kj.bet_time
+                when g.system_open_type = 'Y'
+                    then c.pre_time
+                else kj.pre_time end as bet_open_time
+            , case when kj.status = '1'
+                then
+                    <if test='gameType == "3"'>CONCAT(kj.num1,'+',kj.num2,'+',kj.num3,'=',kj.sum_num)</if>
+                    <if test='gameType == "5"'>CONCAT(kj.num1,'+',kj.num2,'+',kj.num3,'+',kj.num4,'+',kj.num5,'=',kj.sum)</if>
+                    <if test='gameType == "10"'>CONCAT(kj.num1,'+',kj.num2,'+',kj.num3,'+',kj.num4,'+',kj.num5,'+',kj.num6,'+',kj.num7,'+',kj.num8,'+',kj.num9,'+',kj.num10)</if>
+                when g.system_open_type = 'Y'
+                 then
+                    <if test='gameType == "3"'>CONCAT(c.pre_sum_1,'+',c.pre_sum_2,'+',c.pre_sum_3,'=',(c.pre_sum_1+c.pre_sum_2+c.pre_sum_3))</if>
+                    <if test='gameType == "5"'>CONCAT(c.pre_num1,'+',c.pre_num2,'+',c.pre_num3,'+',c.pre_num4,'+',c.pre_num5,'=',(pre_num1+pre_num2+pre_num3+pre_num4+pre_num5))</if>
+                    <if test='gameType == "10"'>CONCAT(c.pre_num1,'+',c.pre_num2,'+',c.pre_num3,'+',c.pre_num4,'+',c.pre_num5,'+',c.pre_num6,'+',c.pre_num7,'+',c.pre_num8,'+',c.pre_num9,'+',c.pre_num10)</if>
+                else ''
+                end as open_result
+            , kj.count_money as count_money
+            , kj.win_money as win_money
+            ,g.game_id as game_id
+            ,g.game_name as game_name
+            ,g.game_type as game_type
+            ,g.system_open_type as system_open_type
+            ,g.game_open_code as game_open_code
+        from ${betkjTableName} kj
+        inner join sys_game g on g.game_id = kj.game_id
+        left join ${openCodeTableName} c on c.game_id = kj.game_id and c.periods = kj.periods
+        where 1 = 1
+        <if test="status != null  and status != ''"> and kj.status = #{status}</if>
+        <if test="gameId != null "> and kj.game_id = #{gameId}</if>
+        <if test="periods != null "> and kj.periods = #{periods}</if>
+        order by kj.periods desc
+    </select>
+
+    <select id="gameRecordList" resultMap="GameListResult">
+        select
+             gameRecode.game_id AS game_id
+            ,gameRecode.game_name AS game_name
+            ,gameRecode.periods AS periods
+            ,date_format(gameRecode.record_time,'%Y-%m-%d') AS record_time
+            ,brecode.count_money AS count_money
+            ,gameRecode.win_money AS win_money
+            ,brecode.bet_money AS bet_money
+            ,gameRecode.status AS status
+        from ${betRecordTableName} gameRecode
+        inner join(
+            select
+                  br.user_id as user_id
+                 ,br.periods as periods
+                 ,br.game_id as game_id
+                 ,count(*) as count_money
+                 ,sum(br.money) as bet_money
+            from bet_record br
+            where br.is_delete = 0
+            and br.user_id = #{userId}
+            and br.game_id = #{gameId}
+            group by br.user_id,br.periods,br.game_id
+        )brecode on brecode.user_id = gameRecode.user_id
+        and brecode.game_id = gameRecode.game_id
+        and brecode.periods = gameRecode.periods
+        where gameRecode.is_delete = 0
+        and gameRecode.user_id = #{userId}
+        and gameRecode.game_id = #{gameId}
+        <if test="filterDay != null and filterDay != ''">
+            and DATE_FORMAT(gameRecode.record_time, '%Y-%m-%d') = #{filterDay}
+        </if>
+    </select>
+
+    <select id="gameRecordDetail" resultMap="GameDetailResult">
+        select
+              game_id as game_id
+            , game_name AS game_name
+            , periods as periods
+            , win_money as win_money
+            , status as status
+            , case when status = '1'
+                then
+                <if test='gameType == "3"'>CONCAT(n1,'+',n2,'+',n3,'=',sum_num)</if>
+                <if test='gameType == "5"'>CONCAT(num1,'+',num2,'+',num3,'+',num4,'+',num5,'=',sum)</if>
+                <if test='gameType == "10"'>CONCAT(num1,'+',num2,'+',num3,'+',num4,'+',num5,'+',num6,'+',num7,'+',num8,'+',num9,'+',num10)</if>
+                else ''
+            end as open_code
+            ,case when status = 1 and win_money > 0 then '1' else '0' end AS open_flg
+        from ${betRecordTableName}
+        where game_id = #{gameId}
+        <if test="userId != null"> and user_id = #{userId}</if>
+        <if test="periods != null "> and periods = #{periods}</if>
+    </select>
+
+    <update id="clearGameRecode">
+        update ${betRecordTableName}
+        set is_delete = 1
+        where game_id = #{gameId}
+        <if test="userId != null"> and user_id = #{userId}</if>
+    </update>
+
+    <select id="selectGameRecordCountMoneyById" resultType="Float">
+        select
+            count_money AS count_money
+        from ${betRecordTableName}
+        where id = #{id}
+    </select>
+
+    <update id="updateGameRecordDeductType">
+        update ${betRecordTableName}
+        set is_deduct = #{isDeduct}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAllOldRobotBet">
+        delete from bet_record where is_robot = '1' and DATE(record_time) &lt;= date_sub(now() , INTERVAL 3 HOUR)
+    </delete>
+</mapper>

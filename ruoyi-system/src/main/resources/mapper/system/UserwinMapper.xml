@@ -1,0 +1,1655 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.UserwinMapper">
+    
+    <resultMap type="Userwin" id="UserwinResult">
+        <result property="id"    column="id"    />
+        <result property="winTime"    column="win_time"    />
+        <result property="userId"    column="user_id"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="bigSmallMoney"    column="big_small_money"    />
+        <result property="otherMoney"    column="other_money"    />
+        <result property="combinationMoney"    column="combination_money"    />
+        <result property="deductMoney"    column="deduct_money"    />
+        <result property="betMoney"    column="bet_money"    />
+        <result property="cashBackMoney"    column="cash_back_money"    />
+        <result property="commissionMoney"    column="commission_money"    />
+        <result property="isDelete"    column="is_delete"    />
+        <result property="isCashBack"    column="is_cash_back"    />
+        <result property="isCommission"    column="is_commission"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.YkDetailRespVO" id="YkDetailListResult">
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="winMoney"    column="win_money"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.UserGameWinRankListRespVO" id="UserGameWinRankListResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
+        <result property="winTime"    column="win_time"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameMarkId"    column="game_mark_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="gameRecord"    column="game_record"    />
+        <result property="userAmount"    column="user_money"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="bigSmallMoney"    column="big_small_money"    />
+        <result property="otherMoney"    column="other_money"    />
+        <result property="combinationMoney"    column="combination_money"    />
+        <result property="deductMoney"    column="deduct_money"    />
+        <result property="betMoney"    column="bet_money"    />
+        <result property="cashBackMoney"    column="cash_back_money"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.CashBackDetailListRespVO" id="CashBackDetailListResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
+        <result property="winTime"    column="win_time"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="totalBetMoney"    column="total_bet_money"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="preCashBackMoney"    column="pre_cash_back_money"    />
+        <result property="cashBackMoney"    column="cash_back_money"    />
+        <result property="cashBackRate"    column="cash_back_rate"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.CommissionDetailListRespVO" id="CommissionDetailListResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
+        <result property="parentUserId"    column="parent_user_id"    />
+        <result property="parentNickName"    column="parent_nick_name"    />
+        <result property="parentRealName"    column="parent_real_name"    />
+        <result property="parentRemarkName"     column="parent_remark_name"    />
+        <result property="winTime"    column="win_time"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="totalBetMoney"    column="total_bet_money"    />
+        <result property="commissionMoney"    column="commission_money"    />
+        <result property="preCommissionMoney"    column="pre_commission_money"    />
+        <result property="commissionRate"    column="commission_rate"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.TotalReportRespVO" id="TotalReportListResult">
+        <result property="calendarDate"    column="calendar_date"    />
+        <result property="createUserCnt"    column="create_user_cnt"    />
+        <result property="betCnt"    column="bet_cnt"    />
+        <result property="signMoneyTotal"    column="sign_money_total"    />
+        <result property="betMoneyTotal"    column="bet_money_total"    />
+        <result property="upMoneyTotal"    column="up_money_total"    />
+        <result property="downMoneyTotal"    column="down_money_total"    />
+        <result property="cashBackMoneyTotal"    column="cash_back_money_total"    />
+        <result property="noCashBackMoneyTotal"    column="no_cash_back_money_total"    />
+        <result property="commissionMoneyTotal"    column="commission_money_total"    />
+        <result property="betWinMoneyTotal"    column="bet_win_money_total"    />
+        <result property="winMoneyTotal"    column="win_money_total"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.CashbackReportRespVO" id="CashbackReportListResult">
+        <result property="calendarDate"    column="calendar_date"    />
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="cashBackMoneyTotal"    column="cash_back_money_total"    />
+        <result property="noCashBackMoneyTotal"    column="no_cash_back_money_total"    />
+        <result property="betMoneyTotal"    column="bet_money_total"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.CommissionReportRespVO" id="CommissionReportListResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="remarkName"     column="remark_name"    />
+        <result property="betMoneyTotal"    column="bet_money_total"    />
+        <result property="commissionMoneyTotal"    column="commission_money_total"    />
+        <result property="noCommissionMoneyTotal"    column="no_commission_money_total"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.UserReportRespVO" id="UserReportListResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
+        <result property="avatar"     column="avatar"    />
+        <result property="parentUserId"    column="parent_user_id"    />
+        <result property="betMoneyTotal"    column="bet_money_total"    />
+        <result property="betWinMoneyTotal"    column="bet_win_money_total"    />
+        <result property="winMoneyTotal"    column="win_money_total"    />
+        <result property="upMoneyTotal"    column="up_money_total"    />
+        <result property="signMoneyTotal"    column="sign_money_total"    />
+        <result property="downMoneyTotal"    column="down_money_total"    />
+        <result property="commissionMoneyTotal"    column="commission_money_total"    />
+        <result property="cashBackMoneyTotal"    column="cash_back_money_total"    />
+        <result property="noCashBackMoneyTotal"    column="no_cash_back_money_total"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.GameReportRespVO" id="GameReportListResult">
+        <result property="calendarDate"    column="calendar_date"    />
+        <result property="betMoneyTotal"    column="bet_money_total"    />
+        <result property="betWinMoneyTotal"    column="bet_win_money_total"    />
+        <result property="winMoneyTotal"    column="win_money_total"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.CollectReportRespVO" id="CollectReportListResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
+        <result property="avatar"     column="avatar"    />
+        <result property="betCnt"    column="bet_cnt"    />
+        <result property="betMoneyTotal"    column="bet_money_total"    />
+        <result property="betWinMoneyTotal"    column="bet_win_money_total"    />
+        <result property="winMoneyTotal"    column="win_money_total"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.ChildReportRespVO" id="ChildReportListResult">
+        <result property="calendarDate"    column="calendar_date"    />
+        <result property="betMoneyTotal"    column="bet_money_total"    />
+        <result property="upMoneyTotal"    column="up_money_total"    />
+        <result property="downMoneyTotal"    column="down_money_total"    />
+        <result property="cashBackMoneyTotal"    column="cash_back_money_total"    />
+        <result property="noCashBackMoneyTotal"    column="no_cash_back_money_total"    />
+        <result property="commissionMoneyTotal"    column="commission_money_total"    />
+        <result property="betWinMoneyTotal"    column="bet_win_money_total"    />
+        <result property="winMoneyTotal"    column="win_money_total"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.CashBackedDetailListRespVO" id="CashBackedDetailListResult">
+        <result property="rowId"    column="row_id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
+        <result property="avatar"    column="avatar"    />
+        <result property="winTime"    column="win_time"    />
+        <result property="cashBackMoney"    column="cash_back_money"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.NowCashBackDetailListRespVO" id="NowCashBackDetailListResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
+        <result property="avatar"    column="avatar"    />
+        <result property="amount"    column="amount"    />
+        <result property="upMoneyTotal"    column="up_money_total"    />
+        <result property="totalBetMoney"    column="total_bet_money"    />
+        <result property="betWinMoneyTotal"    column="bet_win_money_total"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="preCashBackMoney"    column="pre_cash_back_money"    />
+    </resultMap>
+
+    <resultMap type="com.ruoyi.system.domain.vo.NoCashBackDetailListRespVO" id="NoCashBackDetailListResult">
+        <result property="userId"    column="user_id"    />
+        <result property="nickName"    column="nick_name"    />
+        <result property="realName"    column="real_name"    />
+        <result property="remarkName"     column="remark_name"    />
+        <result property="avatar"    column="avatar"    />
+        <result property="amount"    column="amount"    />
+        <result property="upMoneyTotal"    column="up_money_total"    />
+        <result property="totalBetMoney"    column="total_bet_money"    />
+        <result property="betWinMoneyTotal"    column="bet_win_money_total"    />
+        <result property="winMoney"    column="win_money"    />
+        <result property="preCashBackMoney"    column="pre_cash_back_money"    />
+    </resultMap>
+
+    <sql id="selectUserwinVo">
+        select id, win_time, user_id, game_id, game_name, win_money, big_small_money, other_money, combination_money, deduct_money, bet_money, cash_back_money, commission_money, is_delete, is_cash_back, is_commission, create_by, create_time, update_by, update_time, remark from userwin
+    </sql>
+
+    <select id="selectUserwinList" parameterType="Userwin" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        <where>  
+            <if test="winTime != null "> and win_time = #{winTime}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="gameId != null "> and game_id = #{gameId}</if>
+            <if test="gameName != null  and gameName != ''"> and game_name like concat('%', #{gameName}, '%')</if>
+            <if test="winMoney != null "> and win_money = #{winMoney}</if>
+            <if test="bigSmallMoney != null "> and big_small_money = #{bigSmallMoney}</if>
+            <if test="otherMoney != null "> and other_money = #{otherMoney}</if>
+            <if test="combinationMoney != null "> and combination_money = #{combinationMoney}</if>
+            <if test="deductMoney != null "> and deduct_money = #{deductMoney}</if>
+            <if test="betMoney != null "> and bet_money = #{betMoney}</if>
+            <if test="cashBackMoney != null "> and cash_back_money = #{cashBackMoney}</if>
+            <if test="commissionMoney != null "> and commission_money = #{commissionMoney}</if>
+            <if test="isDelete != null  and isDelete != ''"> and is_delete = #{isDelete}</if>
+            <if test="isCashBack != null  and isCashBack != ''"> and is_cash_back = #{isCashBack}</if>
+            <if test="isCommission != null  and isCommission != ''"> and is_commission = #{isCommission}</if>
+        </where>
+    </select>
+    
+    <select id="selectUserwinById" parameterType="Long" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        where id = #{id}
+    </select>
+
+    <select id="selectTodayUserwin" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        where DATE_FORMAT(win_time,'%Y-%m-%d')=CURDATE()
+        and game_id = #{gameId}
+        <if test="userId != null ">
+        and user_id = #{userId}
+        </if>
+        limit 1
+    </select>
+        
+    <insert id="insertUserwin" parameterType="Userwin" useGeneratedKeys="true" keyProperty="id">
+        insert into userwin(
+            <if test="userId != null">user_id,</if>
+            <if test="gameId != null">game_id,</if>
+            <if test="gameName != null">game_name,</if>
+            <if test="winMoney != null">win_money,</if>
+            <if test="bigSmallMoney != null">big_small_money,</if>
+            <if test="otherMoney != null">other_money,</if>
+            <if test="combinationMoney != null">combination_money,</if>
+            <if test="deductMoney != null">deduct_money,</if>
+            <if test="betMoney != null">bet_money,</if>
+            <if test="cashBackMoney != null">cash_back_money,</if>
+            <if test="commissionMoney != null">commission_money,</if>
+            <if test="isDelete != null and isDelete != ''">is_delete,</if>
+            <if test="isCashBack != null and isCashBack != ''">is_cash_back,</if>
+            <if test="isCommission != null and isCommission != ''">is_commission,</if>
+            <if test="createBy != null">create_by,</if>
+        win_time,
+        create_time
+        )values(
+            <if test="userId != null">#{userId},</if>
+            <if test="gameId != null">#{gameId},</if>
+            <if test="gameName != null">#{gameName},</if>
+            <if test="winMoney != null">#{winMoney},</if>
+            <if test="bigSmallMoney != null">#{bigSmallMoney},</if>
+            <if test="otherMoney != null">#{otherMoney},</if>
+            <if test="combinationMoney != null">#{combinationMoney},</if>
+            <if test="deductMoney != null">#{deductMoney},</if>
+            <if test="betMoney != null">#{betMoney},</if>
+            <if test="cashBackMoney != null">#{cashBackMoney},</if>
+            <if test="commissionMoney != null">#{commissionMoney},</if>
+            <if test="isDelete != null and isDelete != ''">#{isDelete},</if>
+            <if test="isCashBack != null and isCashBack != ''">#{isCashBack},</if>
+            <if test="isCommission != null and isCommission != ''">#{isCommission},</if>
+            <if test="createBy != null">#{createBy},</if>
+        CURDATE(),
+        sysdate()
+        )
+    </insert>
+
+    <update id="updateUserwin" parameterType="Userwin">
+        update userwin
+        <set>
+            <if test="winMoney != null">win_money = #{winMoney},</if>
+            <if test="bigSmallMoney != null">big_small_money = #{bigSmallMoney},</if>
+            <if test="otherMoney != null">other_money = #{otherMoney},</if>
+            <if test="combinationMoney != null">combination_money = #{combinationMoney},</if>
+            <if test="deductMoney != null">deduct_money = #{deductMoney},</if>
+            <if test="betMoney != null">bet_money = #{betMoney},</if>
+            <if test="cashBackMoney != null">cash_back_money = #{cashBackMoney},</if>
+            <if test="commissionMoney != null">commission_money = #{commissionMoney},</if>
+            <if test="isDelete != null and isDelete != ''">is_delete = #{isDelete},</if>
+            <if test="isCashBack != null and isCashBack != ''">is_cash_back = #{isCashBack},</if>
+            <if test="isCommission != null and isCommission != ''">is_commission = #{isCommission},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            update_time = sysdate()
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUserwinById" parameterType="Long">
+        delete from userwin where id = #{id}
+    </delete>
+
+    <delete id="deleteUserwinByIds" parameterType="Long">
+        delete from userwin where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="clearUserwin">
+        update userwin
+        set is_delete = 1,update_time = sysdate()
+        where 1 = 1
+        <if test="userId != null"> and user_id = #{userId}</if>
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+    </update>
+
+    <select id="userRankEveryday" resultType="java.lang.Float">
+        SELECT
+            SUM(win_money) AS win_money
+        FROM
+            userwin
+        WHERE
+            is_delete = '0'
+          AND
+            user_id = #{userId}
+          AND
+            DATE_FORMAT(win_time,'%Y-%m-%d') = #{winTime}
+    </select>
+
+    <select id="selectUserGameWinList" resultMap="YkDetailListResult">
+        SELECT
+             game_id AS game_id
+            ,SUM(win_money) AS win_money
+        FROM userwin
+        WHERE
+            is_delete = '0'
+        AND
+            user_id = #{userId}
+        AND
+            DATE_FORMAT(win_time,'%Y-%m-%d') = #{winTime}
+        GROUP BY game_id
+    </select>
+
+    <select id="selectUserWinListByDay" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        WHERE
+            is_delete = '0'
+        AND
+            user_id = #{userId}
+        <if test="winTime != null ">
+        AND
+            DATE_FORMAT(win_time,'%Y-%m-%d') = #{winTime}
+        </if>
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+    </select>
+
+    <select id="selectUserCashbackList" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        WHERE
+        is_delete = '0'
+        AND
+        user_id = #{userId}
+        <if test="winTime != null ">
+            AND
+            DATE_FORMAT(win_time,'%Y-%m-%d') = #{winTime}
+        </if>
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        <if test="isCashBack != null ">
+            AND
+            is_cash_back= #{isCashBack}
+        </if>
+    </select>
+
+    <select id="selectUserCommissionList" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        WHERE
+        is_delete = '0'
+        AND
+        user_id = #{userId}
+        <if test="winTime != null ">
+            AND
+            DATE_FORMAT(win_time,'%Y-%m-%d') = #{winTime}
+        </if>
+        <if test="gameId != null "> and game_id = #{gameId}</if>
+        <if test="isCommission != null ">
+            AND
+            is_commission= #{isCommission}
+        </if>
+    </select>
+
+    <select id="selectUserGameWinRankList" parameterType="Userwin" resultMap="UserGameWinRankListResult">
+        SELECT
+             uw.user_id as user_id
+            ,max(u.nick_name) as nick_name
+            ,max(u.real_name) as real_name
+            ,max(u.remark_name) as remark_name
+            ,max(u.amount) as user_money
+            ,uw.win_time as win_time
+            ,uw.game_id as game_id
+            ,max(uw.game_name) as game_name
+            ,max(g.game_mark_id) as game_mark_id
+            ,max(g.game_record) as game_record
+            ,SUM(uw.win_money) AS win_money
+            ,SUM(uw.big_small_money) AS big_small_money
+            ,SUM(uw.other_money) AS other_money
+            ,SUM(uw.combination_money) AS combination_money
+            ,SUM(uw.deduct_money) AS deduct_money
+            ,SUM(uw.bet_money) as betMoney
+            ,SUM(uw.cash_back_money) AS cash_back_money
+        FROM userwin uw
+        inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
+        inner join sys_game g on g.game_id = uw.game_id
+        WHERE
+            1 = 1
+            <if test="userId != null "> and uw.user_id = #{userId}</if>
+            <if test="nickName != null and nickName != ''">
+                AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+            </if>
+            <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+            </if>
+            <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+            </if>
+            <if test="filterDay != null and filterDay != ''"><!-- 时间检索 -->
+                and DATE_FORMAT(uw.win_time, '%Y-%m-%d') = #{filterDay}
+            </if>
+        GROUP BY uw.user_id,uw.win_time,uw.game_id
+        ORDER BY uw.win_time,uw.game_id
+    </select>
+
+    <select id="selectUserGameWinDateCount" resultType="Integer">
+        select count(1)
+        from ${betRecordTableName}
+        where user_id=#{userId}
+        and game_id = #{gameId}
+        and DATE_FORMAT(record_time, '%Y%m%d') = #{winTime}
+    </select>
+
+    <update id="updateUserDeductMoney">
+        update userwin
+        set deduct_money = case when #{plusFlg} = '0' then deduct_money + #{countMoney} else deduct_money - #{countMoney} end
+        where user_id = #{userId}
+        and game_id = #{gameId}
+        and DATE_FORMAT(win_time,'%Y-%m-%d') = #{winTime}
+    </update>
+
+    <select id="selectCashBackDetailList" parameterType="Userwin" resultMap="CashBackDetailListResult">
+        SELECT
+              MAIN.user_id AS user_id
+            , MAIN.nick_name AS nick_name
+            , MAIN.real_name AS real_name
+            , MAIN.remark_name AS remark_name
+            , MAIN.win_time AS win_time
+            , MAIN.game_id AS game_id
+            , MAIN.game_name AS game_name
+            , MAIN.total_bet_money AS total_bet_money
+            , MAIN.win_money AS win_money
+            , MAIN.pre_cash_back_money AS pre_cash_back_money
+            , MAIN.cash_back_money AS cash_back_money
+            , MAIN.cash_back_rate AS cash_back_rate
+        FROM(
+            SELECT
+                 uw.user_id as user_id
+                ,max(u.nick_name) as nick_name
+                ,max(u.real_name) as real_name
+                ,max(u.remark_name) as remark_name
+                ,uw.win_time as win_time
+                ,uw.game_id as game_id
+                ,max(uw.game_name) as game_name
+                ,SUM(uw.bet_money) AS total_bet_money
+                ,SUM(uw.win_money) AS win_money
+                ,SUM(
+                    CASE
+                        WHEN uw.is_cash_back = '1' then 0
+                    else
+                        ROUND((uw.bet_money - uw.deduct_money)
+                        * CASE
+                            WHEN g.game_type = '3' and u.three_ball_cashback = 0 then 0
+                            WHEN g.game_type = '5' and u.five_ball_cashback = 0 then 0
+                            WHEN g.game_type = '10' and u.ten_ball_cashback = 0 then 0
+                            WHEN g.game_type = '3' and u.three_ball_cashback != 100 and u.three_ball_cashback != 0 then u.three_ball_cashback
+                            WHEN g.game_type = '5' and u.five_ball_cashback != 100 and u.five_ball_cashback != 0 then u.five_ball_cashback
+                            WHEN g.game_type = '10' and u.ten_ball_cashback != 100 and u.ten_ball_cashback != 0 then u.ten_ball_cashback
+                            ELSE g.game_cashback
+                        END
+                     / 100, 2) end
+                    ) AS pre_cash_back_money
+                ,SUM(CASE WHEN uw.is_cash_back = '1' then uw.cash_back_money else 0 end) AS cash_back_money
+                ,MAX(
+                    CASE
+                        WHEN g.game_type = '3' and u.three_ball_cashback != 100 and u.three_ball_cashback != 0 then u.three_ball_cashback
+                        WHEN g.game_type = '5' and u.five_ball_cashback != 100 and u.five_ball_cashback != 0 then u.five_ball_cashback
+                        WHEN g.game_type = '10' and u.ten_ball_cashback != 100 and u.ten_ball_cashback != 0 then u.ten_ball_cashback
+                        ELSE g.game_cashback END
+                    )AS cash_back_rate
+            FROM userwin uw
+            inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
+            inner join sys_game g on g.game_id = uw.game_id
+            WHERE
+            1 = 1
+            <if test="userId != null "> and uw.user_id = #{userId}</if>
+            <if test="nickName != null and nickName != ''">
+                AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+            </if>
+            <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+            </if>
+            <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+            </if>
+            <if test="cashBackStatus != null "> and uw.is_cash_back = #{cashBackStatus}</if>
+            <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY uw.user_id,uw.win_time,uw.game_id
+            ORDER BY uw.win_time desc,uw.game_id
+        )MAIN
+        WHERE MAIN.cash_back_money > 0 or MAIN.pre_cash_back_money > 0
+    </select>
+
+    <select id="selectNowCashBackDetailList" parameterType="Userwin" resultMap="NowCashBackDetailListResult">
+        SELECT
+               MAIN.user_id AS user_id
+             , MAIN.nick_name AS nick_name
+             , MAIN.real_name AS real_name
+             , MAIN.remark_name AS remark_name
+             , MAIN.avatar AS avatar
+             , MAIN.amount AS amount
+             , MAIN.up_money_total AS up_money_total
+             , MAIN.total_bet_money AS total_bet_money
+             , MAIN.bet_win_money_total AS bet_win_money_total
+             , MAIN.bet_win_money_total - MAIN.total_bet_money AS win_money
+             , MAIN.pre_cash_back_money AS pre_cash_back_money
+        FROM(
+                SELECT
+                    uw.user_id as user_id
+                     ,max(u.nick_name) as nick_name
+                     ,max(u.real_name) as real_name
+                     ,max(u.remark_name) as remark_name
+                     ,max(u.avatar) as avatar
+                     ,max(u.amount) as amount
+                     ,SUM(uw.bet_money) AS total_bet_money
+                     ,SUM(
+                        ROUND((uw.bet_money - uw.deduct_money)
+                                  * CASE
+                                        WHEN g.game_type = '3' and u.three_ball_cashback = 0 then 0
+                                        WHEN g.game_type = '5' and u.five_ball_cashback = 0 then 0
+                                        WHEN g.game_type = '10' and u.ten_ball_cashback = 0 then 0
+                                        WHEN g.game_type = '3' and u.three_ball_cashback != 100 and u.three_ball_cashback != 0 then u.three_ball_cashback
+                        WHEN g.game_type = '5' and u.five_ball_cashback != 100 and u.five_ball_cashback != 0 then u.five_ball_cashback
+                        WHEN g.game_type = '10' and u.ten_ball_cashback != 100 and u.ten_ball_cashback != 0 then u.ten_ball_cashback
+                        ELSE g.game_cashback
+                    END
+                    / 100, 2)
+                    ) AS pre_cash_back_money
+                     ,IFNULL(max(up_temp.up_money_total),0) as up_money_total
+                     ,IFNULL(max(bet_win_temp.bet_win_money_total),0) as bet_win_money_total
+                FROM userwin uw
+                         inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
+                         inner join sys_game g on g.game_id = uw.game_id
+                         LEFT JOIN(
+                    SELECT
+                        up.user_id as user_id
+                         ,sum(up.cash_money) as up_money_total
+                    FROM usermoney up
+                             inner join sys_user u
+                                        ON u.user_id = up.user_id
+                                            AND u.del_flag = '0'
+                    WHERE up.type = '2'
+                      AND up.is_delete = '0'
+                    GROUP BY up.user_id
+                )up_temp ON up_temp.user_id = uw.user_id
+                         LEFT JOIN(
+                    SELECT
+                        bet_win.user_id as user_id
+                         ,sum(bet_win.cash_money) as bet_win_money_total
+                    FROM usermoney bet_win
+                    WHERE bet_win.type = '8'
+                      AND bet_win.is_delete = '0'
+                    GROUP BY bet_win.user_id
+                )bet_win_temp ON bet_win_temp.user_id = uw.user_id
+                WHERE
+                    uw.is_cash_back = '0'
+                  and date_format(uw.win_time,'%Y%m%d') = DATE_FORMAT(CURDATE(), '%Y%m%d')
+                GROUP BY uw.user_id
+                ORDER BY uw.user_id
+            )MAIN
+    </select>
+
+    <select id="selectNoCashBackDetailList" parameterType="Userwin" resultMap="NoCashBackDetailListResult">
+        SELECT
+              MAIN.user_id AS user_id
+            , MAIN.nick_name AS nick_name
+            , MAIN.real_name AS real_name
+            , MAIN.remark_name AS remark_name
+            , MAIN.avatar AS avatar
+            , MAIN.amount AS amount
+            , MAIN.up_money_total AS up_money_total
+            , MAIN.total_bet_money AS total_bet_money
+            , MAIN.bet_win_money_total AS bet_win_money_total
+            , MAIN.bet_win_money_total - MAIN.total_bet_money AS win_money
+            , MAIN.pre_cash_back_money AS pre_cash_back_money
+        FROM(
+            SELECT
+                 uw.user_id as user_id
+                ,max(u.nick_name) as nick_name
+                ,max(u.real_name) as real_name
+                ,max(u.remark_name) as remark_name
+                ,max(u.avatar) as avatar
+                ,max(u.amount) as amount
+                ,SUM(uw.bet_money) AS total_bet_money
+                ,SUM(
+                    ROUND((uw.bet_money - uw.deduct_money)
+                    * CASE
+                        WHEN g.game_type = '3' and u.three_ball_cashback = 0 then 0
+                        WHEN g.game_type = '5' and u.five_ball_cashback = 0 then 0
+                        WHEN g.game_type = '10' and u.ten_ball_cashback = 0 then 0
+                        WHEN g.game_type = '3' and u.three_ball_cashback != 100 and u.three_ball_cashback != 0 then u.three_ball_cashback
+                        WHEN g.game_type = '5' and u.five_ball_cashback != 100 and u.five_ball_cashback != 0 then u.five_ball_cashback
+                        WHEN g.game_type = '10' and u.ten_ball_cashback != 100 and u.ten_ball_cashback != 0 then u.ten_ball_cashback
+                        ELSE g.game_cashback
+                    END
+                    / 100, 2)
+                ) AS pre_cash_back_money
+                ,IFNULL(max(up_temp.up_money_total),0) as up_money_total
+                ,IFNULL(max(bet_win_temp.bet_win_money_total),0) as bet_win_money_total
+            FROM userwin uw
+            inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
+            inner join sys_game g on g.game_id = uw.game_id
+            LEFT JOIN(
+                SELECT
+                     up.user_id as user_id
+                    ,sum(up.cash_money) as up_money_total
+                FROM usermoney up
+                inner join sys_user u
+                ON u.user_id = up.user_id
+                AND u.del_flag = '0'
+                WHERE up.type = '2'
+                AND up.is_delete = '0'
+                GROUP BY up.user_id
+            )up_temp ON up_temp.user_id = uw.user_id
+            LEFT JOIN(
+                SELECT
+                     bet_win.user_id as user_id
+                    ,sum(bet_win.cash_money) as bet_win_money_total
+                FROM usermoney bet_win
+                WHERE bet_win.type = '8'
+                AND bet_win.is_delete = '0'
+                GROUP BY bet_win.user_id
+            )bet_win_temp ON bet_win_temp.user_id = uw.user_id
+            WHERE
+                uw.is_cash_back = '0'
+            and date_format(uw.win_time,'%Y%m%d') &lt;= DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d')
+            GROUP BY uw.user_id
+            ORDER BY uw.user_id
+        )MAIN
+    </select>
+
+    <select id="selectCashBackedDetailList" parameterType="Userwin" resultMap="CashBackedDetailListResult">
+        SELECT
+              MAIN.row_id AS row_id
+            , MAIN.user_id AS user_id
+            , MAIN.nick_name AS nick_name
+            , MAIN.real_name AS real_name
+            , MAIN.remark_name AS remark_name
+            , MAIN.avatar AS avatar
+            , MAIN.win_time AS win_time
+            , MAIN.remark AS remark
+            , MAIN.cash_back_money AS cash_back_money
+        FROM(
+            SELECT
+                 (@i:=@i+1) as row_id
+                ,uw.user_id as user_id
+                ,max(u.nick_name) as nick_name
+                ,max(u.real_name) as real_name
+                ,max(u.remark_name) as remark_name
+                ,max(u.avatar) as avatar
+                ,uw.win_time as win_time
+                ,date_format(DATE_SUB(uw.win_time, INTERVAL 1 DAY),'%Y%m%d') as remark
+                ,SUM(CASE WHEN uw.is_cash_back = '1' then uw.cash_back_money else 0 end) AS cash_back_money
+            FROM userwin uw
+            inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
+            ,(select   @i:=0)   as   it
+            WHERE
+                uw.is_cash_back = '1'
+            <if test="userId != null "> and uw.user_id = #{userId}</if>
+            <if test="nickName != null and nickName != ''">
+                AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+            </if>
+            <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+            </if>
+            <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+            </if>
+            <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY uw.user_id,uw.win_time
+            ORDER BY uw.win_time desc
+        )MAIN
+        ORDER BY MAIN.row_id desc
+    </select>
+
+    <select id="selectCashBackedTotalMoney" parameterType="Userwin" resultType="Float">
+        SELECT
+            SUM(CASE WHEN uw.is_cash_back = '1' then uw.cash_back_money else 0 end) AS cash_back_money
+        FROM userwin uw
+        inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
+        WHERE
+            uw.is_cash_back = '1'
+        <if test="userId != null "> and uw.user_id = #{userId}</if>
+        <if test="nickName != null and nickName != ''">
+            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+        </if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+    </select>
+
+    <select id="selectYestodayNoCashBackList" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        where is_cash_back = '0'
+        and date_format(win_time,'%Y%m%d') = DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d')
+    </select>
+
+    <update id="updateCashBackMoneyById">
+        update userwin
+        set cash_back_money = #{cashBackMoney},is_cash_back = '1',update_time = sysdate()
+        where id = #{id}
+    </update>
+
+    <select id="selectCashBackList" parameterType="Userwin" resultMap="CashBackDetailListResult">
+        SELECT
+         uw.user_id as user_id
+        ,max(u.nick_name) as nick_name
+        ,max(u.real_name) as real_name
+        ,max(u.remark_name) as remark_name
+        ,uw.win_time as win_time
+        ,SUM(uw.cash_back_money) AS cash_back_money
+        FROM userwin uw
+        inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
+        inner join sys_game g on g.game_id = uw.game_id
+        WHERE
+        uw.is_cash_back = '1'
+        <if test="userId != null "> and uw.user_id = #{userId}</if>
+        <if test="nickName != null and nickName != ''">
+            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+        </if>
+        <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+        GROUP BY uw.user_id,uw.win_time
+        ORDER BY uw.win_time desc,uw.user_id
+    </select>
+
+    <select id="selectCommissionDetailList" parameterType="Userwin" resultMap="CommissionDetailListResult">
+        SELECT
+              MAIN.user_id AS user_id
+            , MAIN.nick_name AS nick_name
+            , MAIN.real_name AS real_name
+            , MAIN.remark_name AS remark_name
+            , MAIN.parent_user_id AS parent_user_id
+            , MAIN.parent_nick_name AS parent_nick_name
+            , MAIN.parent_real_name AS parent_real_name
+            , MAIN.parent_remark_name AS parent_remark_name
+            , MAIN.win_time AS win_time
+            , MAIN.game_id AS game_id
+            , MAIN.game_name AS game_name
+            , MAIN.total_bet_money AS total_bet_money
+            , MAIN.commission_money AS commission_money
+            , MAIN.pre_commission_money AS pre_commission_money
+            , MAIN.commission_rate AS commission_rate
+        FROM(
+            SELECT
+                 uw.user_id as user_id
+                ,max(u.nick_name) as nick_name
+                ,max(u.real_name) as real_name
+                ,max(u.remark_name) as remark_name
+                ,pu.user_id as parent_user_id
+                ,max(pu.nick_name) as parent_nick_name
+                ,max(pu.real_name) as parent_real_name
+                ,max(pu.remark_name) as parent_remark_name
+                ,uw.win_time as win_time
+                ,uw.game_id as game_id
+                ,max(uw.game_name) as game_name
+                ,SUM(uw.bet_money) AS total_bet_money
+                ,SUM(case when uw.is_commission = '1' then uw.commission_money else 0 end) AS commission_money
+                ,SUM(
+                    CASE
+                        WHEN uw.is_commission = '1' then 0
+                    else
+                        ROUND((uw.bet_money - uw.deduct_money)
+                        * CASE
+                            WHEN g.game_type = '3' and u.three_ball_commission = 0 then 0
+                            WHEN g.game_type = '5' and u.five_ball_commission = 0 then 0
+                            WHEN g.game_type = '10' and u.ten_ball_commission = 0 then 0
+                            WHEN g.game_type = '3' and u.three_ball_commission != 100 and u.three_ball_commission != 0 then u.three_ball_commission
+                            WHEN g.game_type = '5' and u.five_ball_commission != 100 and u.five_ball_commission != 0 then u.five_ball_commission
+                            WHEN g.game_type = '10' and u.ten_ball_commission != 100 and u.ten_ball_commission != 0 then u.ten_ball_commission
+                            ELSE g.game_commission
+                        END
+                    / 100, 2) end
+                ) AS pre_commission_money
+                ,MAX(
+                    CASE
+                    WHEN g.game_type = '3' and u.three_ball_commission != 100 and u.three_ball_commission != 0 then u.three_ball_commission
+                    WHEN g.game_type = '5' and u.five_ball_commission != 100 and u.five_ball_commission != 0 then u.five_ball_commission
+                    WHEN g.game_type = '10' and u.ten_ball_commission != 100 and u.ten_ball_commission != 0 then u.ten_ball_commission
+                    ELSE g.game_commission END
+                )AS commission_rate
+            FROM userwin uw
+            inner join sys_user u on u.user_id = uw.user_id and u.del_flag = '0'
+            inner join sys_game g on g.game_id = uw.game_id
+            inner join sys_user pu on pu.user_id = u.parent_user_id and pu.del_flag = '0'
+            WHERE
+            1 = 1
+            <if test="userId != null "> and uw.user_id = #{userId}</if>
+            <if test="nickName != null and nickName != ''">
+                AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+            </if>
+            <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+            </if>
+            <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                and date_format(uw.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+            </if>
+            <if test="commissionStatus != null "> and uw.is_commission = #{commissionStatus}</if>
+            <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY uw.user_id,pu.user_id,uw.win_time,uw.game_id
+            ORDER BY uw.win_time desc,uw.game_id
+        )MAIN
+        WHERE MAIN.commission_money > 0 or MAIN.pre_commission_money > 0
+    </select>
+
+    <select id="selectYestodayNoCommissionList" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        where is_commission = '0'
+        and date_format(win_time,'%Y%m%d') = DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d')
+    </select>
+
+    <update id="updateCommissionById">
+        update userwin
+        set commission_money = #{commissionMoney},is_commission = '1',update_time = sysdate()
+        where id = #{id}
+    </update>
+
+    <select id="selectBetWinToalAmount" resultType="Float">
+        select IFNULL(sum(win.win_money)*-1,0)
+        from userwin win
+        inner join sys_user u on u.user_id = win.user_id and u.del_flag = '0' and u.is_test = '0'
+    </select>
+
+    <select id="selectTotalReportLis" resultMap="TotalReportListResult">
+        SELECT
+             DATE_FORMAT(c.calendar_date,'%Y-%m-%d') AS calendar_date
+            ,IFNULL(u_temp.create_user_cnt,0) as create_user_cnt
+            ,IFNULL(bet_count_temp.bet_cnt,0) as bet_cnt
+            ,IFNULL(bet_count_temp.bet_money_total,0) as bet_money_total
+            ,IFNULL(up_temp.up_money_total,0) as up_money_total
+            ,0 as sign_money_total
+            ,IFNULL(down_temp.down_money_total,0) as down_money_total
+            ,IFNULL(cb_temp.cash_back_money_total,0) as cash_back_money_total
+            ,IFNULL(no_cb_temp.no_cash_back_money_total,0) as no_cash_back_money_total
+            ,IFNULL(commission_temp.commission_money_total,0) as commission_money_total
+            ,IFNULL(bet_win_temp.bet_win_money_total,0) as bet_win_money_total
+            ,IFNULL(win_temp.win_money_total,0) as win_money_total
+        FROM sys_calendar c
+        LEFT JOIN
+             (
+                 SELECT
+                      DATE_FORMAT(u.create_time,'%Y-%m-%d') as calendar_date
+                     ,count(*) as create_user_cnt
+                 FROM sys_user u
+                 WHERE u.del_flag = '0'
+                 <if test="!includeTestUserFlg">  and u.is_test = '0'</if>
+                 group by DATE_FORMAT(u.create_time,'%Y-%m-%d')
+             ) u_temp on u_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN
+             (
+                 SELECT
+                     bet_temp.record_time as calendar_date
+                    ,COUNT(*) AS bet_cnt
+                    ,SUM(bet_temp.bet_money) AS bet_money_total
+                 FROM(
+                         SELECT
+                              DATE_FORMAT(r.record_time,'%Y-%m-%d') as record_time
+                             ,r.user_id as user_id
+                             ,SUM(r.money) as bet_money
+                         FROM `bet_record` r
+                         inner join sys_user u
+                         ON u.user_id = r.user_id
+                         AND u.del_flag = '0'
+                         WHERE r.is_delete = '0'
+                           AND r.is_robot = '0'
+                         <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                         GROUP BY r.user_id,DATE_FORMAT(r.record_time,'%Y-%m-%d')
+                     ) bet_temp
+                 GROUP BY bet_temp.record_time
+             )bet_count_temp ON bet_count_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(up.cash_time,'%Y-%m-%d') as calendar_date
+                ,sum(up.cash_money) as up_money_total
+            FROM usermoney up
+            inner join sys_user u
+            ON u.user_id = up.user_id
+            AND u.del_flag = '0'
+            WHERE up.type = '2'
+              AND up.is_delete = '0'
+            <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY DATE_FORMAT(up.cash_time,'%Y-%m-%d')
+        )up_temp ON up_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(down.cash_time,'%Y-%m-%d') as calendar_date
+                ,sum(down.cash_money) as down_money_total
+            FROM usermoney down
+            inner join sys_user u
+            ON u.user_id = down.user_id
+            AND u.del_flag = '0'
+            WHERE down.type = '5'
+              AND down.is_delete = '0'
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY DATE_FORMAT(down.cash_time,'%Y-%m-%d')
+        )down_temp ON down_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(cb.win_time,'%Y-%m-%d') as calendar_date
+                ,sum(cb.cash_back_money) as cash_back_money_total
+            FROM userwin cb
+            inner join sys_user u
+            ON u.user_id = cb.user_id
+            AND u.del_flag = '0'
+            WHERE cb.is_cash_back = '1'
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY DATE_FORMAT(cb.win_time,'%Y-%m-%d')
+        )cb_temp ON cb_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(no_cb.win_time,'%Y-%m-%d') as calendar_date
+                ,sum(ROUND((no_cb.bet_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
+            FROM userwin no_cb
+            inner join sys_game g on g.game_id = no_cb.game_id
+            inner join sys_user u
+            ON u.user_id = no_cb.user_id
+            AND u.del_flag = '0'
+            WHERE no_cb.is_cash_back = '0'
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY DATE_FORMAT(no_cb.win_time,'%Y-%m-%d')
+        )no_cb_temp ON no_cb_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(commission.win_time,'%Y-%m-%d') as calendar_date
+                ,sum(commission.commission_money) as commission_money_total
+            FROM userwin commission
+                     inner join sys_user u on u.user_id = commission.user_id and u.del_flag = '0'
+                     inner join sys_user pu on pu.user_id = u.parent_user_id and pu.del_flag = '0'
+            WHERE commission.is_commission = '1'
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY DATE_FORMAT(commission.win_time,'%Y-%m-%d')
+        )commission_temp ON commission_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d') as calendar_date
+                ,sum(bet_win.cash_money) as bet_win_money_total
+            FROM usermoney bet_win
+            inner join sys_user u
+            ON u.user_id = bet_win.user_id
+            AND u.del_flag = '0'
+            WHERE bet_win.type = '8'
+              AND bet_win.is_delete = '0'
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d')
+        )bet_win_temp ON bet_win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                 DATE_FORMAT(win.win_time,'%Y-%m-%d') as calendar_date
+                ,sum(win.win_money)*-1 as win_money_total
+            FROM userwin win
+            inner join sys_user u
+            ON u.user_id = win.user_id
+            AND u.del_flag = '0'
+            WHERE 1=1
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY DATE_FORMAT(win.win_time,'%Y-%m-%d')
+        )win_temp ON win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        ORDER BY c.calendar_id DESC
+    </select>
+
+    <select id="selectCashbackReportLis" resultMap="CashbackReportListResult">
+        SELECT
+              MAIN.calendar_date as calendar_date
+             ,MAIN.game_id as game_id
+             ,MAIN.game_name as game_name
+             ,IFNULL(bet_count_temp.bet_money_total,0) as bet_money_total
+             ,IFNULL(cb_temp.cash_back_money_total,0) as cash_back_money_total
+             ,IFNULL(no_cb_temp.no_cash_back_money_total,0) as no_cash_back_money_total
+        FROM
+            (
+                SELECT
+                    DATE_FORMAT(c.calendar_date,'%Y-%m-%d') AS calendar_date
+                     ,g.game_id as game_id
+                     ,g.game_name as game_name
+                FROM sys_calendar c,
+                     sys_game g
+                WHERE g.status = '0'
+                 AND DATE_FORMAT(c.calendar_date,'%Y-%m-%d') = #{filterDate}
+            )MAIN
+
+            LEFT JOIN(
+                SELECT
+                    DATE_FORMAT(bet.win_time,'%Y-%m-%d') as calendar_date
+                     ,sum(bet.bet_money) as bet_money_total
+                     ,bet.game_id as game_id
+                FROM userwin bet
+                WHERE bet.user_id = #{userId}
+                GROUP BY DATE_FORMAT(bet.win_time,'%Y-%m-%d'),bet.game_id
+
+            )bet_count_temp ON bet_count_temp.calendar_date = MAIN.calendar_date
+                AND bet_count_temp.game_id = MAIN.game_id
+
+            LEFT JOIN(
+                SELECT
+                    DATE_FORMAT(cb.win_time,'%Y-%m-%d') as calendar_date
+                     ,sum(cb.cash_back_money) as cash_back_money_total
+                     ,cb.game_id as game_id
+                FROM userwin cb
+                WHERE cb.is_cash_back = '1'
+                  AND cb.user_id = #{userId}
+                GROUP BY DATE_FORMAT(cb.win_time,'%Y-%m-%d'),cb.game_id
+            )cb_temp ON cb_temp.calendar_date = MAIN.calendar_date
+            AND cb_temp.game_id = MAIN.game_id
+
+            LEFT JOIN(
+                SELECT
+                    DATE_FORMAT(no_cb.win_time,'%Y-%m-%d') as calendar_date
+                     ,no_cb.game_id as game_id
+                     ,sum(ROUND((no_cb.bet_money - no_cb.deduct_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
+                FROM userwin no_cb
+                inner join sys_game g on g.game_id = no_cb.game_id
+                WHERE no_cb.is_cash_back = '0'
+                  AND no_cb.user_id = #{userId}
+                GROUP BY DATE_FORMAT(no_cb.win_time,'%Y-%m-%d'),no_cb.game_id
+            )no_cb_temp ON no_cb_temp.calendar_date = MAIN.calendar_date
+            AND no_cb_temp.game_id = MAIN.game_id
+        order by MAIN.game_id
+    </select>
+
+    <select id="selectCommissionReportLis" resultMap="CommissionReportListResult">
+        SELECT
+              u.user_id AS user_id
+             ,MAX(u.nick_name) AS nick_name
+             ,MAX(u.remark_name) AS remark_name
+             ,IFNULL(sum(commission.commission_money),0) as commission_money_total
+             ,IFNULL(sum(no_commission.commission_money),0) as no_commission_money_total
+             ,IFNULL(max(bet_count_temp.bet_money_total),0) as bet_money_total
+        FROM sys_user u
+
+        LEFT JOIN(
+            SELECT
+                c.user_id as user_id
+                 ,sum(c.commission_money) as commission_money
+            FROM userwin c
+            WHERE c.is_commission = '1'
+              AND DATE_FORMAT(c.win_time,'%Y-%m-%d') = #{filterDate}
+            GROUP BY c.user_id
+        )commission ON commission.user_id = u.user_id
+
+        LEFT JOIN(
+            SELECT
+                u.parent_user_id as parent_user_id
+                 ,sum(ROUND((no_c.bet_money - no_c.deduct_money)
+                                * CASE
+                                      WHEN g.game_type = '3' and u.three_ball_commission = 0 then 0
+                                      WHEN g.game_type = '5' and u.five_ball_commission = 0 then 0
+                                      WHEN g.game_type = '10' and u.ten_ball_commission = 0 then 0
+                                      WHEN g.game_type = '3' and u.three_ball_commission != 100 and u.three_ball_commission != 0 then u.three_ball_commission
+                        WHEN g.game_type = '5' and u.five_ball_commission != 100 and u.five_ball_commission != 0 then u.five_ball_commission
+                        WHEN g.game_type = '10' and u.ten_ball_commission != 100 and u.ten_ball_commission != 0 then u.ten_ball_commission
+                        ELSE g.game_commission
+                    END
+                / 100, 2)) as commission_money
+
+            FROM userwin no_c
+                     inner join sys_user u on u.user_id = no_c.user_id and u.del_flag = '0'
+                     inner join sys_game g on g.game_id = no_c.game_id
+            WHERE no_c.is_commission = '0'
+              AND DATE_FORMAT(no_c.win_time,'%Y-%m-%d') = #{filterDate}
+            GROUP BY u.parent_user_id
+        )no_commission ON no_commission.parent_user_id = u.parent_user_id
+        LEFT JOIN(
+            SELECT
+                  bet.user_id as user_id
+                 ,sum(bet.bet_money) as bet_money_total
+            FROM userwin bet
+            WHERE DATE_FORMAT(bet.win_time,'%Y-%m-%d') = #{filterDate}
+            GROUP BY bet.user_id
+        )bet_count_temp ON bet_count_temp.user_id = u.user_id
+        WHERE u.parent_user_id = #{userId}
+          AND u.del_flag = '0'
+        GROUP BY u.user_id
+    </select>
+
+
+    <select id="selectUserReportLis" resultMap="UserReportListResult">
+        SELECT
+              u.user_id as user_id
+             ,u.nick_name as nick_name
+             ,u.real_name as real_name
+             ,u.remark_name as remark_name
+             ,u.avatar as avatar
+             ,u.parent_user_id as parent_user_id
+             ,IFNULL(bet_count_temp.bet_money_total,0) as bet_money_total
+             ,IFNULL(bet_win_temp.bet_win_money_total,0) as bet_win_money_total
+             ,IFNULL(win_temp.win_money_total,0) as win_money_total
+             ,IFNULL(up_temp.up_money_total,0) as up_money_total
+             ,0 as sign_money_total
+             ,IFNULL(down_temp.down_money_total,0) as down_money_total
+             ,IFNULL(commission_temp.commission_money_total,0) as commission_money_total
+             ,IFNULL(cb_temp.cash_back_money_total,0) as cash_back_money_total
+             ,IFNULL(no_cb_temp.no_cash_back_money_total,0) as no_cash_back_money_total
+        FROM sys_user u
+            LEFT JOIN
+             (
+                 SELECT
+                       r.user_id as user_id
+                      ,SUM(r.money) as bet_money_total
+                 FROM `bet_record` r
+                 inner join sys_user u
+                 ON u.user_id = r.user_id
+                 AND u.del_flag = '0'
+                 WHERE r.is_delete = '0'
+                   AND r.is_robot = '0'
+                <if test="userId != null "> and r.user_id = #{userId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(r.record_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(r.record_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+                <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                 GROUP BY r.user_id
+             )bet_count_temp ON bet_count_temp.user_id = u.user_id
+
+            LEFT JOIN
+            (
+                SELECT
+                     bet_win.user_id as user_id
+                    ,sum(bet_win.cash_money) as bet_win_money_total
+                FROM usermoney bet_win
+                inner join sys_user u
+                ON u.user_id = bet_win.user_id
+                AND u.del_flag = '0'
+                WHERE bet_win.type = '8'
+                AND bet_win.is_delete = '0'
+                <if test="userId != null "> and bet_win.user_id = #{userId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(bet_win.cash_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(bet_win.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                GROUP BY bet_win.user_id
+            )bet_win_temp ON bet_win_temp.user_id = u.user_id
+
+            LEFT JOIN
+            (
+                SELECT
+                     win.user_id as user_id
+                    ,sum(win.win_money) as win_money_total
+                FROM userwin win
+                inner join sys_user u
+                ON u.user_id = win.user_id
+                AND u.del_flag = '0'
+                WHERE 1 = 1
+                <if test="userId != null "> and win.user_id = #{userId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(win.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(win.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                GROUP BY win.user_id
+            )win_temp ON win_temp.user_id = u.user_id
+
+            LEFT JOIN
+            (
+                SELECT
+                      up.user_id as user_id
+                     ,sum(up.cash_money) as up_money_total
+                FROM usermoney up
+                inner join sys_user u
+                ON u.user_id = up.user_id
+                AND u.del_flag = '0'
+                WHERE up.type = '2'
+                  AND up.is_delete = '0'
+                <if test="userId != null "> and up.user_id = #{userId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(up.cash_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(up.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                GROUP BY up.user_id
+            )up_temp ON up_temp.user_id = u.user_id
+
+            LEFT JOIN
+            (
+                SELECT
+                      down.user_id as user_id
+                     ,sum(down.cash_money) as down_money_total
+                FROM usermoney down
+                inner join sys_user u
+                ON u.user_id = down.user_id
+                AND u.del_flag = '0'
+                WHERE down.type = '5'
+                  AND down.is_delete = '0'
+                <if test="userId != null "> and down.user_id = #{userId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(down.cash_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(down.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                GROUP BY down.user_id
+            )down_temp ON down_temp.user_id = u.user_id
+
+            LEFT JOIN
+            (
+                SELECT
+                     commission.user_id as user_id
+                    ,sum(commission.commission_money) as commission_money_total
+                FROM userwin commission
+                inner join sys_user u on u.user_id = commission.user_id and u.del_flag = '0'
+                inner join sys_user pu on pu.user_id = u.parent_user_id and pu.del_flag = '0'
+                WHERE commission.is_commission = '1'
+                <if test="userId != null "> and commission.user_id = #{userId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(commission.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(commission.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                GROUP BY commission.user_id
+            )commission_temp ON commission_temp.user_id = u.user_id
+
+            LEFT JOIN
+            (
+                SELECT
+                      cb.user_id as user_id
+                     ,sum(cb.cash_back_money) as cash_back_money_total
+                FROM userwin cb
+                inner join sys_user u
+                ON u.user_id = cb.user_id
+                AND u.del_flag = '0'
+                WHERE cb.is_cash_back = '1'
+                <if test="userId != null "> and cb.user_id = #{userId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(cb.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(cb.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                GROUP BY cb.user_id
+            )cb_temp ON cb_temp.user_id = u.user_id
+
+            LEFT JOIN
+            (
+                SELECT
+                      no_cb.user_id as user_id
+                     ,sum(ROUND((no_cb.bet_money - no_cb.deduct_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
+                FROM userwin no_cb
+                inner join sys_game g on g.game_id = no_cb.game_id
+                inner join sys_user u
+                ON u.user_id = no_cb.user_id
+                AND u.del_flag = '0'
+                WHERE no_cb.is_cash_back = '0'
+                <if test="userId != null "> and no_cb.user_id = #{userId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(no_cb.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(no_cb.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                GROUP BY no_cb.user_id
+            )no_cb_temp ON no_cb_temp.user_id = u.user_id
+        where u.del_flag = '0'
+        AND (
+            IFNULL(bet_count_temp.bet_money_total,0) &lt;&gt; 0
+        OR IFNULL(bet_win_temp.bet_win_money_total,0) &lt;&gt; 0
+        OR IFNULL(win_temp.win_money_total,0) &lt;&gt; 0
+        OR IFNULL(up_temp.up_money_total,0) &lt;&gt; 0
+        OR IFNULL(down_temp.down_money_total,0) &lt;&gt; 0
+        OR IFNULL(commission_temp.commission_money_total,0) &lt;&gt; 0
+        OR IFNULL(cb_temp.cash_back_money_total,0) &lt;&gt; 0
+        OR IFNULL(no_cb_temp.no_cash_back_money_total,0) &lt;&gt; 0
+        )
+        <if test="userId != null "> and u.user_id = #{userId}</if>
+        <if test="nickName != null and nickName != ''">
+            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+        </if>
+        <if test="parentUserId != null "> and u.parent_user_id = #{parentUserId}</if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+        ORDER BY u.user_id ASC
+    </select>
+
+    <select id="selectGameReportLis" resultMap="GameReportListResult">
+        SELECT
+            DATE_FORMAT(c.calendar_date,'%Y-%m-%d') AS calendar_date
+             ,IFNULL(bet_count_temp.bet_money_total,0) as bet_money_total
+             ,IFNULL(bet_win_temp.bet_win_money_total,0) as bet_win_money_total
+             ,IFNULL(win_temp.win_money_total,0) as win_money_total
+        FROM sys_calendar c
+            LEFT JOIN
+             (
+                SELECT
+                     DATE_FORMAT(r.record_time,'%Y-%m-%d') as calendar_date
+                    ,SUM(r.money) as bet_money_total
+                FROM `bet_record` r
+                inner join sys_user u
+                ON u.user_id = r.user_id
+                AND u.del_flag = '0'
+                WHERE r.is_delete = '0'
+                AND r.is_robot = '0'
+                <if test="gameId != null "> and r.game_id = #{gameId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(r.record_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(r.record_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                GROUP BY DATE_FORMAT(r.record_time,'%Y-%m-%d')
+             )bet_count_temp ON bet_count_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+            LEFT JOIN
+            (
+                SELECT
+                    DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d') as calendar_date
+                     ,sum(bet_win.cash_money) as bet_win_money_total
+                FROM usermoney bet_win
+                inner join sys_user u
+                ON u.user_id = bet_win.user_id
+                AND u.del_flag = '0'
+                WHERE bet_win.type = '8'
+                  AND bet_win.is_delete = '0'
+                <if test="gameId != null "> and bet_win.game_id = #{gameId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(bet_win.cash_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(bet_win.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                GROUP BY DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d')
+            )bet_win_temp ON bet_win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+            LEFT JOIN
+            (
+                SELECT
+                    DATE_FORMAT(win.win_time,'%Y-%m-%d') as calendar_date
+                     ,sum(win.win_money)*-1 as win_money_total
+                FROM userwin win
+                inner join sys_user u
+                ON u.user_id = win.user_id
+                AND u.del_flag = '0'
+                WHERE 1 = 1
+                <if test="gameId != null "> and win.game_id = #{gameId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(win.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(win.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                GROUP BY DATE_FORMAT(win.win_time,'%Y-%m-%d')
+            )win_temp ON win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+        WHERE 1 = 1
+        <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+            and DATE_FORMAT(c.calendar_date,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+        </if>
+        <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+            and DATE_FORMAT(c.calendar_date,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+        </if>
+        ORDER BY c.calendar_id DESC
+    </select>
+
+    <select id="selectCollectReportLis" resultMap="CollectReportListResult">
+        SELECT
+             u.user_id as user_id
+            ,u.nick_name as nick_name
+            ,u.real_name as real_name
+            ,u.remark_name as remark_name
+            ,u.avatar as avatar
+            ,IFNULL(bet_count_temp.bet_cnt,0) as bet_cnt
+            ,IFNULL(bet_money_temp.bet_money_total,0) as bet_money_total
+            ,IFNULL(bet_win_temp.bet_win_money_total,0) as bet_win_money_total
+            ,IFNULL(win_temp.win_money_total,0) as win_money_total
+        FROM sys_user u
+
+        LEFT JOIN
+        (
+            SELECT
+                 count_temp.user_id as user_id
+                ,COUNT(*) AS bet_cnt
+            FROM(
+                SELECT
+                     r.user_id as user_id
+                    ,r.periods as periods
+                    ,r.game_id as game_id
+                FROM `bet_record` r
+                inner join sys_user u
+                ON u.user_id = r.user_id
+                AND u.del_flag = '0'
+                WHERE r.is_delete = '0'
+                AND r.is_robot = '0'
+                <if test="gameId != null "> and r.game_id = #{gameId}</if>
+                <if test="userId != null "> and r.user_id = #{userId}</if>
+                <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                    and date_format(r.record_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+                </if>
+                <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                    and date_format(r.record_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+                </if>
+                <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+                GROUP BY r.user_id,r.periods,r.game_id
+            ) count_temp
+            GROUP BY count_temp.user_id
+        )bet_count_temp ON bet_count_temp.user_id = u.user_id
+
+        LEFT JOIN
+        (
+            SELECT
+                 r.user_id as user_id
+                ,SUM(r.money) as bet_money_total
+            FROM `bet_record` r
+            inner join sys_user u
+            ON u.user_id = r.user_id
+            AND u.del_flag = '0'
+            WHERE r.is_delete = '0'
+            AND r.is_robot = '0'
+            <if test="gameId != null "> and r.game_id = #{gameId}</if>
+            <if test="userId != null "> and r.user_id = #{userId}</if>
+            <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                and date_format(r.record_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+            </if>
+            <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                and date_format(r.record_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+            </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY r.user_id
+        )bet_money_temp ON bet_money_temp.user_id = u.user_id
+
+        LEFT JOIN
+        (
+            SELECT
+                 bet_win.user_id as user_id
+                ,sum(bet_win.cash_money) as bet_win_money_total
+            FROM usermoney bet_win
+            inner join sys_user u
+            ON u.user_id = bet_win.user_id
+            AND u.del_flag = '0'
+            WHERE bet_win.type = '8'
+            AND bet_win.is_delete = '0'
+            <if test="gameId != null "> and bet_win.game_id = #{gameId}</if>
+            <if test="userId != null "> and bet_win.user_id = #{userId}</if>
+            <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                and date_format(bet_win.cash_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+            </if>
+            <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                and date_format(bet_win.cash_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+            </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY bet_win.user_id
+        )bet_win_temp ON bet_win_temp.user_id = u.user_id
+
+        LEFT JOIN
+        (
+            SELECT
+                 win.user_id as user_id
+                ,sum(win.win_money) as win_money_total
+            FROM userwin win
+            inner join sys_user u
+            ON u.user_id = win.user_id
+            AND u.del_flag = '0'
+            WHERE 1 = 1
+            <if test="gameId != null "> and win.game_id = #{gameId}</if>
+            <if test="userId != null "> and win.user_id = #{userId}</if>
+            <if test="params != null and params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                and date_format(win.win_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+            </if>
+            <if test="params != null and params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                and date_format(win.win_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+            </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+            GROUP BY win.user_id
+        )win_temp ON win_temp.user_id = u.user_id
+
+        where u.del_flag = '0'
+        AND IFNULL(bet_count_temp.bet_cnt,0) > 0
+        <if test="userId != null "> and u.user_id = #{userId}</if>
+        <if test="nickName != null and nickName != ''">
+            AND CONCAT(IFNULL(u.nick_name,''), IFNULL(u.remark_name,'')) like concat('%', #{nickName}, '%')
+        </if>
+        <if test="!includeTestUserFlg">and u.is_test = '0'</if>
+        ORDER BY u.user_id ASC
+    </select>
+
+    <select id="selectChildReportList" resultMap="ChildReportListResult">
+        SELECT
+              DATE_FORMAT(c.calendar_date,'%Y-%m-%d') AS calendar_date
+            , IFNULL(bet_temp.bet_money_total,0) as bet_money_total
+            , IFNULL(up_temp.up_money_total,0) as up_money_total
+            , IFNULL(down_temp.down_money_total,0) as down_money_total
+            , IFNULL(cb_temp.cash_back_money_total,0) as cash_back_money_total
+            , IFNULL(no_cb_temp.no_cash_back_money_total,0) as no_cash_back_money_total
+            , IFNULL(commission_temp.commission_money_total,0) as commission_money_total
+            , IFNULL(bet_win_temp.bet_win_money_total,0) as bet_win_money_total
+            , IFNULL(bet_win_temp.bet_win_money_total,0) - IFNULL(bet_temp.bet_money_total,0) as win_money_total
+        FROM sys_calendar c
+        LEFT JOIN
+        (
+            SELECT
+                DATE_FORMAT(r.record_time,'%Y-%m-%d') as calendar_date
+                ,SUM(r.money) as bet_money_total
+            FROM `bet_record` r
+            WHERE r.is_delete = '0'
+            AND r.is_robot = '0'
+            AND r.user_id = #{userId}
+            GROUP BY DATE_FORMAT(r.record_time,'%Y-%m-%d')
+        )bet_temp ON bet_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                  DATE_FORMAT(up.cash_time,'%Y-%m-%d') as calendar_date
+                , SUM(up.cash_money) as up_money_total
+            FROM usermoney up
+            WHERE up.type = '2'
+            AND up.is_delete = '0'
+            AND up.user_id = #{userId}
+            GROUP BY DATE_FORMAT(up.cash_time,'%Y-%m-%d')
+        )up_temp ON up_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                  DATE_FORMAT(down.cash_time,'%Y-%m-%d') as calendar_date
+                , SUM(down.cash_money) as down_money_total
+            FROM usermoney down
+            WHERE down.type = '5'
+            AND down.is_delete = '0'
+            AND down.user_id = #{userId}
+            GROUP BY DATE_FORMAT(down.cash_time,'%Y-%m-%d')
+        )down_temp ON down_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                  DATE_FORMAT(cb.win_time,'%Y-%m-%d') as calendar_date
+                , SUM(cb.cash_back_money) as cash_back_money_total
+            FROM userwin cb
+            WHERE cb.is_cash_back = '1'
+            AND cb.user_id = #{userId}
+            GROUP BY DATE_FORMAT(cb.win_time,'%Y-%m-%d')
+        )cb_temp ON cb_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                  DATE_FORMAT(no_cb.win_time,'%Y-%m-%d') as calendar_date
+                , SUM(ROUND((no_cb.bet_money)*g.game_cashback / 100, 2)) as no_cash_back_money_total
+            FROM userwin no_cb
+            inner join sys_game g on g.game_id = no_cb.game_id
+            WHERE no_cb.is_cash_back = '0'
+            AND no_cb.user_id = #{userId}
+            GROUP BY DATE_FORMAT(no_cb.win_time,'%Y-%m-%d')
+        )no_cb_temp ON no_cb_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                  DATE_FORMAT(commission.win_time,'%Y-%m-%d') as calendar_date
+                , SUM(commission.commission_money) as commission_money_total
+            FROM userwin commission
+            inner join sys_user u on u.user_id = commission.user_id and u.del_flag = '0'
+            inner join sys_user pu on pu.user_id = u.parent_user_id and pu.del_flag = '0'
+            WHERE commission.is_commission = '1'
+            AND commission.user_id = #{userId}
+            GROUP BY DATE_FORMAT(commission.win_time,'%Y-%m-%d')
+        )commission_temp ON commission_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+
+        LEFT JOIN(
+            SELECT
+                  DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d') as calendar_date
+                , sum(bet_win.cash_money) as bet_win_money_total
+            FROM usermoney bet_win
+            WHERE bet_win.type = '8'
+            AND bet_win.is_delete = '0'
+            AND bet_win.user_id = #{userId}
+            GROUP BY DATE_FORMAT(bet_win.cash_time,'%Y-%m-%d')
+        )bet_win_temp ON bet_win_temp.calendar_date = DATE_FORMAT(c.calendar_date,'%Y-%m-%d')
+        WHERE IFNULL(bet_temp.bet_money_total,0) &lt;&gt; 0
+        OR IFNULL(up_temp.up_money_total,0) &lt;&gt; 0
+        OR IFNULL(down_temp.down_money_total,0) &lt;&gt; 0
+        OR IFNULL(cb_temp.cash_back_money_total,0) &lt;&gt; 0
+        OR IFNULL(no_cb_temp.no_cash_back_money_total,0) &lt;&gt; 0
+        OR IFNULL(commission_temp.commission_money_total,0) &lt;&gt; 0
+        OR IFNULL(bet_win_temp.bet_win_money_total,0) &lt;&gt; 0
+
+        ORDER BY c.calendar_id DESC
+    </select>
+
+    <select id="selectLessTodayNoCommissionList" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        where is_commission = '0'
+        and date_format(win_time,'%Y%m%d') &lt;= DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d')
+    </select>
+
+    <select id="selectLessTodayNoCashBackList" resultMap="UserwinResult">
+        <include refid="selectUserwinVo"/>
+        where is_cash_back = '0'
+        and date_format(win_time,'%Y%m%d') &lt;= DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d')
+    </select>
+</mapper>
