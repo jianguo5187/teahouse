@@ -114,21 +114,21 @@
         </el-col>
       </el-row>
       <el-row>
-        <el-col :span="12">
+        <el-col :span="12" v-show="customerShowFlg">
           <el-form-item label="logo图片" prop="logoImg">
             <imageUpload v-model="siteSetting.form.logoImg" :imgUrl="siteSetting.form.logoImg" :limit="1"></imageUpload>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
-        <el-col :span="12">
+        <el-col :span="12" v-show="customerShowFlg">
           <el-form-item label="微信客服图片" prop="wechatImg">
             <imageUpload v-model="siteSetting.form.wechatImg" :imgUrl="siteSetting.form.wechatImg" :limit="1"></imageUpload>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
-        <el-col :span="12">
+        <el-col :span="12" v-show="customerShowFlg">
           <el-form-item label="QQ客服图片" prop="qqChatImg">
             <imageUpload v-model="siteSetting.form.qqChatImg" :imgUrl="siteSetting.form.qqChatImg" :limit="1"></imageUpload>
           </el-form-item>
@@ -185,6 +185,7 @@ export default {
     return {
       // 登录用户ID
       loginUserId: this.$store.state.user.id,
+      customerShowFlg : false,
       // 上传chat参数
       siteSetting: {
         // 表单参数
