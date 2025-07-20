@@ -1,73 +1,73 @@
 <template>
   <div class="app-container">
     <el-form ref="gameLimitSettingForm" :model="gameLimitSetting.form" :rules="gameLimitSetting.rules" label-width="280px">
-      <el-row>
+      <el-row v-show="false">
         <b>3球投注限制：</b>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="特殊号码限额" prop="threeBallBetSpecialAmount">
             <el-input-number v-model="gameLimitSetting.form.threeBallBetSpecialAmount" :min="0" placeholder="请输入特殊号码限额"/> 0不限制投注个数(特殊号码：0,1,2,3,24,25,26,27)
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="号码投注个数" prop="threeBallBetNumCount">
             <el-input-number v-model="gameLimitSetting.form.threeBallBetNumCount" :min="0" placeholder="请输入号码投注个数"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="最小投注额度" prop="threeBallMinBetAmount">
             <el-input-number v-model="gameLimitSetting.form.threeBallMinBetAmount" :min="0" placeholder="请输入最小投注额度"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注总额度" prop="threeBallMaxSumBetAmount">
             <el-input-number v-model="gameLimitSetting.form.threeBallMaxSumBetAmount" :min="0" placeholder="请输入投注总额度"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注数字限额" prop="threeBallBetNumAmount">
             <el-input-number v-model="gameLimitSetting.form.threeBallBetNumAmount" :min="0" placeholder="请输入投注数字限额"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注大小单双限额" prop="threeBallBetDxdsAmount">
             <el-input-number v-model="gameLimitSetting.form.threeBallBetDxdsAmount" :min="0" placeholder="请输入投注大小单双限额"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注极值限额" prop="threeBallBetMuchAmount">
             <el-input-number v-model="gameLimitSetting.form.threeBallBetMuchAmount" :min="0" placeholder="请输入投注极值限额"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注组合限额" prop="threeBallBetCombinationAmount">
             <el-input-number v-model="gameLimitSetting.form.threeBallBetCombinationAmount" :min="0" placeholder="请输入投注组合限额"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注波色限额" prop="threeBallBetBoseAmount">
             <el-input-number v-model="gameLimitSetting.form.threeBallBetBoseAmount" :min="0" placeholder="请输入投注波色限额"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注对顺豹限额" prop="threeBallBetSdbAmount">
             <el-input-number v-model="gameLimitSetting.form.threeBallBetSdbAmount" :min="0" placeholder="请输入投注对顺豹限额"/> 0不限制投注个数
@@ -75,49 +75,49 @@
         </el-col>
       </el-row>
 
-      <el-row>
+      <el-row v-show="false">
         <b>------------------------------------------------------------------------------------------------------------------------------------------------</b>
       </el-row>
 
-      <el-row>
+      <el-row v-show="false">
         <b>5球投注限制：</b>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="最小投注额度" prop="fiveBallMinBetAmount">
             <el-input-number v-model="gameLimitSetting.form.fiveBallMinBetAmount" :min="0" placeholder="请输入最小投注额度"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注总额度" prop="fiveBallMaxSumBetAmount">
             <el-input-number v-model="gameLimitSetting.form.fiveBallMaxSumBetAmount" :min="0" placeholder="请输入投注总额度"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注和值（和）限额" prop="fiveBallBetHeAmount">
             <el-input-number v-model="gameLimitSetting.form.fiveBallBetHeAmount" :min="0" placeholder="请输入投注和值（和）限额"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注大小单双龙虎限额" prop="fiveBallBetDxdslhAmount">
             <el-input-number v-model="gameLimitSetting.form.fiveBallBetDxdslhAmount" :min="0" placeholder="请输入投注大小单双龙虎限额"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注数字号码限额" prop="fiveBallBetNumAmount">
             <el-input-number v-model="gameLimitSetting.form.fiveBallBetNumAmount" :min="0" placeholder="请输入投注前中后限额"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注前中后三投限额" prop="fiveBallBetQzhAmount">
             <el-input-number v-model="gameLimitSetting.form.fiveBallBetQzhAmount" :min="0" placeholder="请输入投注前中后三投限额"/> 0不限制投注个数
@@ -125,7 +125,7 @@
         </el-col>
       </el-row>
 
-      <el-row>
+      <el-row v-show="false">
         <b>------------------------------------------------------------------------------------------------------------------------------------------------</b>
       </el-row>
 

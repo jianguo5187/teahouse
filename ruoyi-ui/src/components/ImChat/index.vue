@@ -19,10 +19,10 @@ export default {
   },
   created() {
     this.getChatImUrl();
-    this.getKefuNoReadCnt();
+    // this.getKefuNoReadCnt();
   },
   mounted() {
-    setInterval(this.getKefuNoReadCnt,10000); //每10s刷新列表
+    // setInterval(this.getKefuNoReadCnt,10000); //每10s刷新列表
   },
   methods: {
     gotoChat() {

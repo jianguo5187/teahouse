@@ -134,7 +134,7 @@ export default {
         pageNum: 1,
         pageSize: 20,
         gameId: null,
-        status: '1',
+        status: null,
         periods: null,
       },
       // 表单参数

@@ -6,15 +6,15 @@
     <top-nav id="topmenu-container" class="topmenu-container" v-if="topNav"/>
 
     <div class="right-menu">
-      <el-tooltip content="会员余额" effect="dark" placement="bottom">
-        <user-amount id="user-amount" class="right-menu-item hover-effect" />
-      </el-tooltip>
-      <el-tooltip content="客服" effect="dark" placement="bottom">
-        <im-chat id="im-chat" class="right-menu-item hover-effect" />
-      </el-tooltip>
-      <el-tooltip content="在线人数" effect="dark" placement="bottom">
-        <online-user id="online-user" class="right-menu-item hover-effect" />
-      </el-tooltip>
+<!--      <el-tooltip content="会员余额" effect="dark" placement="bottom">-->
+<!--        <user-amount id="user-amount" class="right-menu-item hover-effect" />-->
+<!--      </el-tooltip>-->
+<!--      <el-tooltip content="客服" effect="dark" placement="bottom">-->
+<!--        <im-chat id="im-chat" class="right-menu-item hover-effect" />-->
+<!--      </el-tooltip>-->
+<!--      <el-tooltip content="在线人数" effect="dark" placement="bottom">-->
+<!--        <online-user id="online-user" class="right-menu-item hover-effect" />-->
+<!--      </el-tooltip>-->
       <el-tooltip content="下分" effect="dark" placement="bottom">
         <top-postal id="top-postal" class="right-menu-item hover-effect" :down-count="down_count"/>
       </el-tooltip>
@@ -48,9 +48,9 @@
           <router-link to="/user/profile">
             <el-dropdown-item>个人中心</el-dropdown-item>
           </router-link>
-<!--          <el-dropdown-item @click.native="setting = true">-->
-<!--            <span>布局设置</span>-->
-<!--          </el-dropdown-item>-->
+          <el-dropdown-item @click.native="setting = true">
+            <span>布局设置</span>
+          </el-dropdown-item>
           <el-dropdown-item divided @click.native="logout">
             <span>退出登录</span>
           </el-dropdown-item>

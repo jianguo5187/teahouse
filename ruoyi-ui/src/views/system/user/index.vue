@@ -51,7 +51,7 @@
             ></el-date-picker>
           </el-form-item>
 
-          <el-form-item label="只看子账号" prop="onlyChildAdminFlg">
+          <el-form-item label="只看子账号" prop="onlyChildAdminFlg" v-show="false">
             <el-switch v-model="queryParams.onlyChildAdminFlg" @change="handleQuery"></el-switch>
           </el-form-item>
 
@@ -63,14 +63,14 @@
 
         <el-row :gutter="10" class="mb8">
           <el-col :span="1.5">
-            <el-button
-              type="primary"
-              plain
-              icon="el-icon-plus"
-              size="mini"
-              @click="handleAdd"
-              v-if="loginUserId == 1 || loginUserId == 2 || loginUserId == 3"
-            >添加子账号</el-button>
+<!--            <el-button-->
+<!--              type="primary"-->
+<!--              plain-->
+<!--              icon="el-icon-plus"-->
+<!--              size="mini"-->
+<!--              @click="handleAdd"-->
+<!--              v-if="loginUserId == 1 || loginUserId == 2 || loginUserId == 3"-->
+<!--            >添加子账号</el-button>-->
           </el-col>
 <!--          <el-col :span="1.5">-->
 <!--            <el-button-->

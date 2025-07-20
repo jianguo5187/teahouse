@@ -101,6 +101,8 @@ public class BetkjServiceImpl implements IBetkjService
     @Value("${autoGame.url}")
     private String gameUrl;
 
+    private Long comMaxPeriods = 121718L;
+
     /**
      * 查询开奖列表
      *
@@ -1270,7 +1272,7 @@ public class BetkjServiceImpl implements IBetkjService
 
             GameSystemOpenData systemOpenData = new GameSystemOpenData();
             if(maxPeriods == null || maxPeriods == 0){
-                maxPeriods = 3526718l;
+                maxPeriods = comMaxPeriods;
             }
             //初始没数据
             systemOpenData.setPeriods(maxPeriods);
@@ -1361,7 +1363,7 @@ public class BetkjServiceImpl implements IBetkjService
 
             GameSystemOpenData systemOpenData = new GameSystemOpenData();
             if(maxPeriods == null || maxPeriods == 0){
-                maxPeriods = 3526718l;
+                maxPeriods = comMaxPeriods;
             }
             //初始没数据
             systemOpenData.setPeriods(maxPeriods);
@@ -1441,7 +1443,7 @@ public class BetkjServiceImpl implements IBetkjService
 
             GameSystemOpenData systemOpenData = new GameSystemOpenData();
             if(maxPeriods == null || maxPeriods == 0){
-                maxPeriods = 3526718l;
+                maxPeriods = comMaxPeriods;
             }
             //初始没数据
             systemOpenData.setPeriods(maxPeriods);
