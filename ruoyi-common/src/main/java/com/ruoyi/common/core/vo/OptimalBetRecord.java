@@ -1,104 +1,119 @@
-package com.ruoyi.common.core.vo;import java.util.Objects;
+package com.ruoyi.common.core.vo;
+
+import java.util.Objects;
 
 /**
- * 投注记录类（支持小数金额和赔率）
+ * 投注记录类（每个记录只包含一个投注选项）
  */
 public class OptimalBetRecord {
+    public enum BetType {
+        SMALL,   // 小(1-5)
+        BIG,     // 大(6-10)
+        ODD,     // 单
+        EVEN,    // 双
+        CHAMPION_NUMBER,    // 冠军号码
+        RUNNER_UP_NUMBER,   // 亚军号码
+        THIRD_PLACE_NUMBER  // 季军号码
+    }
+
     private String employee;
-    private Integer position;      // 1=冠军,...,10=第10名
-    private Float smallBet;    // 投注"小"金额
-    private Float bigBet;      // 投注"大"金额
-    private Float oddBet;      // 投注"单"金额
-    private Float evenBet;     // 投注"双"金额
-    private Float smallPayoutRate;
-    private Float bigPayoutRate;
-    private Float oddPayoutRate;
-    private Float evenPayoutRate;
+    private BetType betType;
+    private Integer position; // 1=冠军,...,10=第10名（仅属性投注使用）
+    private Integer predictedNumber; // 预测的号码（仅号码预测使用）
+    private Float betAmount;
+    private Float payoutRate;
 
-    public OptimalBetRecord(){}
+    // 空构造函数
+    public OptimalBetRecord() {}
 
-    public OptimalBetRecord(String employee, Integer position,
-                            Float smallBet, Float smallPayoutRate,
-                            Float bigBet, Float bigPayoutRate,
-                            Float oddBet, Float oddPayoutRate,
-                            Float evenBet, Float evenPayoutRate) {
-        this.employee = Objects.requireNonNull(employee);
-        if (position < 1 || position > 10) {
-            throw new IllegalArgumentException("名次必须是1-10");
+    /**
+     * 属性投注构造方法
+     */
+    public OptimalBetRecord(String employee, int position, BetType betType,
+                            Float betAmount, Float payoutRate) {
+        if (betType.ordinal() > BetType.EVEN.ordinal()) {
+            throw new IllegalArgumentException("属性投注只能使用SMALL/BIG/ODD/EVEN类型");
         }
+        this.employee = Objects.requireNonNull(employee);
+        this.betType = betType;
         this.position = position;
-        this.smallBet = smallBet;
-        this.bigBet = bigBet;
-        this.oddBet = oddBet;
-        this.evenBet = evenBet;
-        this.smallPayoutRate = smallPayoutRate;
-        this.bigPayoutRate = bigPayoutRate;
-        this.oddPayoutRate = oddPayoutRate;
-        this.evenPayoutRate = evenPayoutRate;
+        this.predictedNumber = null;
+        this.betAmount = betAmount;
+        this.payoutRate = payoutRate;
     }
 
-    public Float calculatePayout(Integer number) {
-        Float payout = 0f;
-        boolean isSmall = number <= 5;
-        boolean isEven = number % 2 == 0;
-
-        if (smallBet != null && isSmall) payout += smallBet * smallPayoutRate;
-        if (bigBet != null && !isSmall) payout += bigBet * bigPayoutRate;
-        if (oddBet != null && !isEven) payout += oddBet * oddPayoutRate;
-        if (evenBet != null && isEven) payout += evenBet * evenPayoutRate;
-
-        return payout;
+    /**
+     * 号码预测构造方法
+     */
+    public OptimalBetRecord(String employee, BetType betType,
+                            int predictedNumber, Float betAmount, Float payoutRate) {
+        if (betType.ordinal() < BetType.CHAMPION_NUMBER.ordinal()) {
+            throw new IllegalArgumentException("号码预测只能使用CHAMPION_NUMBER/RUNNER_UP_NUMBER/THIRD_PLACE_NUMBER类型");
+        }
+        this.employee = Objects.requireNonNull(employee);
+        this.betType = betType;
+        this.position = null;
+        this.predictedNumber = predictedNumber;
+        this.betAmount = betAmount;
+        this.payoutRate = payoutRate;
     }
 
-    // Getter方法
+    public Float calculatePayout(int[] ranking) {
+        if (betAmount == null || payoutRate == null) return 0f;
+
+        switch (betType) {
+            case SMALL:
+                return ranking[position - 1] <= 5 ? betAmount * payoutRate : 0f;
+            case BIG:
+                return ranking[position - 1] >= 6 ? betAmount * payoutRate : 0f;
+            case ODD:
+                return ranking[position - 1] % 2 == 1 ? betAmount * payoutRate : 0f;
+            case EVEN:
+                return ranking[position - 1] % 2 == 0 ? betAmount * payoutRate : 0f;
+            case CHAMPION_NUMBER:
+                return predictedNumber == ranking[0] ? betAmount * payoutRate : 0f;
+            case RUNNER_UP_NUMBER:
+                return predictedNumber == ranking[1] ? betAmount * payoutRate : 0f;
+            case THIRD_PLACE_NUMBER:
+                return predictedNumber == ranking[2] ? betAmount * payoutRate : 0f;
+            default:
+                return 0f;
+        }
+    }
+
+    // Getter和Setter方法
     public String getEmployee() { return employee; }
+    public void setEmployee(String employee) { this.employee = employee; }
+
+    public BetType getBetType() { return betType; }
+    public void setBetType(BetType betType) { this.betType = betType; }
+
     public Integer getPosition() { return position; }
-    public Float getSmallBet() { return smallBet; }
-    public Float getBigBet() { return bigBet; }
-    public Float getOddBet() { return oddBet; }
-    public Float getEvenBet() { return evenBet; }
-    public Float getSmallPayoutRate() { return smallPayoutRate; }
-    public Float getBigPayoutRate() { return bigPayoutRate; }
-    public Float getOddPayoutRate() { return oddPayoutRate; }
-    public Float getEvenPayoutRate() { return evenPayoutRate; }
+    public void setPosition(Integer position) { this.position = position; }
 
-    public void setEmployee(String employee) {
-        this.employee = employee;
-    }
+    public Integer getPredictedNumber() { return predictedNumber; }
+    public void setPredictedNumber(Integer predictedNumber) { this.predictedNumber = predictedNumber; }
 
-    public void setPosition(Integer position) {
-        this.position = position;
-    }
+    public Float getBetAmount() { return betAmount; }
+    public void setBetAmount(Float betAmount) { this.betAmount = betAmount; }
 
-    public void setSmallBet(Float smallBet) {
-        this.smallBet = smallBet;
-    }
+    public Float getPayoutRate() { return payoutRate; }
+    public void setPayoutRate(Float payoutRate) { this.payoutRate = payoutRate; }
 
-    public void setBigBet(Float bigBet) {
-        this.bigBet = bigBet;
-    }
-
-    public void setOddBet(Float oddBet) {
-        this.oddBet = oddBet;
-    }
-
-    public void setEvenBet(Float evenBet) {
-        this.evenBet = evenBet;
-    }
-
-    public void setSmallPayoutRate(Float smallPayoutRate) {
-        this.smallPayoutRate = smallPayoutRate;
-    }
-
-    public void setBigPayoutRate(Float bigPayoutRate) {
-        this.bigPayoutRate = bigPayoutRate;
-    }
-
-    public void setOddPayoutRate(Float oddPayoutRate) {
-        this.oddPayoutRate = oddPayoutRate;
-    }
-
-    public void setEvenPayoutRate(Float evenPayoutRate) {
-        this.evenPayoutRate = evenPayoutRate;
+    @Override
+    public String toString() {
+        if (betType.ordinal() <= BetType.EVEN.ordinal()) {
+            return String.format("%s 投注第%d名 %s %.2f元(%.1f倍)",
+                    employee, position, betType, betAmount, payoutRate);
+        } else {
+            String positionName = "";
+            switch (betType) {
+                case CHAMPION_NUMBER: positionName = "冠军"; break;
+                case RUNNER_UP_NUMBER: positionName = "亚军"; break;
+                case THIRD_PLACE_NUMBER: positionName = "季军"; break;
+            }
+            return String.format("%s 预测%s %d号 %.2f元(%.1f倍)",
+                    employee, positionName, predictedNumber, betAmount, payoutRate);
+        }
     }
 }

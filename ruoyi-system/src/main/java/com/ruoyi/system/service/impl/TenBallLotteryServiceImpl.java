@@ -506,31 +506,67 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                         // 获取所有投注信息
                         List<OptimalBetRecord> bets = new ArrayList<>();
                         for(BetRecord betRecord : betRecordList){
-                            OptimalBetRecord optimalBetRecord = new OptimalBetRecord();
-                            optimalBetRecord.setEmployee(betRecord.getUserId() + "");
+//                            OptimalBetRecord optimalBetRecord = new OptimalBetRecord();
+//                            optimalBetRecord.setEmployee(betRecord.getUserId() + "");
                             int position = Integer.valueOf(betRecord.getBetType()) - 1;
-                            optimalBetRecord.setPosition(position);
+//                            optimalBetRecord.setPosition(position);
 
                             if(StringUtils.equals("大",betRecord.getBetNumber())){
-                                optimalBetRecord.setBigBet(betRecord.getMoney());
-                                optimalBetRecord.setBigPayoutRate(getOddFromMapByOddKey(betItemMap,"big" + position));
-                            }
 
-                            if(StringUtils.equals("小",betRecord.getBetNumber())){
-                                optimalBetRecord.setSmallBet(betRecord.getMoney());
-                                optimalBetRecord.setSmallPayoutRate(getOddFromMapByOddKey(betItemMap,"small" + position));
+                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                        ,position
+                                        ,OptimalBetRecord.BetType.BIG
+                                        ,betRecord.getMoney()
+                                        ,getOddFromMapByOddKey(betItemMap,"big" + position)));
+//                                optimalBetRecord.setBigBet(betRecord.getMoney());
+//                                optimalBetRecord.setBigPayoutRate(getOddFromMapByOddKey(betItemMap,"big" + position));
+                            }else if(StringUtils.equals("小",betRecord.getBetNumber())){
+                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                        ,position
+                                        ,OptimalBetRecord.BetType.SMALL
+                                        ,betRecord.getMoney()
+                                        ,getOddFromMapByOddKey(betItemMap,"small" + position)));
+//                                optimalBetRecord.setSmallBet(betRecord.getMoney());
+//                                optimalBetRecord.setSmallPayoutRate(getOddFromMapByOddKey(betItemMap,"small" + position));
+                            }else if(StringUtils.equals("单",betRecord.getBetNumber())){
+                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                        ,position
+                                        ,OptimalBetRecord.BetType.ODD
+                                        ,betRecord.getMoney()
+                                        ,getOddFromMapByOddKey(betItemMap,"single" + position)));
+//                                optimalBetRecord.setOddBet(betRecord.getMoney());
+//                                optimalBetRecord.setOddPayoutRate(getOddFromMapByOddKey(betItemMap,"single" + position));
+                            }else if(StringUtils.equals("双",betRecord.getBetNumber())){
+                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                        ,position
+                                        ,OptimalBetRecord.BetType.EVEN
+                                        ,betRecord.getMoney()
+                                        ,getOddFromMapByOddKey(betItemMap,"double" + position)));
+//                                optimalBetRecord.setEvenBet(betRecord.getMoney());
+//                                optimalBetRecord.setEvenPayoutRate(getOddFromMapByOddKey(betItemMap,"double" + position));
+                            }else if(position == 1){
+                                //  猜冠军
+                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                        ,OptimalBetRecord.BetType.CHAMPION_NUMBER
+                                        ,Integer.valueOf(betRecord.getBetNumber())
+                                        ,betRecord.getMoney()
+                                        ,getOddFromMapByOddKey(betItemMap,"num1Under" + (position))));
+                            }else if(position == 2){
+                                //  猜季军
+                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                        ,OptimalBetRecord.BetType.RUNNER_UP_NUMBER
+                                        ,Integer.valueOf(betRecord.getBetNumber())
+                                        ,betRecord.getMoney()
+                                        ,getOddFromMapByOddKey(betItemMap,"num2Under" + (position))));
+                            }else if(position == 3){
+                                //  猜冠军
+                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                        ,OptimalBetRecord.BetType.THIRD_PLACE_NUMBER
+                                        ,Integer.valueOf(betRecord.getBetNumber())
+                                        ,betRecord.getMoney()
+                                        ,getOddFromMapByOddKey(betItemMap,"num3Under" + (position))));
                             }
-
-                            if(StringUtils.equals("单",betRecord.getBetNumber())){
-                                optimalBetRecord.setOddBet(betRecord.getMoney());
-                                optimalBetRecord.setOddPayoutRate(getOddFromMapByOddKey(betItemMap,"single" + position));
-                            }
-
-                            if(StringUtils.equals("双",betRecord.getBetNumber())){
-                                optimalBetRecord.setEvenBet(betRecord.getMoney());
-                                optimalBetRecord.setEvenPayoutRate(getOddFromMapByOddKey(betItemMap,"double" + position));
-                            }
-                            bets.add(optimalBetRecord);
+//                            bets.add(optimalBetRecord);
                         }
 
                         // 生成最优排序

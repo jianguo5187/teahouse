@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost(teahouse)
+ Source Server         : 18.162.97.227(teahouse)
  Source Server Type    : MySQL
- Source Server Version : 50726 (5.7.26)
- Source Host           : localhost:3306
+ Source Server Version : 50744 (5.7.44-log)
+ Source Host           : 18.162.97.227:3306
  Source Schema         : teahouse
 
  Target Server Type    : MySQL
- Target Server Version : 50726 (5.7.26)
+ Target Server Version : 50744 (5.7.44-log)
  File Encoding         : 65001
 
- Date: 20/07/2025 23:19:59
+ Date: 24/07/2025 22:25:43
 */
 
 SET NAMES utf8mb4;
@@ -9691,7 +9691,7 @@ CREATE TABLE `sys_admin_action_log`  (
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `id`(`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 387 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '管理员操作记录表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 388 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '管理员操作记录表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_admin_action_log
@@ -10082,6 +10082,7 @@ INSERT INTO `sys_admin_action_log` VALUES (383, '1', 2, '平台管理员', '36.2
 INSERT INTO `sys_admin_action_log` VALUES (384, '1', 2, '平台管理员', '127.0.0.1', '2', NULL, NULL, '平台管理员', '2025-07-20 22:55:01', NULL, NULL, '[平台管理员]管理员登录。');
 INSERT INTO `sys_admin_action_log` VALUES (385, '1', 2, '平台管理员', '127.0.0.1', '2', NULL, NULL, '平台管理员', '2025-07-20 22:55:18', NULL, NULL, '[平台管理员]管理员登录。');
 INSERT INTO `sys_admin_action_log` VALUES (386, '1', 2, '平台管理员', '127.0.0.1', '2', NULL, NULL, '平台管理员', '2025-07-20 22:56:24', NULL, NULL, '[平台管理员]管理员登录。');
+INSERT INTO `sys_admin_action_log` VALUES (387, '1', 2, '平台管理员', '127.0.0.1', '2', NULL, NULL, '平台管理员', '2025-07-21 20:55:27', NULL, NULL, '[平台管理员]管理员登录。');
 
 -- ----------------------------
 -- Table structure for sys_admin_record
@@ -11340,7 +11341,7 @@ INSERT INTO `sys_bet_item` VALUES (1244, 17, 87, 'num6', '6', NULL, 2.00, 2.00, 
 INSERT INTO `sys_bet_item` VALUES (1245, 17, 87, 'num7', '7', NULL, 2.00, 2.00, 9999.00, 9, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1246, 17, 87, 'num8', '8', NULL, 2.00, 2.00, 9999.00, 10, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1247, 17, 87, 'num9', '9', NULL, 2.00, 2.00, 9999.00, 11, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1248, 17, 87, 'num10', '10', NULL, 2.00, 2.00, 9999.00, 12, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1248, 17, 87, 'num10', '10', NULL, 9.80, 2.00, 9999.00, 12, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1249, 17, 87, 'num11', '11', NULL, 2.00, 2.00, 9999.00, 13, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1250, 17, 87, 'num12', '12', NULL, 2.00, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1251, 17, 87, 'num13', '13', NULL, 2.00, 2.00, 9999.00, 15, '1', '', NULL, '', NULL, '');
@@ -11352,59 +11353,59 @@ INSERT INTO `sys_bet_item` VALUES (1256, 17, 87, 'num18', '18', NULL, 2.00, 2.00
 INSERT INTO `sys_bet_item` VALUES (1257, 17, 87, 'num19', '19', NULL, 2.00, 2.00, 9999.00, 21, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1258, 17, 88, 'big1', '大', NULL, 1.96, 2.00, 9999.00, 1, '0', '', NULL, '', '2025-07-20 23:01:04', '');
 INSERT INTO `sys_bet_item` VALUES (1259, 17, 88, 'small1', '小', NULL, 1.96, 2.00, 9999.00, 2, '0', '', NULL, '', '2025-07-20 22:46:27', '');
-INSERT INTO `sys_bet_item` VALUES (1260, 17, 88, 'single1', '单', NULL, 2.00, 2.00, 9999.00, 3, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1261, 17, 88, 'double1', '双', NULL, 2.00, 2.00, 9999.00, 4, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1260, 17, 88, 'single1', '单', NULL, 1.96, 2.00, 9999.00, 3, '0', '', NULL, '', '2025-07-21 21:13:15', '');
+INSERT INTO `sys_bet_item` VALUES (1261, 17, 88, 'double1', '双', NULL, 1.96, 2.00, 9999.00, 4, '0', '', NULL, '', '2025-07-21 21:13:19', '');
 INSERT INTO `sys_bet_item` VALUES (1262, 17, 88, 'loong1', '龙', NULL, 2.00, 2.00, 9999.00, 5, '1', '', NULL, '', '2025-07-20 22:43:45', '');
 INSERT INTO `sys_bet_item` VALUES (1263, 17, 88, 'tiger1', '虎', NULL, 2.00, 2.00, 9999.00, 6, '1', '', NULL, '', '2025-07-20 22:43:47', '');
-INSERT INTO `sys_bet_item` VALUES (1264, 17, 88, 'num1Under1', '1', NULL, 2.00, 2.00, 9999.00, 7, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1265, 17, 88, 'num2Under1', '2', NULL, 2.00, 2.00, 9999.00, 8, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1266, 17, 88, 'num3Under1', '3', NULL, 2.00, 2.00, 9999.00, 9, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1267, 17, 88, 'num4Under1', '4', NULL, 2.00, 2.00, 9999.00, 10, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1268, 17, 88, 'num5Under1', '5', NULL, 2.00, 2.00, 9999.00, 11, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1269, 17, 88, 'num6Under1', '6', NULL, 2.00, 2.00, 9999.00, 12, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1270, 17, 88, 'num7Under1', '7', NULL, 2.00, 2.00, 9999.00, 13, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1271, 17, 88, 'num8Under1', '8', NULL, 2.00, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1272, 17, 88, 'num9Under1', '9', NULL, 2.00, 2.00, 9999.00, 15, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1273, 17, 88, 'num10Under1', '10', NULL, 2.00, 2.00, 9999.00, 16, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1264, 17, 88, 'num1Under1', '1', NULL, 9.80, 2.00, 9999.00, 7, '0', '', NULL, '', '2025-07-24 21:39:44', '');
+INSERT INTO `sys_bet_item` VALUES (1265, 17, 88, 'num2Under1', '2', NULL, 9.80, 2.00, 9999.00, 8, '0', '', NULL, '', '2025-07-24 21:39:47', '');
+INSERT INTO `sys_bet_item` VALUES (1266, 17, 88, 'num3Under1', '3', NULL, 9.80, 2.00, 9999.00, 9, '0', '', NULL, '', '2025-07-24 21:39:50', '');
+INSERT INTO `sys_bet_item` VALUES (1267, 17, 88, 'num4Under1', '4', NULL, 9.80, 2.00, 9999.00, 10, '0', '', NULL, '', '2025-07-24 21:39:53', '');
+INSERT INTO `sys_bet_item` VALUES (1268, 17, 88, 'num5Under1', '5', NULL, 9.80, 2.00, 9999.00, 11, '0', '', NULL, '', '2025-07-24 21:39:55', '');
+INSERT INTO `sys_bet_item` VALUES (1269, 17, 88, 'num6Under1', '6', NULL, 9.80, 2.00, 9999.00, 12, '0', '', NULL, '', '2025-07-24 21:39:58', '');
+INSERT INTO `sys_bet_item` VALUES (1270, 17, 88, 'num7Under1', '7', NULL, 9.80, 2.00, 9999.00, 13, '0', '', NULL, '', '2025-07-24 21:40:00', '');
+INSERT INTO `sys_bet_item` VALUES (1271, 17, 88, 'num8Under1', '8', NULL, 9.80, 2.00, 9999.00, 14, '0', '', NULL, '', '2025-07-24 21:40:03', '');
+INSERT INTO `sys_bet_item` VALUES (1272, 17, 88, 'num9Under1', '9', NULL, 9.80, 2.00, 9999.00, 15, '0', '', NULL, '', '2025-07-24 21:40:05', '');
+INSERT INTO `sys_bet_item` VALUES (1273, 17, 88, 'num10Under1', '10', NULL, 9.80, 2.00, 9999.00, 16, '0', '', NULL, '', '2025-07-24 21:40:08', '');
 INSERT INTO `sys_bet_item` VALUES (1274, 17, 89, 'big2', '大', NULL, 1.96, 2.00, 9999.00, 1, '0', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1275, 17, 89, 'small2', '小', NULL, 1.96, 2.00, 9999.00, 2, '0', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1276, 17, 89, 'single2', '单', NULL, 2.00, 2.00, 9999.00, 3, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1277, 17, 89, 'double2', '双', NULL, 2.00, 2.00, 9999.00, 4, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1276, 17, 89, 'single2', '单', NULL, 1.96, 2.00, 9999.00, 3, '0', '', NULL, '', '2025-07-21 21:13:24', '');
+INSERT INTO `sys_bet_item` VALUES (1277, 17, 89, 'double2', '双', NULL, 1.96, 2.00, 9999.00, 4, '0', '', NULL, '', '2025-07-21 21:13:27', '');
 INSERT INTO `sys_bet_item` VALUES (1278, 17, 89, 'loong2', '龙', NULL, 2.00, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1279, 17, 89, 'tiger2', '虎', NULL, 2.00, 2.00, 9999.00, 6, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1280, 17, 89, 'num1Under2', '1', NULL, 2.00, 2.00, 9999.00, 7, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1281, 17, 89, 'num2Under2', '2', NULL, 2.00, 2.00, 9999.00, 8, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1282, 17, 89, 'num3Under2', '3', NULL, 2.00, 2.00, 9999.00, 9, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1283, 17, 89, 'num4Under2', '4', NULL, 2.00, 2.00, 9999.00, 10, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1284, 17, 89, 'num5Under2', '5', NULL, 2.00, 2.00, 9999.00, 11, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1285, 17, 89, 'num6Under2', '6', NULL, 2.00, 2.00, 9999.00, 12, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1286, 17, 89, 'num7Under2', '7', NULL, 2.00, 2.00, 9999.00, 13, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1287, 17, 89, 'num8Under2', '8', NULL, 2.00, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1288, 17, 89, 'num9Under2', '9', NULL, 2.00, 2.00, 9999.00, 15, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1289, 17, 89, 'num10Under2', '10', NULL, 2.00, 2.00, 9999.00, 16, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1280, 17, 89, 'num1Under2', '1', NULL, 9.80, 2.00, 9999.00, 7, '0', '', NULL, '', '2025-07-24 21:40:12', '');
+INSERT INTO `sys_bet_item` VALUES (1281, 17, 89, 'num2Under2', '2', NULL, 9.80, 2.00, 9999.00, 8, '0', '', NULL, '', '2025-07-24 21:40:14', '');
+INSERT INTO `sys_bet_item` VALUES (1282, 17, 89, 'num3Under2', '3', NULL, 9.80, 2.00, 9999.00, 9, '0', '', NULL, '', '2025-07-24 21:40:17', '');
+INSERT INTO `sys_bet_item` VALUES (1283, 17, 89, 'num4Under2', '4', NULL, 9.80, 2.00, 9999.00, 10, '0', '', NULL, '', '2025-07-24 21:40:19', '');
+INSERT INTO `sys_bet_item` VALUES (1284, 17, 89, 'num5Under2', '5', NULL, 9.80, 2.00, 9999.00, 11, '0', '', NULL, '', '2025-07-24 21:40:21', '');
+INSERT INTO `sys_bet_item` VALUES (1285, 17, 89, 'num6Under2', '6', NULL, 9.80, 2.00, 9999.00, 12, '0', '', NULL, '', '2025-07-24 21:40:24', '');
+INSERT INTO `sys_bet_item` VALUES (1286, 17, 89, 'num7Under2', '7', NULL, 9.80, 2.00, 9999.00, 13, '0', '', NULL, '', '2025-07-24 21:40:27', '');
+INSERT INTO `sys_bet_item` VALUES (1287, 17, 89, 'num8Under2', '8', NULL, 9.80, 2.00, 9999.00, 14, '0', '', NULL, '', '2025-07-24 21:40:29', '');
+INSERT INTO `sys_bet_item` VALUES (1288, 17, 89, 'num9Under2', '9', NULL, 9.80, 2.00, 9999.00, 15, '0', '', NULL, '', '2025-07-24 21:40:32', '');
+INSERT INTO `sys_bet_item` VALUES (1289, 17, 89, 'num10Under2', '10', NULL, 9.80, 2.00, 9999.00, 16, '0', '', NULL, '', '2025-07-24 21:40:34', '');
 INSERT INTO `sys_bet_item` VALUES (1290, 17, 90, 'big3', '大', NULL, 1.96, 2.00, 9999.00, 1, '0', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1291, 17, 90, 'small3', '小', NULL, 1.96, 2.00, 9999.00, 2, '0', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1292, 17, 90, 'single3', '单', NULL, 2.00, 2.00, 9999.00, 3, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1293, 17, 90, 'double3', '双', NULL, 2.00, 2.00, 9999.00, 4, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1292, 17, 90, 'single3', '单', NULL, 1.96, 2.00, 9999.00, 3, '0', '', NULL, '', '2025-07-21 21:13:31', '');
+INSERT INTO `sys_bet_item` VALUES (1293, 17, 90, 'double3', '双', NULL, 1.96, 2.00, 9999.00, 4, '0', '', NULL, '', '2025-07-21 21:13:34', '');
 INSERT INTO `sys_bet_item` VALUES (1294, 17, 90, 'loong3', '龙', NULL, 2.00, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1295, 17, 90, 'tiger3', '虎', NULL, 2.00, 2.00, 9999.00, 6, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1296, 17, 90, 'num1Under3', '1', NULL, 2.00, 2.00, 9999.00, 7, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1297, 17, 90, 'num2Under3', '2', NULL, 2.00, 2.00, 9999.00, 8, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1298, 17, 90, 'num3Under3', '3', NULL, 2.00, 2.00, 9999.00, 9, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1299, 17, 90, 'num4Under3', '4', NULL, 2.00, 2.00, 9999.00, 10, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1300, 17, 90, 'num5Under3', '5', NULL, 2.00, 2.00, 9999.00, 11, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1301, 17, 90, 'num6Under3', '6', NULL, 2.00, 2.00, 9999.00, 12, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1302, 17, 90, 'num7Under3', '7', NULL, 2.00, 2.00, 9999.00, 13, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1303, 17, 90, 'num8Under3', '8', NULL, 2.00, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1304, 17, 90, 'num9Under3', '9', NULL, 2.00, 2.00, 9999.00, 15, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1305, 17, 90, 'num10Under3', '10', NULL, 2.00, 2.00, 9999.00, 16, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1296, 17, 90, 'num1Under3', '1', NULL, 9.80, 2.00, 9999.00, 7, '0', '', NULL, '', '2025-07-24 21:41:27', '');
+INSERT INTO `sys_bet_item` VALUES (1297, 17, 90, 'num2Under3', '2', NULL, 9.80, 2.00, 9999.00, 8, '0', '', NULL, '', '2025-07-24 21:41:46', '');
+INSERT INTO `sys_bet_item` VALUES (1298, 17, 90, 'num3Under3', '3', NULL, 9.80, 2.00, 9999.00, 9, '0', '', NULL, '', '2025-07-24 21:41:48', '');
+INSERT INTO `sys_bet_item` VALUES (1299, 17, 90, 'num4Under3', '4', NULL, 9.80, 2.00, 9999.00, 10, '0', '', NULL, '', '2025-07-24 21:41:50', '');
+INSERT INTO `sys_bet_item` VALUES (1300, 17, 90, 'num5Under3', '5', NULL, 9.80, 2.00, 9999.00, 11, '0', '', NULL, '', '2025-07-24 21:41:53', '');
+INSERT INTO `sys_bet_item` VALUES (1301, 17, 90, 'num6Under3', '6', NULL, 9.80, 2.00, 9999.00, 12, '0', '', NULL, '', '2025-07-24 21:41:56', '');
+INSERT INTO `sys_bet_item` VALUES (1302, 17, 90, 'num7Under3', '7', NULL, 9.80, 2.00, 9999.00, 13, '0', '', NULL, '', '2025-07-24 21:41:58', '');
+INSERT INTO `sys_bet_item` VALUES (1303, 17, 90, 'num8Under3', '8', NULL, 9.80, 2.00, 9999.00, 14, '0', '', NULL, '', '2025-07-24 21:42:01', '');
+INSERT INTO `sys_bet_item` VALUES (1304, 17, 90, 'num9Under3', '9', NULL, 9.80, 2.00, 9999.00, 15, '0', '', NULL, '', '2025-07-24 21:42:04', '');
+INSERT INTO `sys_bet_item` VALUES (1305, 17, 90, 'num10Under3', '10', NULL, 9.80, 2.00, 9999.00, 16, '0', '', NULL, '', '2025-07-24 21:42:07', '');
 INSERT INTO `sys_bet_item` VALUES (1306, 17, 91, 'big4', '大', NULL, 1.96, 2.00, 9999.00, 1, '0', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1307, 17, 91, 'small4', '小', NULL, 1.96, 2.00, 9999.00, 2, '0', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1308, 17, 91, 'single4', '单', NULL, 2.00, 2.00, 9999.00, 3, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1309, 17, 91, 'double4', '双', NULL, 2.00, 2.00, 9999.00, 4, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1308, 17, 91, 'single4', '单', NULL, 1.96, 2.00, 9999.00, 3, '0', '', NULL, '', '2025-07-21 21:13:39', '');
+INSERT INTO `sys_bet_item` VALUES (1309, 17, 91, 'double4', '双', NULL, 1.96, 2.00, 9999.00, 4, '0', '', NULL, '', '2025-07-21 21:13:42', '');
 INSERT INTO `sys_bet_item` VALUES (1310, 17, 91, 'loong4', '龙', NULL, 2.00, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1311, 17, 91, 'tiger4', '虎', NULL, 2.00, 2.00, 9999.00, 6, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1312, 17, 91, 'num1Under4', '1', NULL, 2.00, 2.00, 9999.00, 7, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1312, 17, 91, 'num1Under4', '1', NULL, 9.80, 2.00, 9999.00, 7, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1313, 17, 91, 'num2Under4', '2', NULL, 2.00, 2.00, 9999.00, 8, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1314, 17, 91, 'num3Under4', '3', NULL, 2.00, 2.00, 9999.00, 9, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1315, 17, 91, 'num4Under4', '4', NULL, 2.00, 2.00, 9999.00, 10, '1', '', NULL, '', NULL, '');
@@ -11413,14 +11414,14 @@ INSERT INTO `sys_bet_item` VALUES (1317, 17, 91, 'num6Under4', '6', NULL, 2.00, 
 INSERT INTO `sys_bet_item` VALUES (1318, 17, 91, 'num7Under4', '7', NULL, 2.00, 2.00, 9999.00, 13, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1319, 17, 91, 'num8Under4', '8', NULL, 2.00, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1320, 17, 91, 'num9Under4', '9', NULL, 2.00, 2.00, 9999.00, 15, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1321, 17, 91, 'num10Under4', '10', NULL, 2.00, 2.00, 9999.00, 16, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1321, 17, 91, 'num10Under4', '10', NULL, 9.80, 2.00, 9999.00, 16, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1322, 17, 92, 'big5', '大', NULL, 1.96, 2.00, 9999.00, 1, '0', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1323, 17, 92, 'small5', '小', NULL, 1.96, 2.00, 9999.00, 2, '0', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1324, 17, 92, 'single5', '单', NULL, 2.00, 2.00, 9999.00, 3, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1325, 17, 92, 'double5', '双', NULL, 2.00, 2.00, 9999.00, 4, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1324, 17, 92, 'single5', '单', NULL, 1.96, 2.00, 9999.00, 3, '0', '', NULL, '', '2025-07-21 21:13:46', '');
+INSERT INTO `sys_bet_item` VALUES (1325, 17, 92, 'double5', '双', NULL, 1.96, 2.00, 9999.00, 4, '0', '', NULL, '', '2025-07-21 21:13:49', '');
 INSERT INTO `sys_bet_item` VALUES (1326, 17, 92, 'loong5', '龙', NULL, 2.00, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1327, 17, 92, 'tiger5', '虎', NULL, 2.00, 2.00, 9999.00, 6, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1328, 17, 92, 'num1Under5', '1', NULL, 2.00, 2.00, 9999.00, 7, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1328, 17, 92, 'num1Under5', '1', NULL, 9.80, 2.00, 9999.00, 7, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1329, 17, 92, 'num2Under5', '2', NULL, 2.00, 2.00, 9999.00, 8, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1330, 17, 92, 'num3Under5', '3', NULL, 2.00, 2.00, 9999.00, 9, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1331, 17, 92, 'num4Under5', '4', NULL, 2.00, 2.00, 9999.00, 10, '1', '', NULL, '', NULL, '');
@@ -11429,12 +11430,12 @@ INSERT INTO `sys_bet_item` VALUES (1333, 17, 92, 'num6Under5', '6', NULL, 2.00, 
 INSERT INTO `sys_bet_item` VALUES (1334, 17, 92, 'num7Under5', '7', NULL, 2.00, 2.00, 9999.00, 13, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1335, 17, 92, 'num8Under5', '8', NULL, 2.00, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1336, 17, 92, 'num9Under5', '9', NULL, 2.00, 2.00, 9999.00, 15, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1337, 17, 92, 'num10Under5', '10', NULL, 2.00, 2.00, 9999.00, 16, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1337, 17, 92, 'num10Under5', '10', NULL, 9.80, 2.00, 9999.00, 16, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1338, 17, 93, 'big6', '大', NULL, 1.96, 2.00, 9999.00, 1, '0', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1339, 17, 93, 'small6', '小', NULL, 1.96, 2.00, 9999.00, 2, '0', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1340, 17, 93, 'single6', '单', NULL, 2.00, 2.00, 9999.00, 3, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1341, 17, 93, 'double6', '双', NULL, 2.00, 2.00, 9999.00, 4, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1342, 17, 93, 'num1Under6', '1', NULL, 2.00, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1340, 17, 93, 'single6', '单', NULL, 1.96, 2.00, 9999.00, 3, '0', '', NULL, '', '2025-07-21 21:13:53', '');
+INSERT INTO `sys_bet_item` VALUES (1341, 17, 93, 'double6', '双', NULL, 1.96, 2.00, 9999.00, 4, '0', '', NULL, '', '2025-07-21 21:13:57', '');
+INSERT INTO `sys_bet_item` VALUES (1342, 17, 93, 'num1Under6', '1', NULL, 9.80, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1343, 17, 93, 'num2Under6', '2', NULL, 2.00, 2.00, 9999.00, 6, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1344, 17, 93, 'num3Under6', '3', NULL, 2.00, 2.00, 9999.00, 7, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1345, 17, 93, 'num4Under6', '4', NULL, 2.00, 2.00, 9999.00, 8, '1', '', NULL, '', NULL, '');
@@ -11443,12 +11444,12 @@ INSERT INTO `sys_bet_item` VALUES (1347, 17, 93, 'num6Under6', '6', NULL, 2.00, 
 INSERT INTO `sys_bet_item` VALUES (1348, 17, 93, 'num7Under6', '7', NULL, 2.00, 2.00, 9999.00, 11, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1349, 17, 93, 'num8Under6', '8', NULL, 2.00, 2.00, 9999.00, 12, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1350, 17, 93, 'num9Under6', '9', NULL, 2.00, 2.00, 9999.00, 13, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1351, 17, 93, 'num10Under6', '10', NULL, 2.00, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1351, 17, 93, 'num10Under6', '10', NULL, 9.80, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1352, 17, 94, 'big7', '大', NULL, 1.96, 2.00, 9999.00, 1, '0', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1353, 17, 94, 'small7', '小', NULL, 1.96, 2.00, 9999.00, 2, '0', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1354, 17, 94, 'single7', '单', NULL, 2.00, 2.00, 9999.00, 3, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1355, 17, 94, 'double7', '双', NULL, 2.00, 2.00, 9999.00, 4, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1356, 17, 94, 'num1Under7', '1', NULL, 2.00, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1354, 17, 94, 'single7', '单', NULL, 1.96, 2.00, 9999.00, 3, '0', '', NULL, '', '2025-07-21 21:14:02', '');
+INSERT INTO `sys_bet_item` VALUES (1355, 17, 94, 'double7', '双', NULL, 1.96, 2.00, 9999.00, 4, '0', '', NULL, '', '2025-07-21 21:14:04', '');
+INSERT INTO `sys_bet_item` VALUES (1356, 17, 94, 'num1Under7', '1', NULL, 9.80, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1357, 17, 94, 'num2Under7', '2', NULL, 2.00, 2.00, 9999.00, 6, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1358, 17, 94, 'num3Under7', '3', NULL, 2.00, 2.00, 9999.00, 7, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1359, 17, 94, 'num4Under7', '4', NULL, 2.00, 2.00, 9999.00, 8, '1', '', NULL, '', NULL, '');
@@ -11457,12 +11458,12 @@ INSERT INTO `sys_bet_item` VALUES (1361, 17, 94, 'num6Under7', '6', NULL, 2.00, 
 INSERT INTO `sys_bet_item` VALUES (1362, 17, 94, 'num7Under7', '7', NULL, 2.00, 2.00, 9999.00, 11, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1363, 17, 94, 'num8Under7', '8', NULL, 2.00, 2.00, 9999.00, 12, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1364, 17, 94, 'num9Under7', '9', NULL, 2.00, 2.00, 9999.00, 13, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1365, 17, 94, 'num10Under7', '10', NULL, 2.00, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1365, 17, 94, 'num10Under7', '10', NULL, 9.80, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1366, 17, 95, 'big8', '大', NULL, 1.96, 2.00, 9999.00, 1, '0', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1367, 17, 95, 'small8', '小', NULL, 1.96, 2.00, 9999.00, 2, '0', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1368, 17, 95, 'single8', '单', NULL, 2.00, 2.00, 9999.00, 3, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1369, 17, 95, 'double8', '双', NULL, 2.00, 2.00, 9999.00, 4, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1370, 17, 95, 'num1Under8', '1', NULL, 2.00, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1368, 17, 95, 'single8', '单', NULL, 1.96, 2.00, 9999.00, 3, '0', '', NULL, '', '2025-07-21 21:14:09', '');
+INSERT INTO `sys_bet_item` VALUES (1369, 17, 95, 'double8', '双', NULL, 1.96, 2.00, 9999.00, 4, '0', '', NULL, '', '2025-07-21 21:14:12', '');
+INSERT INTO `sys_bet_item` VALUES (1370, 17, 95, 'num1Under8', '1', NULL, 9.80, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1371, 17, 95, 'num2Under8', '2', NULL, 2.00, 2.00, 9999.00, 6, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1372, 17, 95, 'num3Under8', '3', NULL, 2.00, 2.00, 9999.00, 7, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1373, 17, 95, 'num4Under8', '4', NULL, 2.00, 2.00, 9999.00, 8, '1', '', NULL, '', NULL, '');
@@ -11471,12 +11472,12 @@ INSERT INTO `sys_bet_item` VALUES (1375, 17, 95, 'num6Under8', '6', NULL, 2.00, 
 INSERT INTO `sys_bet_item` VALUES (1376, 17, 95, 'num7Under8', '7', NULL, 2.00, 2.00, 9999.00, 11, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1377, 17, 95, 'num8Under8', '8', NULL, 2.00, 2.00, 9999.00, 12, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1378, 17, 95, 'num9Under8', '9', NULL, 2.00, 2.00, 9999.00, 13, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1379, 17, 95, 'num10Under8', '10', NULL, 2.00, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1379, 17, 95, 'num10Under8', '10', NULL, 9.80, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1380, 17, 96, 'big9', '大', NULL, 1.96, 2.00, 9999.00, 1, '0', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1381, 17, 96, 'small9', '小', NULL, 1.96, 2.00, 9999.00, 2, '0', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1382, 17, 96, 'single9', '单', NULL, 2.00, 2.00, 9999.00, 3, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1383, 17, 96, 'double9', '双', NULL, 2.00, 2.00, 9999.00, 4, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1384, 17, 96, 'num1Under9', '1', NULL, 2.00, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1382, 17, 96, 'single9', '单', NULL, 1.96, 2.00, 9999.00, 3, '0', '', NULL, '', '2025-07-21 21:14:17', '');
+INSERT INTO `sys_bet_item` VALUES (1383, 17, 96, 'double9', '双', NULL, 1.96, 2.00, 9999.00, 4, '0', '', NULL, '', '2025-07-21 21:14:19', '');
+INSERT INTO `sys_bet_item` VALUES (1384, 17, 96, 'num1Under9', '1', NULL, 9.80, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1385, 17, 96, 'num2Under9', '2', NULL, 2.00, 2.00, 9999.00, 6, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1386, 17, 96, 'num3Under9', '3', NULL, 2.00, 2.00, 9999.00, 7, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1387, 17, 96, 'num4Under9', '4', NULL, 2.00, 2.00, 9999.00, 8, '1', '', NULL, '', NULL, '');
@@ -11485,12 +11486,12 @@ INSERT INTO `sys_bet_item` VALUES (1389, 17, 96, 'num6Under9', '6', NULL, 2.00, 
 INSERT INTO `sys_bet_item` VALUES (1390, 17, 96, 'num7Under9', '7', NULL, 2.00, 2.00, 9999.00, 11, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1391, 17, 96, 'num8Under9', '8', NULL, 2.00, 2.00, 9999.00, 12, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1392, 17, 96, 'num9Under9', '9', NULL, 2.00, 2.00, 9999.00, 13, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1393, 17, 96, 'num10Under9', '10', NULL, 2.00, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1393, 17, 96, 'num10Under9', '10', NULL, 9.80, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1394, 17, 97, 'big10', '大', NULL, 1.96, 2.00, 9999.00, 1, '0', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1395, 17, 97, 'small10', '小', NULL, 1.96, 2.00, 9999.00, 2, '0', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1396, 17, 97, 'single10', '单', NULL, 2.00, 2.00, 9999.00, 3, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1397, 17, 97, 'double10', '双', NULL, 2.00, 2.00, 9999.00, 4, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1398, 17, 97, 'num1Under10', '1', NULL, 2.00, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1396, 17, 97, 'single10', '单', NULL, 1.96, 2.00, 9999.00, 3, '0', '', NULL, '', '2025-07-21 21:14:24', '');
+INSERT INTO `sys_bet_item` VALUES (1397, 17, 97, 'double10', '双', NULL, 1.96, 2.00, 9999.00, 4, '0', '', NULL, '', '2025-07-21 21:14:27', '');
+INSERT INTO `sys_bet_item` VALUES (1398, 17, 97, 'num1Under10', '1', NULL, 9.80, 2.00, 9999.00, 5, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1399, 17, 97, 'num2Under10', '2', NULL, 2.00, 2.00, 9999.00, 6, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1400, 17, 97, 'num3Under10', '3', NULL, 2.00, 2.00, 9999.00, 7, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1401, 17, 97, 'num4Under10', '4', NULL, 2.00, 2.00, 9999.00, 8, '1', '', NULL, '', NULL, '');
@@ -11499,7 +11500,7 @@ INSERT INTO `sys_bet_item` VALUES (1403, 17, 97, 'num6Under10', '6', NULL, 2.00,
 INSERT INTO `sys_bet_item` VALUES (1404, 17, 97, 'num7Under10', '7', NULL, 2.00, 2.00, 9999.00, 11, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1405, 17, 97, 'num8Under10', '8', NULL, 2.00, 2.00, 9999.00, 12, '1', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_item` VALUES (1406, 17, 97, 'num9Under10', '9', NULL, 2.00, 2.00, 9999.00, 13, '1', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_item` VALUES (1407, 17, 97, 'num10Under10', '10', NULL, 2.00, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_item` VALUES (1407, 17, 97, 'num10Under10', '10', NULL, 9.80, 2.00, 9999.00, 14, '1', '', NULL, '', NULL, '');
 
 -- ----------------------------
 -- Table structure for sys_bet_type
@@ -11611,7 +11612,7 @@ INSERT INTO `sys_bet_type` VALUES (85, 5, '特码', 2, '0', '', NULL, '', '2024-
 INSERT INTO `sys_bet_type` VALUES (86, 5, '特殊', 3, '0', '', NULL, '', '2024-11-09 14:47:26', '');
 INSERT INTO `sys_bet_type` VALUES (88, 17, '猜冠军', 2, '0', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_type` VALUES (89, 17, '猜亚军', 3, '0', '', NULL, '', NULL, '');
-INSERT INTO `sys_bet_type` VALUES (90, 17, '猜第三名', 4, '0', '', NULL, '', NULL, '');
+INSERT INTO `sys_bet_type` VALUES (90, 17, '猜季军', 4, '0', '', NULL, '', '2025-07-24 21:45:20', '');
 INSERT INTO `sys_bet_type` VALUES (91, 17, '猜第四名', 5, '0', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_type` VALUES (92, 17, '猜第五名', 6, '0', '', NULL, '', NULL, '');
 INSERT INTO `sys_bet_type` VALUES (93, 17, '猜第六名', 7, '0', '', NULL, '', NULL, '');
@@ -11633,8 +11634,6 @@ CREATE TABLE `sys_calendar`  (
 -- ----------------------------
 -- Records of sys_calendar
 -- ----------------------------
-INSERT INTO `sys_calendar` VALUES (774, '2025-07-19 00:00:00');
-INSERT INTO `sys_calendar` VALUES (775, '2025-07-20 00:00:00');
 
 -- ----------------------------
 -- Table structure for sys_chat
@@ -11694,7 +11693,7 @@ CREATE TABLE `sys_config`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`config_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 83 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '参数配置表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 82 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '参数配置表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_config
@@ -11705,34 +11704,33 @@ INSERT INTO `sys_config` VALUES (3, '主框架页-侧边栏主题', 'sys.index.s
 INSERT INTO `sys_config` VALUES (4, '账号自助-验证码开关', 'sys.account.captchaEnabled', 'false', 'Y', 'admin', '2024-03-05 21:03:11', 'admin', '2025-07-20 22:03:11', '是否开启验证码功能（true开启，false关闭）');
 INSERT INTO `sys_config` VALUES (5, '账号自助-是否开启用户注册功能', 'sys.account.registerUser', 'false', 'Y', 'admin', '2024-03-05 21:03:11', '', NULL, '是否开启注册用户功能（true开启，false关闭）');
 INSERT INTO `sys_config` VALUES (6, '用户登录-黑名单列表', 'sys.login.blackIPList', '', 'Y', 'admin', '2024-03-05 21:03:11', '', NULL, '设置登录IP黑名单限制，多个匹配项以;分隔，支持匹配（*通配、网段）');
-INSERT INTO `sys_config` VALUES (7, '充值最小金额', 'sys.change.min', '10', 'Y', 'admin', '2024-04-23 20:12:13', 'sharkadmin', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (8, '提现最小金额', 'sys.postal.min', '10', 'Y', 'admin', '2024-04-23 21:27:38', 'admin', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (9, '每日提现次数', 'sys.postal.maxCnt', '3', 'Y', 'admin', '2024-04-23 21:29:58', '', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (13, 'app首页公告内容', 'sys.app.home.notice', '本台交易支持，微信，支付宝，银联，USDT,上分前请先私聊台子上的在线客服，不要乱转哦，谢谢配合', 'Y', 'admin', '2024-05-26 20:09:01', 'admin', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (14, '获取官方开奖结果的URL', 'sys.opengame.url', 'http://api.pbservice-wpi.top/home/api/getCodeData?code=', 'Y', 'admin', '2024-05-27 20:11:29', 'admin', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (15, 'LOGO图片地址', 'sys.logo.img', '/profile/upload/2025/01/06/e258421354bea68c00b71f77d0902e07_20250106214043A013.png', 'Y', '', '2024-06-09 17:42:34', '', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (16, '微信客服图片地址', 'sys.wechat.img', '/profile/upload/2025/01/06/a8e7668ff5b44ae7dfcede76b15efe76_20250106214109A014.png', 'Y', '', '2024-06-19 21:21:09', '', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (17, 'QQ客服图片地址', 'sys.qqchat.img', '/profile/upload/2025/01/06/a8e7668ff5b44ae7dfcede76b15efe76_20250106214112A015.png', 'Y', '', '2024-06-19 21:21:09', 'sharkadmin', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (18, '站点开关', 'sys.site.openFlg', 'true', 'Y', 'admin', '2024-07-23 18:55:09', 'admin', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (19, '网站类型', 'sys.web.type', '9007', 'Y', 'admin', '2024-08-04 02:11:49', 'admin', '2025-07-20 23:18:28', '二维码服务器webType（唯一）');
-INSERT INTO `sys_config` VALUES (20, '网站名', 'sys.web.name', '超级幸运', 'Y', 'admin', '2024-08-04 02:12:40', '', '2025-07-20 23:18:28', '网站名');
-INSERT INTO `sys_config` VALUES (21, '微信小程序appId', 'sys.wechat.appId', 'wx5c39c26d383d4b93', 'Y', 'admin', '2024-08-05 21:03:18', 'admin', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (22, '微信小程序密钥', 'sys.wechat.appSecret', '1dbf25077623d8456e84c6f70994a6ee', 'Y', 'admin', '2024-08-05 21:04:24', '', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (23, '自开彩种赢亏比率', 'sys.game.winRate', '30.0', 'Y', '', '2024-08-13 14:24:24', '', '2025-07-20 23:18:28', NULL);
+INSERT INTO `sys_config` VALUES (7, '充值最小金额', 'sys.change.min', '10', 'Y', 'admin', '2024-04-23 20:12:13', 'sharkadmin', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (8, '提现最小金额', 'sys.postal.min', '10', 'Y', 'admin', '2024-04-23 21:27:38', 'admin', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (9, '每日提现次数', 'sys.postal.maxCnt', '3', 'Y', 'admin', '2024-04-23 21:29:58', '', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (13, 'app首页公告内容', 'sys.app.home.notice', '本台交易支持，微信，支付宝，银联，USDT,上分前请先私聊台子上的在线客服，不要乱转哦，谢谢配合', 'Y', 'admin', '2024-05-26 20:09:01', 'admin', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (14, '获取官方开奖结果的URL', 'sys.opengame.url', 'http://api.pbservice-wpi.top/home/api/getCodeData?code=', 'Y', 'admin', '2024-05-27 20:11:29', 'admin', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (15, 'LOGO图片地址', 'sys.logo.img', '/profile/upload/2025/01/06/e258421354bea68c00b71f77d0902e07_20250106214043A013.png', 'Y', '', '2024-06-09 17:42:34', '', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (16, '微信客服图片地址', 'sys.wechat.img', '/profile/upload/2025/01/06/a8e7668ff5b44ae7dfcede76b15efe76_20250106214109A014.png', 'Y', '', '2024-06-19 21:21:09', '', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (17, 'QQ客服图片地址', 'sys.qqchat.img', '/profile/upload/2025/01/06/a8e7668ff5b44ae7dfcede76b15efe76_20250106214112A015.png', 'Y', '', '2024-06-19 21:21:09', 'sharkadmin', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (18, '站点开关', 'sys.site.openFlg', 'true', 'Y', 'admin', '2024-07-23 18:55:09', 'admin', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (19, '网站类型', 'sys.web.type', '9007', 'Y', 'admin', '2024-08-04 02:11:49', 'admin', '2025-07-21 20:10:32', '二维码服务器webType（唯一）');
+INSERT INTO `sys_config` VALUES (20, '网站名', 'sys.web.name', '超级幸运', 'Y', 'admin', '2024-08-04 02:12:40', '', '2025-07-21 20:10:32', '网站名');
+INSERT INTO `sys_config` VALUES (21, '微信小程序appId', 'sys.wechat.appId', 'wx5c39c26d383d4b93', 'Y', 'admin', '2024-08-05 21:03:18', 'admin', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (22, '微信小程序密钥', 'sys.wechat.appSecret', '1dbf25077623d8456e84c6f70994a6ee', 'Y', 'admin', '2024-08-05 21:04:24', '', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (23, '自开彩种赢亏比率', 'sys.game.winRate', '30.0', 'Y', '', '2024-08-13 14:24:24', '', '2025-07-21 20:10:32', NULL);
 INSERT INTO `sys_config` VALUES (24, '授权域名', 'sys.wechat.authUrl', 'http://djhsq.sfvef.cn', 'Y', '', '2024-08-14 22:42:57', 'admin', '2024-12-31 20:51:56', NULL);
-INSERT INTO `sys_config` VALUES (25, '客服端聊天地址', 'sys.im.kefuUrl', 'http://103.100.170.126:81', 'Y', '', '2024-08-23 22:18:53', '', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (26, '玩家端聊天地址', 'sys.im.appUrl', 'http://103.100.170.126:81/h5', 'Y', '', '2024-08-23 22:18:53', '', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (27, '二维码服务器IP', 'sys.web.qrServer', 'http://101.32.52.232', 'Y', '', '2024-08-23 22:18:53', '', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (28, '阿里云IP查询AppCode', 'sys.ali.cloudApiCode', 'fb9847d600ab4eccaac76f57facdd52f', 'N', '', '2024-09-26 21:10:17', '', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (31, '拒绝访问服务商', 'sys.refuse.isp', '腾讯云,华数传媒,华数传媒/联通,Oracle,Google,Amazon/EC2,阿里云/阿里巴巴,阿里云', 'N', '', '2024-09-26 21:10:17', '', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (42, '微信拦截状态接口Code', 'sys.wxAutoCheck.apiCode', 'e15f1ab30cf671b1b75763ef10945418', 'N', '', '2024-10-12 12:35:27', '', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (53, 'app首页公告内容', 'sys.app.home.appHomeAnnouncement', '平台下方有在线客服，有什么问题请联系客服!平台上分实名制，\n上下分必须要同名同姓，一天提两次。每隔三小时提一次，\n有什么不清楚可以联系在线客服了解，祝各位老板娱乐愉快!\n注册账号建议:为保护个人隐私，请不要填写真实手机号码', 'N', '', '2024-11-03 16:31:44', '', '2025-07-20 23:18:28', NULL);
-INSERT INTO `sys_config` VALUES (60, '拒绝访问省份', 'sys.refuse.province', '加利福尼亚州,弗吉尼亚州,俄亥俄州,魁北克省', 'N', '', '2024-11-05 16:13:48', '', '2025-07-20 23:18:28', NULL);
+INSERT INTO `sys_config` VALUES (25, '客服端聊天地址', 'sys.im.kefuUrl', 'http://103.100.170.126:81', 'Y', '', '2024-08-23 22:18:53', '', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (26, '玩家端聊天地址', 'sys.im.appUrl', 'http://103.100.170.126:81/h5', 'Y', '', '2024-08-23 22:18:53', '', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (27, '二维码服务器IP', 'sys.web.qrServer', 'http://101.32.52.232', 'Y', '', '2024-08-23 22:18:53', '', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (28, '阿里云IP查询AppCode', 'sys.ali.cloudApiCode', 'fb9847d600ab4eccaac76f57facdd52f', 'N', '', '2024-09-26 21:10:17', '', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (31, '拒绝访问服务商', 'sys.refuse.isp', '腾讯云,华数传媒,华数传媒/联通,Oracle,Google,Amazon/EC2,阿里云/阿里巴巴,阿里云', 'N', '', '2024-09-26 21:10:17', '', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (42, '微信拦截状态接口Code', 'sys.wxAutoCheck.apiCode', 'e15f1ab30cf671b1b75763ef10945418', 'N', '', '2024-10-12 12:35:27', '', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (53, 'app首页公告内容', 'sys.app.home.appHomeAnnouncement', '平台下方有在线客服，有什么问题请联系客服!平台上分实名制，\n上下分必须要同名同姓，一天提两次。每隔三小时提一次，\n有什么不清楚可以联系在线客服了解，祝各位老板娱乐愉快!\n注册账号建议:为保护个人隐私，请不要填写真实手机号码', 'N', '', '2024-11-03 16:31:44', '', '2025-07-21 20:10:32', NULL);
+INSERT INTO `sys_config` VALUES (60, '拒绝访问省份', 'sys.refuse.province', '加利福尼亚州,弗吉尼亚州,俄亥俄州,魁北克省', 'N', '', '2024-11-05 16:13:48', '', '2025-07-21 20:10:32', NULL);
 INSERT INTO `sys_config` VALUES (67, '佣金转出设置', 'sys.commission.transfer.flag', '1', 'Y', 'admin', '2024-11-14 22:11:34', '', NULL, '0:直接转入余额 1：需要转出设置');
 INSERT INTO `sys_config` VALUES (78, '二维码服务器端口', 'sys.qrweb.port', '6678', 'Y', 'admin', '2025-01-06 21:58:47', 'admin', '2025-01-06 22:07:37', NULL);
 INSERT INTO `sys_config` VALUES (79, '二维码服务器同步端口', 'sys.qrweb.api.port', '6678', 'Y', 'admin', '2025-01-06 23:24:39', '', NULL, NULL);
 INSERT INTO `sys_config` VALUES (81, '1', '1', '1', 'Y', 'admin', '2025-01-20 19:11:31', '', NULL, NULL);
-INSERT INTO `sys_config` VALUES (82, '拒绝访问城市', 'sys.refuse.city', '', 'N', '', '2025-07-20 23:18:28', '', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sys_dept
@@ -12062,7 +12060,7 @@ INSERT INTO `sys_game` VALUES (5, '/profile/upload/2024/12/04/比特2.8_20241204
 INSERT INTO `sys_game` VALUES (6, '/profile/upload/2024/12/03/极速赛车_20241203235950A006.jpg', '10', 'mssc', 'jssc', '极速赛车', '极速赛车', 0x3C703EE38090E6BEB3E6B4B2E69E81E9809FE8B59BE8BDA6E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D3130E8BDA6E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE586A0E4BA9AE5928C20E5A4A72FE58F8CEFBC9A322E31E5808D266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703BE5B08F2FE58D95EFBC9A312E37E5808D266E6273703B332F342F31382F3139EFBC9A3431E5808D266E6273703B352F362F31362F3137EFBC9A3230E5808D266E6273703B372F382F31342F3135EFBC9A3133E5808D266E6273703B392F31302F31322F3133EFBC9A39E5808D266E6273703B3131EFBC9AE590ABE69CAC37E5808D266E6273703B266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E266E6273703BE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6266E6273703BE9BE992FE8998EEFBC9A3130303030E5B081E9A1B6E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E7A68FE588A9E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3135E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E380913C2F703E, NULL, 'game_tenball_record', 'game_tenball_kj', 0.50, NULL, NULL, 1.00, 5.00, 50000.00, 0, 23, 75, 40, NULL, 6, '1', 'Y', 0, '0000', '2359', 'N', '', '2024-03-06 22:34:06', '', '2025-07-20 21:12:53', '');
 INSERT INTO `sys_game` VALUES (7, '/profile/upload/2024/03/09/azxy52_20240309201631A006.jpg', '5', 'azxy52', 'azxy10', '澳洲幸运5高赔率', '澳洲幸运5高赔率', 0xE38090E6BEB3E6B4B2E5B9B8E8BF9035266E6273703B392E39E8B594E78E87E8AFB4E6988EE38091E38090E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D302D39E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81E38090E99990E9A29DE8AFB4E6988EE38091E680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6E5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6E58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6E586A0E4BA9AE59088EFBC9A35303030E5B081E9A1B6E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091, NULL, 'game_fiveball_record', 'game_fiveball_kj', 0.00, NULL, NULL, 5.00, 5.00, 100000.00, 0, 70, 0, 20, NULL, 7, '1', 'Y', 0, '0000', '2359', 'N', '', '2024-03-06 22:34:06', '', '2024-05-25 21:28:29', '');
 INSERT INTO `sys_game` VALUES (8, '/profile/upload/2024/12/04/澳洲5_20241204000007A007.jpg', '5', 'azxy5', 'azxy5', '澳洲幸运5', '澳洲幸运5', 0x3C703EE38090E6BEB3E6B4B2E5B9B8E8BF9035266E6273703B392E39E8B594E78E87E8AFB4E6988EE38091E38090E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D302D39E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81E38090E99990E9A29DE8AFB4E6988EE38091E680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6E5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6E58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6E586A0E4BA9AE59088EFBC9A35303030E5B081E9A1B6E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E380913C2F703E, 'Azxy5', 'game_fiveball_record', 'game_fiveball_kj', 0.50, NULL, NULL, 1.00, 5.00, 100000.00, 15, 102, 300, 88, NULL, 8, '1', 'Y', 0, '0000', '2359', 'N', '', '2024-03-06 22:34:06', '', '2025-07-20 21:12:58', '');
-INSERT INTO `sys_game` VALUES (9, '/profile/upload/2025/07/20/azxy10_20240309201934A009_20250720223600A002.jpg', '10', 'azxy10', 'azxy10', '澳洲幸运10', '澳洲幸运10', 0x3C703EE38090E6BEB3E6B4B2E5B9B8E8BF903130266E6273703B20392E39E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D3130E8BDA6E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE586A0E4BA9AE5928C20E5A4A72FE58F8CEFBC9A322E31E5808D266E6273703B20266E6273703B20266E6273703B20266E6273703B20266E6273703B20266E6273703BE5B08F2FE58D95EFBC9A312E37E5808D266E6273703B332F342F31382F3139EFBC9A3431E5808D266E6273703B352F362F31362F3137EFBC9A3230E5808D266E6273703B372F382F31342F3135EFBC9A3133E5808D266E6273703B392F31302F31322F3133EFBC9A39E5808D266E6273703B3131EFBC9AE590ABE69CAC37E5808D266E6273703B266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E266E6273703BE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6266E6273703BE9BE992FE8998EEFBC9A3130303030E5B081E9A1B6E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E380913C2F703E, 'Azxy10', 'game_tenball_record', 'game_tenball_kj', 0.50, NULL, NULL, 1.00, 5.00, 300000.00, 15, 120, 300, 45, NULL, 9, '1', 'N', 0, '0000', '2359', 'N', '', '2024-03-06 22:34:06', '', '2025-07-20 23:04:46', '');
+INSERT INTO `sys_game` VALUES (9, '/profile/upload/2025/07/20/azxy10_20240309201934A009_20250720223600A002.jpg', '10', 'azxy10', 'azxy10', '澳洲幸运10', '澳洲幸运10', 0x3C703EE38090E6BEB3E6B4B2E5B9B8E8BF903130266E6273703B20392E39E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D3130E8BDA6E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE586A0E4BA9AE5928C20E5A4A72FE58F8CEFBC9A322E31E5808D266E6273703B20266E6273703B20266E6273703B20266E6273703B20266E6273703B20266E6273703BE5B08F2FE58D95EFBC9A312E37E5808D266E6273703B332F342F31382F3139EFBC9A3431E5808D266E6273703B352F362F31362F3137EFBC9A3230E5808D266E6273703B372F382F31342F3135EFBC9A3133E5808D266E6273703B392F31302F31322F3133EFBC9A39E5808D266E6273703B3131EFBC9AE590ABE69CAC37E5808D266E6273703B266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E266E6273703BE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6266E6273703BE9BE992FE8998EEFBC9A3130303030E5B081E9A1B6E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E380913C2F703E, 'Azxy10', 'game_tenball_record', 'game_tenball_kj', 0.50, NULL, NULL, 1.00, 5.00, 300000.00, 15, 120, 300, 45, NULL, 9, '1', 'N', 0, '0000', '2359', 'N', '', '2024-03-06 22:34:06', '', '2025-07-24 21:43:20', '');
 INSERT INTO `sys_game` VALUES (10, '/profile/upload/2024/03/09/azxy10_20240309201934A009.jpg', '10', 'azxy102', 'azxy10', '澳洲幸运10高赔率', '澳洲幸运10高赔率', 0xE38090E6BEB3E6B4B2E5B9B8E8BF903130266E6273703B20392E39E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D3130E8BDA6E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE586A0E4BA9AE5928C20E5A4A72FE58F8CEFBC9A322E31E5808D266E6273703B20266E6273703B20266E6273703B20266E6273703B20266E6273703B20266E6273703BE5B08F2FE58D95EFBC9A312E37E5808D266E6273703B332F342F31382F3139EFBC9A3431E5808D266E6273703B352F362F31362F3137EFBC9A3230E5808D266E6273703B372F382F31342F3135EFBC9A3133E5808D266E6273703B392F31302F31322F3133EFBC9A39E5808D266E6273703B3131EFBC9AE590ABE69CAC37E5808D266E6273703B266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E266E6273703BE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6266E6273703BE9BE992FE8998EEFBC9A3130303030E5B081E9A1B6E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091, NULL, 'game_tenball_record', 'game_tenball_kj', 0.00, NULL, NULL, 5.00, 5.00, 300000.00, 0, 70, 0, 20, NULL, 10, '1', 'Y', 0, '0000', '2359', 'N', '', '2024-03-06 22:34:06', '', '2024-03-09 20:20:07', '');
 INSERT INTO `sys_game` VALUES (11, '/profile/upload/2024/12/04/幸运飞艇_20241204000031A008.jpg', '10', 'xyft', 'xyft', '幸运飞艇', '幸运飞艇', 0x3C703EE38090E5B9B8E8BF90E9A39EE88987392E39E8B594E78E87E8AFB4E6988EE38091E38090E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808DEFBC88E590ABE69CACE98791EFBC893130E8BDA6E58FB7EFBC9A392E39E5808DEFBC88E590ABE69CACE98791EFBC89E9BE992FE8998EEFBC9A312E3938E5808DEFBC88E590ABE69CACE98791EFBC89E586A0E4BA9AE5928CE5A4A72FE58F8CEFBC9A322E31E5808DEFBC88E590ABE69CACE98791EFBC89E5B08F2FE58D95EFBC9A312E37E5808DEFBC88E590ABE69CACE98791EFBC89332F342F31382F3139EFBC9AE590ABE69CAC3431E5808D352F362F31362F3137EFBC9AE590ABE69CAC3230E5808D372F382F31342F3135EFBC9AE590ABE69CAC3133E5808D392F31302F31322F3133EFBC9AE590ABE69CAC39E5808D3131EFBC9AE590ABE69CAC37E5808D317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E2062722FE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091E680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6E5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6E58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6E586A0E4BA9AE59088EFBC9A35303030E5B081E9A1B6E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E380913C2F703E, NULL, 'game_tenball_record', 'game_tenball_kj', 0.50, NULL, NULL, 1.00, 5.00, 20000.00, 15, 120, 300, 32, NULL, 11, '1', 'Y', 0, '0000', '2359', 'N', '', '2024-03-06 22:34:06', '', '2025-07-20 21:13:05', '');
 INSERT INTO `sys_game` VALUES (12, '/profile/upload/2024/03/09/jssc_20240309202124A011.jpg', '10', 'jssc', 'jssc', '168极速赛车', '168极速赛车', 0xE38090E69E81E9809FE8B59BE8BDA6392E39E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D3130E8BDA6E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE586A0E4BA9AE5928C20E5A4A72FE58F8CEFBC9A322E31E5808D266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703BE5B08F2FE58D95EFBC9A312E37E5808D266E6273703B332F342F31382F3139EFBC9A3431E5808D266E6273703B352F362F31362F3137EFBC9A3230E5808D266E6273703B372F382F31342F3135EFBC9A3133E5808D266E6273703B392F31302F31322F3133EFBC9A39E5808D266E6273703B3131EFBC9AE590ABE69CAC37E5808D266E6273703B266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E266E6273703BE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6266E6273703BE9BE992FE8998EEFBC9A3130303030E5B081E9A1B6E38090E4BA8FE68D9FE697A0E58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, 'Jssc', 'game_tenball_record', 'game_tenball_kj', 0.00, NULL, NULL, 5.00, 5.00, 20000.00, 0, 35, 0, 20, NULL, 12, '1', 'Y', 0, '0000', '2359', 'N', '', '2024-03-06 22:34:06', '', '2024-03-09 20:21:54', '');
@@ -12070,7 +12068,7 @@ INSERT INTO `sys_game` VALUES (13, '/profile/upload/2024/12/04/极速飞艇_2024
 INSERT INTO `sys_game` VALUES (14, '/profile/upload/2024/03/09/jssc2_20240309202640A013.jpg', '10', 'jssc2', 'jssc', '168极速赛车高赔率', '168极速赛车高赔率', 0xE38090E69E81E9809FE8B59BE8BDA6392E39E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D3130E8BDA6E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE586A0E4BA9AE5928C20E5A4A72FE58F8CEFBC9A322E31E5808D266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703BE5B08F2FE58D95EFBC9A312E37E5808D266E6273703B332F342F31382F3139EFBC9A3431E5808D266E6273703B352F362F31362F3137EFBC9A3230E5808D266E6273703B372F382F31342F3135EFBC9A3133E5808D266E6273703B392F31302F31322F3133EFBC9A39E5808D266E6273703B3131EFBC9AE590ABE69CAC37E5808D266E6273703B266E6273703BE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E266E6273703BE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6266E6273703BE58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6266E6273703BE9BE992FE8998EEFBC9A3130303030E5B081E9A1B6E38090E4BA8FE68D9FE697A0E58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E38091, NULL, 'game_tenball_record', 'game_tenball_kj', 0.00, NULL, NULL, 5.00, 5.00, 20000.00, 0, 35, 0, 20, NULL, 14, '1', 'Y', 0, '0000', '2359', 'N', '', '2024-03-06 22:34:06', '', '2024-03-09 20:27:07', '');
 INSERT INTO `sys_game` VALUES (15, '/profile/upload/2024/12/04/极速时时彩_20241204000726A013.jpg', '5', 'jsssc', 'jsssc', '极速时时彩', '极速时时彩', 0x3C703EE38090E69E81E9809FE697B6E697B6E5BDA9E8B594E78E87E8AFB4E6988EE38091E38090E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808D302D39E58FB7EFBC9A392E39E5808DE9BE992FE8998EEFBC9A312E3938E5808DE4BBA5E4B88AE68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81E38090E99990E9A29DE8AFB4E6988EE38091E680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6E5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6E58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6E586A0E4BA9AE59088EFBC9A35303030E5B081E9A1B6E38090E4BA8FE68D9FE697A0E58F8DE6B0B4E38091E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091E38090E6999AE4B88A30303A3030E7B3BBE7BB9FE887AAE58AA8E58F8DE585A5E8B4A6E58D95EFBC8CE4B8AAE4BABAE5B890E58F98E8AEB0E5BD95E69FA5E8AFA2E380913C2F703E, 'Jsssc', 'game_fiveball_record', 'game_fiveball_kj', 0.50, NULL, NULL, 1.00, 5.00, 100000.00, 10, 22, 65, 26, NULL, 15, '1', 'N', 0, '0000', '2359', 'N', '', '2024-03-06 22:34:06', '', '2025-07-20 21:13:08', '');
 INSERT INTO `sys_game` VALUES (16, '/profile/upload/2024/03/09/xyft2_20240309202820A015.jpg', '10', 'xyft2', 'xyft', '幸运飞艇高赔率', '幸运飞艇高赔率', 0xE38090E5B9B8E8BF90E9A39EE88987392E39E8B594E78E87E8AFB4E6988EE38091E38090E8B594E78E87E8AFB4E6988EE38091E5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808DEFBC88E590ABE69CACE98791EFBC893130E8BDA6E58FB7EFBC9A392E39E5808DEFBC88E590ABE69CACE98791EFBC89E9BE992FE8998EEFBC9A312E3938E5808DEFBC88E590ABE69CACE98791EFBC89E586A0E4BA9AE5928CE5A4A72FE58F8CEFBC9A322E31E5808DEFBC88E590ABE69CACE98791EFBC89E5B08F2FE58D95EFBC9A312E37E5808DEFBC88E590ABE69CACE98791EFBC89332F342F31382F3139EFBC9AE590ABE69CAC3431E5808D352F362F31362F3137EFBC9AE590ABE69CAC3230E5808D372F382F31342F3135EFBC9AE590ABE69CAC3133E5808D392F31302F31322F3133EFBC9AE590ABE69CAC39E5808D3131EFBC9AE590ABE69CAC37E5808D317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE78C9CE9BE99E8998E2062722FE7ACAC31E5908D7673E7ACAC3130E5908DEFBC8CE7ACAC32E5908D7673E7ACAC39E5908DEFBC8CE7ACAC33E5908D7673E7ACAC38E5908DEFBC8CE7ACAC34E5908D7673E7ACAC37E5908DEFBC8CE7ACAC35E5908D7673E7ACAC36E5908DEFBC8CE5898DE6AF94E5908EE5A4A7E4B8BAE9BE99EFBC8CE58F8DE4B98BE4B8BAE8998E266E6273703BE78C9CE586A0E4BA9A266E6273703BE78C9CE586A0E5869BE58F8AE4BA9AE5869BE58FB7E7A081EFBC8CE6AF8FE6ACA1E7AB9EE78C9C32E4B8AAE58FB7E7A081EFBC8CE9A1BAE5BA8FE4B88DE99990E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE5A4A7E5B08FE58D95E58F8CEFBC9AE586A0E5869BE58FB7E7A0812BE4BA9AE5869BE58FB7E7A0813DE586A0E4BA9AE5928CE580BC3DE789B9E7A0813DE695B0E5AD97337E3139EFBC8CE586A0E4BA9AE5928CE580BCE5A4A7E4BA8EE68896E7AD89E4BA8E3132E4B8BAE5A4A7EFBC8CE5B08FE4BA8EE68896E7AD89E4BA8E3131E4B8BAE5B08FE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE586A0E4BA9AE5928CE580BCEFBC88E789B9E7A081EFBC89E78C9CE695B0E5AD97EFBC9AE38090E586A0E4BA9AE5928CE580BCE38091E4B8BAE38090E789B9E7A081E38091E58FAFE883BDE587BAE78EB0E79A84E7BB93E69E9CE4B8BA337E3139EFBC8CE7AB9EE78C9CE4B8ADE5AFB9E5BA94E38090E586A0E4BA9AE5928CE580BCE38091E695B0E5AD97E79A84E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E8A786E4B8BAE4B88DE4B8ADE5A596E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091E680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6E5A4A7E5B08FE58D95E58F8CEFBC9A3430303030E5B081E9A1B6E58D95E58FB7E7A081EFBC9A3130303030E5B081E9A1B6E586A0E4BA9AE59088EFBC9A35303030E5B081E9A1B6E38090E4B88AE7BAA7E4BDA3E98791E58D83E58886E4B98B33E38091E38090E6B581E6B0B4E59B9EE6B0B4E58D83E58886E4B98B35E38091, 'Fei', 'game_tenball_record', 'game_tenball_kj', 0.00, NULL, NULL, 5.00, 5.00, 20000.00, 0, 110, 0, 20, NULL, 16, '1', 'Y', 0, '0000', '2359', 'N', '', '2024-03-06 22:34:06', '', '2024-03-09 20:28:48', '');
-INSERT INTO `sys_game` VALUES (17, '/profile/upload/2025/07/20/ctsc_20250720223929A005.jpg', '10', 'ctsc', 'ctsc', '传统赛车', '传统赛车', 0x3C703EE38090E4BCA0E7BB9FE8B59BE8BDA6E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091E58D952FE58F8CEFBC9A312E3938E5808DE38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082266E6273703BE78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE58D95E58F8CEFBC9A3430303030E5B081E9A1B63C2F703E, NULL, 'game_tenball_record', 'game_tenball_kj', 0.00, NULL, NULL, 0.00, 5.00, 300000.00, 0, 60, 300, 0, NULL, 1, '0', 'N', 0, '0000', '2359', 'Y', '', '2025-07-20 22:38:48', '', '2025-07-20 23:06:22', '');
+INSERT INTO `sys_game` VALUES (17, '/profile/upload/2025/07/20/ctsc_20250720223929A005.jpg', '10', 'ctsc', 'ctsc', '传统赛车', '传统赛车', 0x3C703EE38090E4BCA0E7BB9FE8B59BE8BDA6E8B594E78E87E8AFB4E6988EE38091266E6273703B266E6273703BE38090E8B594E78E87E8AFB4E6988EE38091266E6273703BE5A4A72FE5B08F2FE58D952FE58F8CEFBC9A312E3938E5808DE38082E68980E69C89E8B594E78E87E983BDE58C85E590ABE69CACE98791EFBC81317E3130E5908DE78C9CE5A4A7E5B08FE58D95E58F8CE5BC80E587BAE4B98BE58FB7E7A081EFBC9A312F322F332F342F35E4B8BAE5B08FEFBC8C362F372F382F392F3130E4B8BAE5A4A7E38082E5BC80E587BAE79A84E58FB7E7A081E581B6E695B0E4B8BAE58F8CEFBC8CE58FB7E7A081E5A587E695B0E4B8BAE58D95E38082E78C9CE58FB7E7A081266E6273703BE6AF8FE4B880E58FB7E7A081E4B8BAE4B880E7AB9EE78C9CE7BB84EFBC8CE5BC80E5A596E7BB93E69E9CE38090E7AB9EE78C9CE58FB7E7A081E38091E5AFB9E5BA94E68980E78C9CE38090E8B59BE98193E38091E8A786E4B8BAE4B8ADE5A596EFBC8CE585B6E4BD99E68385E5BDA2E8A786E4B8BAE4B88DE4B8ADE5A596E38082E38082266E6273703BE38090E99990E9A29DE8AFB4E6988EE38091266E6273703B266E6273703BE680BBE4B88BE6B3A8EFBC9A313030303030E5B081E9A1B6266E6273703BE58D95E58F8CEFBC9A3430303030E5B081E9A1B63C2F703E, NULL, 'game_tenball_record', 'game_tenball_kj', 0.00, NULL, NULL, 0.00, 5.00, 300000.00, 0, 60, 300, 0, NULL, 1, '0', 'N', 0, '0000', '2359', 'Y', '', '2025-07-20 22:38:48', '', '2025-07-21 22:23:11', '');
 
 -- ----------------------------
 -- Table structure for sys_job
@@ -12799,13 +12797,14 @@ CREATE TABLE `sys_user`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户信息表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 2305 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户信息表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 0, 'admin', '平台管理员', NULL, '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2025-07-20 23:04:20', 0.00, 0.00, 'a12c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100.00, 100.00, 100.00, 100.00, 100.00, 100.00, '1', 'admin', '2024-03-05 21:03:10', '', '2025-07-20 23:04:20', '管理员');
-INSERT INTO `sys_user` VALUES (2, 100, 'teahouseadmin', '平台管理员', NULL, '01', 'ry@qq.com', '15666666666', '1', '', '$2a$10$6AO5Mx33xFDoAJ61aQC8F.Tpyc1W/1zCBh9EdE8RTXiFhlAsRdQmK', '0', '0', '127.0.0.1', '2025-07-20 22:56:25', 0.00, 0.00, '789c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100.00, 100.00, 100.00, 100.00, 100.00, 100.00, '1', 'admin', '2024-03-05 21:03:10', 'admin', '2025-07-20 22:56:24', '测试员');
+INSERT INTO `sys_user` VALUES (1, 0, 'admin', '平台管理员', NULL, '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2025-07-24 21:38:52', 0.00, 0.00, 'a12c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100.00, 100.00, 100.00, 100.00, 100.00, 100.00, '1', 'admin', '2024-03-05 21:03:10', '', '2025-07-24 21:38:51', '管理员');
+INSERT INTO `sys_user` VALUES (2, 100, 'teahouseadmin', '平台管理员', NULL, '01', 'ry@qq.com', '15666666666', '1', '', '$2a$10$6AO5Mx33xFDoAJ61aQC8F.Tpyc1W/1zCBh9EdE8RTXiFhlAsRdQmK', '0', '0', '127.0.0.1', '2025-07-21 20:55:27', 0.00, 0.00, '789c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100.00, 100.00, 100.00, 100.00, 100.00, 100.00, '1', 'admin', '2024-03-05 21:03:10', 'admin', '2025-07-21 20:55:27', '测试员');
+INSERT INTO `sys_user` VALUES (3, 103, '111111', '测试', NULL, '02', '', '', '0', '/profile/upload/2025/07/21/image_20250721205515A001.jpeg', '$2a$10$toGXdiEPo/KOSytv.ZxBluJiEyYBIHZIEaLHO6Lsv1sKTvyt.Qbje', '0', '0', '127.0.0.1', '2025-07-24 22:01:34', 0.00, 13200.00, '16278a', '$2a$10$G7RQg.c5tC1XnVs5JzbfQOC.xnNDq2vQXeBkeOEli3o77SufKkOZi', NULL, NULL, NULL, NULL, 'd99d81985152f187', 2, NULL, NULL, 100.00, 100.00, 100.00, 100.00, 100.00, 100.00, '0', '', '2025-07-21 20:55:15', '', '2025-07-24 22:17:59', 'web注册');
 
 -- ----------------------------
 -- Table structure for sys_user_active
@@ -12849,7 +12848,7 @@ CREATE TABLE `sys_user_commission`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1095 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户佣金表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1104 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户佣金表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user_commission
@@ -13944,6 +13943,15 @@ INSERT INTO `sys_user_commission` VALUES (1091, 2, 65551, 300.00, 1.50, 15, '极
 INSERT INTO `sys_user_commission` VALUES (1092, 2, 65551, 400.00, 2.00, 15, '极速时时彩', 386, '0', NULL, '', '2025-01-27 16:01:52', '', NULL, '');
 INSERT INTO `sys_user_commission` VALUES (1093, 2, 65551, 200.00, 1.00, 15, '极速时时彩', 386, '0', NULL, '', '2025-01-27 16:55:42', '', NULL, '');
 INSERT INTO `sys_user_commission` VALUES (1094, 2, 65832, 11.00, 0.05, 1, '加拿大2.0', 387, '0', NULL, '', '2025-02-14 10:54:13', '', NULL, '');
+INSERT INTO `sys_user_commission` VALUES (1095, 2, 3, 400.00, 0.00, 17, '传统赛车', 1, '0', NULL, '', '2025-07-21 20:59:32', '', NULL, '');
+INSERT INTO `sys_user_commission` VALUES (1096, 2, 3, 400.00, 0.00, 17, '传统赛车', 1, '0', NULL, '', '2025-07-21 21:19:32', '', NULL, '');
+INSERT INTO `sys_user_commission` VALUES (1097, 2, 3, 1900.00, 0.00, 17, '传统赛车', 1, '0', NULL, '', '2025-07-21 22:20:31', '', NULL, '');
+INSERT INTO `sys_user_commission` VALUES (1098, 2, 3, 1900.00, 0.00, 17, '传统赛车', 1, '0', NULL, '', '2025-07-21 22:20:31', '', NULL, '');
+INSERT INTO `sys_user_commission` VALUES (1099, 2, 3, 1300.00, 0.00, 17, '传统赛车', 1, '0', NULL, '', '2025-07-21 22:20:31', '', NULL, '');
+INSERT INTO `sys_user_commission` VALUES (1100, 2, 3, 1300.00, 0.00, 17, '传统赛车', 1, '0', NULL, '', '2025-07-21 22:20:31', '', NULL, '');
+INSERT INTO `sys_user_commission` VALUES (1101, 2, 3, 1300.00, 0.00, 17, '传统赛车', 2, '0', NULL, '', '2025-07-24 22:12:02', '', NULL, '');
+INSERT INTO `sys_user_commission` VALUES (1102, 2, 3, 2700.00, 0.00, 17, '传统赛车', 2, '0', NULL, '', '2025-07-24 22:17:59', '', NULL, '');
+INSERT INTO `sys_user_commission` VALUES (1103, 2, 3, 2500.00, 0.00, 17, '传统赛车', 2, '0', NULL, '', '2025-07-24 22:17:59', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for sys_user_post
@@ -13977,6 +13985,7 @@ CREATE TABLE `sys_user_role`  (
 -- ----------------------------
 INSERT INTO `sys_user_role` VALUES (1, 1);
 INSERT INTO `sys_user_role` VALUES (2, 2);
+INSERT INTO `sys_user_role` VALUES (3, 3);
 
 -- ----------------------------
 -- Table structure for sys_wechat_auth

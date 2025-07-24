@@ -31,18 +31,16 @@ public final class RaceRankingUtil {
 
     public static Float calculateTotalPayout(List<OptimalBetRecord> bets, int[] ranking) {
         return bets.stream()
-                .map(bet -> {
-                    int number = ranking[bet.getPosition() - 1];
-                    return bet.calculatePayout(number);
-                })
+                .map(bet -> bet.calculatePayout(ranking))
                 .reduce(0f, Float::sum);
     }
 
     public static Map<String, Float> getPayoutDetails(List<OptimalBetRecord> bets, int[] ranking) {
         Map<String, Float> details = new LinkedHashMap<>();
         for (OptimalBetRecord bet : bets) {
-            int number = ranking[bet.getPosition() - 1];
-            details.put(bet.getEmployee(), bet.calculatePayout(number));
+            details.merge(bet.getEmployee(),
+                    bet.calculatePayout(ranking),
+                    Float::sum);
         }
         return details;
     }
