@@ -3,12 +3,16 @@ package com.ruoyi.system.service.impl;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.ruoyi.common.core.domain.entity.SysUser;
+import com.ruoyi.common.core.vo.OptimalBetRecord;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.EntityMapTransUtils;
+import com.ruoyi.common.utils.RaceRankingUtil;
 import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.domain.vo.*;
-import com.ruoyi.system.service.ITenBallLotteryService;
 import com.ruoyi.system.domain.*;
+import com.ruoyi.system.domain.vo.RecordSumRespVo;
+import com.ruoyi.system.domain.vo.TenBallsAddMultiBetRecordReqVO;
+import com.ruoyi.system.domain.vo.TenBallsMultiBetRecordReqVO;
+import com.ruoyi.system.domain.vo.TenBallsOddsReqVO;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -392,6 +396,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
             searchBetRecord.setIsDelete("0");
             searchBetRecord.setIsRobot("0");
             List<BetRecord> betRecordList = betRecordService.selectBetRecordList(searchBetRecord);
+
             for(BetRecord betRecord : betRecordList) {
 
                 //投注金额
@@ -483,16 +488,87 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                         winMoney += betRecord.getMoney() * getOddFromMapByOddKey(betItemMap,"tiger" + x);
                     }
                 }
+
+
             }
 
             if(betMoney.compareTo(0f) > 0) {
-                Float winRate = (betMoney - winMoney) / betMoney * 100;
                 String systemGameWinRate = configService.selectConfigByKey("sys.game.winRate");
-                // 默认一定重开一次
+                // 有设置了盈利比 才去重新计算是否需要重开奖
                 Float gameWinRate = 0f;
                 if (StringUtils.isNotEmpty(systemGameWinRate)) {
                     gameWinRate = Float.valueOf(systemGameWinRate);
+
+                    // 期望支出=投注额−期望利润
+                    Float willWinMoney = betMoney - betMoney * gameWinRate / 100;
+                    if(willWinMoney.compareTo(winMoney) < 0){
+                        // 低于期望盈利比例，重新开奖一次
+                        // 获取所有投注信息
+                        List<OptimalBetRecord> bets = new ArrayList<>();
+                        for(BetRecord betRecord : betRecordList){
+                            OptimalBetRecord optimalBetRecord = new OptimalBetRecord();
+                            optimalBetRecord.setEmployee(betRecord.getUserId() + "");
+                            int position = Integer.valueOf(betRecord.getBetType()) - 1;
+                            optimalBetRecord.setPosition(position);
+
+                            if(StringUtils.equals("大",betRecord.getBetNumber())){
+                                optimalBetRecord.setBigBet(betRecord.getMoney());
+                                optimalBetRecord.setBigPayoutRate(getOddFromMapByOddKey(betItemMap,"big" + position));
+                            }
+
+                            if(StringUtils.equals("小",betRecord.getBetNumber())){
+                                optimalBetRecord.setSmallBet(betRecord.getMoney());
+                                optimalBetRecord.setSmallPayoutRate(getOddFromMapByOddKey(betItemMap,"small" + position));
+                            }
+
+                            if(StringUtils.equals("单",betRecord.getBetNumber())){
+                                optimalBetRecord.setOddBet(betRecord.getMoney());
+                                optimalBetRecord.setOddPayoutRate(getOddFromMapByOddKey(betItemMap,"single" + position));
+                            }
+
+                            if(StringUtils.equals("双",betRecord.getBetNumber())){
+                                optimalBetRecord.setEvenBet(betRecord.getMoney());
+                                optimalBetRecord.setEvenPayoutRate(getOddFromMapByOddKey(betItemMap,"double" + position));
+                            }
+                            bets.add(optimalBetRecord);
+                        }
+
+                        // 生成最优排序
+                        int[] ranking = RaceRankingUtil.generateOptimalRanking(bets);
+
+                        gameTenballOpenData.setNum1(ranking[0]);
+                        gameTenballOpenData.setNum2(ranking[1]);
+                        gameTenballOpenData.setNum3(ranking[2]);
+                        gameTenballOpenData.setNum4(ranking[3]);
+                        gameTenballOpenData.setNum5(ranking[4]);
+                        gameTenballOpenData.setNum6(ranking[5]);
+                        gameTenballOpenData.setNum7(ranking[6]);
+                        gameTenballOpenData.setNum8(ranking[7]);
+                        gameTenballOpenData.setNum9(ranking[8]);
+                        gameTenballOpenData.setNum10(ranking[9]);
+                        gameTenballOpenData.setPreNum1(ranking[0]);
+                        gameTenballOpenData.setPreNum2(ranking[1]);
+                        gameTenballOpenData.setPreNum3(ranking[2]);
+                        gameTenballOpenData.setPreNum4(ranking[3]);
+                        gameTenballOpenData.setPreNum5(ranking[4]);
+                        gameTenballOpenData.setPreNum6(ranking[5]);
+                        gameTenballOpenData.setPreNum7(ranking[6]);
+                        gameTenballOpenData.setPreNum8(ranking[7]);
+                        gameTenballOpenData.setPreNum9(ranking[8]);
+                        gameTenballOpenData.setPreNum10(ranking[9]);
+                        gameTenballOpenData.setUpdateBy("PREOPEN");
+
+                        gameTenballOpenDataService.updateGameTenballOpenData(gameTenballOpenData);
+
+                        gameTenballKj = setGameTenballKj(gameTenballKj,gameTenballOpenData);
+                    }
                 }
+
+//                Float winRate = (betMoney - winMoney) / betMoney * 100;
+//                // 默认一定重开一次
+//                if (StringUtils.isNotEmpty(systemGameWinRate)) {
+//                    gameWinRate = Float.valueOf(systemGameWinRate);
+//                }
 //            if(betMoney >0 && winRate.compareTo(gameWinRate) < 0){
 //                //重开奖
 //                List<String> openCode = sysAppService.getOpenData(gameInfo.getGameType());

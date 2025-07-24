@@ -119,7 +119,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/system/app/insertRequestInfo","/system/app/getAllRequestInfoList").permitAll()
                 .antMatchers("/system/app/checkIpAddressValid","/system/app/checkIpAddressApi").permitAll()
                 .antMatchers("/system/app/gameList","/system/app/gameResultList","/system/app/getOpenWebSiteInfo","/system/app/replaceList").permitAll()
-                .antMatchers("/threeballs/timeDate","/fiveballs/timeDate","/tenballs/timeDate").permitAll()
+                .antMatchers("/threeballs/timeDate","/fiveballs/timeDate","/tenballs/" +
+                        "").permitAll()
                 // 除上面外的所有请求全部需要鉴权认证
                 .anyRequest().authenticated()
                 .and()
