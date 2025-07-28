@@ -67,7 +67,7 @@
       <el-table-column label="金额" align="center" prop="cashMoney" sortable="custom"/>
 <!--      <el-table-column label="余额" align="center" prop="userBalance" sortable="custom"/>-->
       <el-table-column label="申请时间" align="center" prop="cashTime" width="135px"/>
-      <el-table-column label="方式" align="center" prop="userAccount" />
+<!--      <el-table-column label="方式" align="center" prop="userAccount" />-->
       <el-table-column label="备注" align="center" prop="updateBy">
         <template slot-scope="scope">
           <span v-if="scope.row.type == '2' || scope.row.type == '18' ">
@@ -76,7 +76,7 @@
           <span v-if="scope.row.type == '3' || scope.row.type == '19' ">申请失败(操作者：{{scope.row.updateBy}})</span>
         </template>
       </el-table-column>
-<!--      <el-table-column label="备注" align="center" prop="remark" />-->
+      <el-table-column label="备注" align="center" prop="remark" />
 <!--      <el-table-column label="申请时间" align="center" prop="updateTime" width="135"/>-->
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">

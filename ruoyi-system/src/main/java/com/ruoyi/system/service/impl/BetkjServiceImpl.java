@@ -2567,6 +2567,7 @@ public class BetkjServiceImpl implements IBetkjService
                 threeballOpenData.setPreSum1(Integer.parseInt(newOpenCodeArg[0]));
                 threeballOpenData.setPreSum2(Integer.parseInt(newOpenCodeArg[1]));
                 threeballOpenData.setPreSum3(Integer.parseInt(newOpenCodeArg[2]));
+                threeballOpenData.setHandOpenFlg("Y");
                 gameThreeballOpenDataService.updateGameThreeballOpenData(threeballOpenData);
             }
 
@@ -2605,6 +2606,7 @@ public class BetkjServiceImpl implements IBetkjService
                 fiveballOpenData.setPreNum3(Integer.parseInt(newOpenCodeArg[2]));
                 fiveballOpenData.setPreNum4(Integer.parseInt(newOpenCodeArg[3]));
                 fiveballOpenData.setPreNum5(Integer.parseInt(newOpenCodeArg[4]));
+                fiveballOpenData.setHandOpenFlg("Y");
                 gameFiveballOpenDataService.updateGameFiveballOpenData(fiveballOpenData);
             }
         }else if(StringUtils.equals(vo.getGameType(),"10")){
@@ -2652,6 +2654,7 @@ public class BetkjServiceImpl implements IBetkjService
                 tenballOpenData.setPreNum8(Integer.parseInt(newOpenCodeArg[7]));
                 tenballOpenData.setPreNum9(Integer.parseInt(newOpenCodeArg[8]));
                 tenballOpenData.setPreNum10(Integer.parseInt(newOpenCodeArg[9]));
+                tenballOpenData.setHandOpenFlg("Y");
                 gameTenballOpenDataService.updateGameTenballOpenData(tenballOpenData);
             }
         }

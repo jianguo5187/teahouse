@@ -97,7 +97,7 @@ public class WebSocketServer {
 
         gameUserIdAndSessionMap.put(gameId,gameSessionMap);
         gameUserIdMap.put(gameId,gameMap);
-//        log.info("有新用户加入，gameId={}，userId={}, 当前游戏在线人数为：{}", gameId, userId, gameSessionMap.size());
+        log.info("有新用户加入，gameId={}，userId={}, 当前游戏在线人数为：{}", gameId, userId, gameSessionMap.size());
 //        gameUserIdAndSessionMap.put(onlineKey,session);
 
 //        userIdAndSessionMap.put(onlineKey, session);

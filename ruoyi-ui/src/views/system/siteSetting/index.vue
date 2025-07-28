@@ -109,7 +109,7 @@
       <el-row>
         <el-col :span="12">
           <el-form-item label="自开彩种赢亏比率" prop="systemGameWinRate">
-            <el-input-number v-model="siteSetting.form.systemGameWinRate" :min="1" :max="100" placeholder="请输入自开彩种赢亏比率"/> 1~100
+            <el-input-number v-model="siteSetting.form.systemGameWinRate" :min="-1" :max="100" placeholder="请输入自开彩种赢亏比率"/> -1~100【-1：关闭该功能  0：赔付最多（公司亏损最大）  100：通吃（公司盈利最大）】
           </el-form-item>
         </el-col>
       </el-row>

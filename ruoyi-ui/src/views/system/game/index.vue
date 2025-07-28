@@ -194,16 +194,16 @@
 <!--        <el-form-item label="开奖表" prop="gameKj">-->
 <!--          <el-input v-model="form.gameKj" placeholder="请输入开奖表" />-->
 <!--        </el-form-item>-->
-        <el-form-item label="佣金比例" prop="gameCommission">
+        <el-form-item label="佣金比例" prop="gameCommission" v-show="1 == loginUserId">
           <el-input-number v-model="form.gameCommission" :min="0" placeholder="请输入佣金比例"/> 0~100
         </el-form-item>
-        <el-form-item label="反水比例" prop="gameCashback">
+        <el-form-item label="反水比例" prop="gameCashback" v-show="1 == loginUserId">
           <el-input-number v-model="form.gameCashback" :min="0" placeholder="请输入反水比例"/> 0~100
         </el-form-item>
-        <el-form-item label="最小投注金额" prop="minBetAmount">
+        <el-form-item label="最小投注金额" prop="minBetAmount" v-show="1 == loginUserId">
           <el-input-number v-model="form.minBetAmount" :min="0" placeholder="请输入最小投注金额" :precision="2"/>
         </el-form-item>
-        <el-form-item label="最大投注金额" prop="maxBetAmount">
+        <el-form-item label="最大投注金额" prop="maxBetAmount" v-show="1 == loginUserId">
           <el-input-number v-model="form.maxBetAmount" :min="0" placeholder="请输入最大投注金额" :precision="2"/>
         </el-form-item>
         <el-form-item label="封盘秒数" prop="endTime">
@@ -212,16 +212,16 @@
         <el-form-item label="开奖间隔秒数" prop="lotteryInterval">
           <el-input-number v-model="form.lotteryInterval" :min="0" placeholder="请输入开奖间隔秒数"/>
         </el-form-item>
-        <el-form-item label="机器人比例" prop="robotRate">
+        <el-form-item label="机器人比例" prop="robotRate" v-show="1 == loginUserId">
           <el-input-number v-model="form.robotRate" :min="0" placeholder="请输入机器人比例"/> 0~100
         </el-form-item>
-        <el-form-item label="游戏有效开奖开始时间" prop="validOpenStartTime">
+        <el-form-item label="游戏有效开奖开始时间" prop="validOpenStartTime" v-show="1 == loginUserId">
           <el-input v-model="form.validOpenStartTime" placeholder="请输入游戏有效开奖开始时间" /> (例如8点->0800)
         </el-form-item>
-        <el-form-item label="游戏有效开奖结束时间" prop="validOpenEndTime">
+        <el-form-item label="游戏有效开奖结束时间" prop="validOpenEndTime" v-show="1 == loginUserId">
           <el-input v-model="form.validOpenEndTime" placeholder="请输入游戏有效开奖结束时间" /> (例如23点59分->2359)
         </el-form-item>
-        <el-form-item label="游戏状态" prop="status">
+        <el-form-item label="游戏状态" prop="status" v-show="1 == loginUserId">
           <el-radio-group v-model="form.status">
             <el-radio
               v-for="dict in dict.type.sys_game_status"
@@ -230,7 +230,7 @@
             >{{dict.label}}</el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="是否系统开奖区分" prop="systemOpenType">
+        <el-form-item label="是否系统开奖区分" prop="systemOpenType" v-show="1 == loginUserId">
           <el-radio-group v-model="form.systemOpenType">
             <el-radio
               v-for="dict in dict.type.sys_game_open_type"
@@ -249,7 +249,7 @@
 <!--            >{{dict.label}}</el-radio>-->
 <!--          </el-radio-group>-->
 <!--        </el-form-item>-->
-        <el-form-item label="排序" prop="sort">
+        <el-form-item label="排序" prop="sort" v-show="1 == loginUserId">
           <el-input-number v-model="form.sort" controls-position="right" :min="0" />
         </el-form-item>
       </el-form>

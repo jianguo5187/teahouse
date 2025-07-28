@@ -13,7 +13,13 @@ public class RaceGameMain {
 
     public static void main(String[] args) {
         // 1. 生成50条随机投注（每条记录只包含一个投注）
-        List<OptimalBetRecord> bets = generateRandomBets(50);
+//        List<OptimalBetRecord> bets = generateRandomBets(50);
+        List<OptimalBetRecord> bets = new ArrayList<>();
+        bets.add(new OptimalBetRecord("3", 1, OptimalBetRecord.BetType.BIG, 100f, 1.96f));
+        bets.add(new OptimalBetRecord("3", 2, OptimalBetRecord.BetType.BIG, 100f, 1.96f));
+        bets.add(new OptimalBetRecord("3", 3, OptimalBetRecord.BetType.BIG, 100f, 1.96f));
+        bets.add(new OptimalBetRecord("3", 4, OptimalBetRecord.BetType.BIG, 100f, 1.96f));
+        bets.add(new OptimalBetRecord("3", 5, OptimalBetRecord.BetType.BIG, 100f, 1.96f));
 
         // 2. 打印所有投注信息
         printAllBets(bets);
@@ -23,7 +29,7 @@ public class RaceGameMain {
         System.out.printf("\n所有员工总投注金额: %.2f元\n", totalBetAmount);
 
         // 4. 生成最优排序
-        int[] ranking = RaceRankingUtil.generateOptimalRanking(bets);
+        int[] ranking = RaceRankingUtil.generateOptimalRanking(bets,100f);
         printRanking(ranking);
 
         // 5. 计算赔付详情

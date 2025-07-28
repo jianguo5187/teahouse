@@ -1,9 +1,7 @@
 package com.ruoyi.system.service.impl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -16,8 +14,10 @@ import com.ruoyi.system.domain.vo.GameOpenDataDto;
 import com.ruoyi.system.mapper.*;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.alibaba.fastjson2.JSONArray;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 游戏Service业务层处理
@@ -28,6 +28,10 @@ import com.alibaba.fastjson2.JSONArray;
 @Service
 public class SysGameServiceImpl implements ISysGameService 
 {
+    //系统提前开奖期数
+    @Value("${gameOpen.periodsSize}")
+    private Integer periodsSize;
+
     @Autowired
     private SysGameMapper sysGameMapper;
 
@@ -75,6 +79,12 @@ public class SysGameServiceImpl implements ISysGameService
 
     @Autowired
     private ISysConfigService configService;
+
+    @Autowired
+    private IGameSystemOpenDataService gameSystemOpenDataService;
+
+    @Autowired
+    private ISysAppService sysAppService;
 
     /**
      * 查询游戏
@@ -154,6 +164,7 @@ public class SysGameServiceImpl implements ISysGameService
      * @return 结果
      */
     @Override
+    @Transactional
     public int updateSysGame(SysGame sysGame)
     {
         sysGame.setUpdateTime(DateUtils.getNowDate());
@@ -204,8 +215,135 @@ public class SysGameServiceImpl implements ISysGameService
             insertDefaultThreeballMixedOdds(sysGame);
         }
 
+        // 系统开奖并且开奖间隔更改
+        if(StringUtils.equals(sysGame.getSystemOpenType(),"Y") && sysGame.getLotteryInterval().compareTo(oldSysGame.getLotteryInterval()) != 0){
+            if(StringUtils.equals(sysGame.getGameType(),"3")){
+            }else if(StringUtils.equals(sysGame.getGameType(),"5")){
+            }else if(StringUtils.equals(sysGame.getGameType(),"10")){
+                updateSystemGameTenballKjAndCodeTable(sysGame);
+            }
+        }
+
         return row;
     }
+
+
+    //重新获取系统开奖的10球开奖数据
+    public void updateSystemGameTenballKjAndCodeTable(SysGame gameInfo){
+        // 获取当前期数
+        GameTenballOpenData opendedTenballOpenData = gameTenballOpenDataService.selectLastRecord(gameInfo.getGameId());
+        GameTenballOpenData tenballOpenData = gameTenballOpenDataService.selectLastOpenDataByMinPeriods(gameInfo.getGameId(), opendedTenballOpenData.getPeriods(), "1");
+
+        //删除当前正在开奖的系统开奖自动生成的未开奖数据
+        GameSystemOpenData searchGameSystemOpenData = new GameSystemOpenData();
+        searchGameSystemOpenData.setGameSystemMark(gameInfo.getGameOpenCode());
+        searchGameSystemOpenData.setStatus("1");//系统预开奖
+        List<GameSystemOpenData> oldGameSystemOpenDataList = gameSystemOpenDataService.selectGameSystemOpenDataList(searchGameSystemOpenData);
+        for(GameSystemOpenData oldGameSystemOpenData : oldGameSystemOpenDataList){
+            if(oldGameSystemOpenData.getPeriods().compareTo(tenballOpenData.getPeriods()) != 0){
+                gameSystemOpenDataService.deleteGameSystemOpenDataById(oldGameSystemOpenData.getId());
+            }
+        }
+
+        GameTenballOpenData searchGameTenballOpenData = new GameTenballOpenData();
+        searchGameTenballOpenData.setGameId(gameInfo.getGameId());
+        searchGameTenballOpenData.setStatus("1");//系统预开奖
+        List<GameTenballOpenData> gameTenballOpenDataList = gameTenballOpenDataService.selectGameTenballOpenDataList(searchGameTenballOpenData);
+        for(GameTenballOpenData oldTenballOpenData : gameTenballOpenDataList){
+            if(oldTenballOpenData.getPeriods().compareTo(tenballOpenData.getPeriods()) != 0){
+                gameTenballOpenDataService.deleteGameTenballOpenDataById(oldTenballOpenData.getId());
+            }
+        }
+
+        GameTenballKj searchGameTenballKj = new GameTenballKj();
+        searchGameTenballKj.setGameId(gameInfo.getGameId());
+        searchGameTenballKj.setStatus("0"); //未开奖
+        List<GameTenballKj> gameTenballKjList = gameTenballKjService.selectGameTenballKjList(searchGameTenballKj);
+        for(GameTenballKj gameTenballKj : gameTenballKjList){
+            if(gameTenballKj.getPeriods().compareTo(tenballOpenData.getPeriods()) != 0){
+                gameTenballKjService.deleteGameTenballKjById(gameTenballKj.getId());
+            }
+        }
+
+        //重新获取一次未开奖数据
+        Date beforeOpenDataTime = null;
+        beforeOpenDataTime = tenballOpenData.getPreTime();
+        SimpleDateFormat sd = new SimpleDateFormat("HHmmss");
+        Integer startTime = 0;
+        Integer endTime = 999999;
+        if(StringUtils.isNotEmpty(gameInfo.getValidOpenStartTime())){
+            startTime = Integer.parseInt(gameInfo.getValidOpenStartTime()+"00");
+        }
+        if(StringUtils.isNotEmpty(gameInfo.getValidOpenEndTime())){
+            endTime = Integer.parseInt(gameInfo.getValidOpenEndTime()+"59");
+        }
+        Calendar currentTime = Calendar.getInstance();
+        // 需要产生的虚拟开奖记录个数
+        for(int i=1;i<=periodsSize;i++) {
+            Long newPeriods = tenballOpenData.getPeriods() + i;
+
+            GameTenballOpenData preTenballOpenData = gameTenballOpenDataService.selectGameTenballOpenDataByPeriods(gameInfo.getGameId(), newPeriods,null);
+            if(preTenballOpenData == null){
+                GameSystemOpenData systemOpenData = gameSystemOpenDataService.selectGamelOpenDataByGameSystemMarkAndPeriods(gameInfo.getGameOpenCode(), newPeriods,null);
+
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(beforeOpenDataTime);
+                //预计开奖时间
+                calendar.add(Calendar.SECOND, gameInfo.getLotteryInterval()*i);
+                calendar.add(Calendar.SECOND, gameInfo.getLeadTime()*-1);
+                String preTime = sd.format(calendar.getTime());
+                if(startTime.compareTo(Integer.parseInt(preTime)) > 0 || endTime.compareTo(Integer.parseInt(preTime)) < 0){
+                    break;
+                }
+                if(systemOpenData == null){
+
+                    systemOpenData = new GameSystemOpenData();
+                    systemOpenData.setPeriods(newPeriods);
+                    systemOpenData.setGameSystemMark(gameInfo.getGameOpenCode());
+                    List<String> openCodeList = sysAppService.getOpenData(gameInfo.getGameType());
+                    String openCode = openCodeList.stream().collect(Collectors.joining(","));
+                    systemOpenData.setPreOpenCode(openCode);
+                    systemOpenData.setStatus("1");
+
+                    if(currentTime.after(calendar.getTime())){
+                        systemOpenData.setPreTime(new Date());
+                    }else{
+                        systemOpenData.setPreTime(calendar.getTime());
+                    }
+                    systemOpenData.setCreateBy("TASK");
+                    gameSystemOpenDataService.insertGameSystemOpenData(systemOpenData);
+                }
+
+                preTenballOpenData = new GameTenballOpenData();
+
+                preTenballOpenData.setPeriods(newPeriods);
+                preTenballOpenData.setGameId(gameInfo.getGameId());
+                preTenballOpenData.setGameName(gameInfo.getGameName());
+                List<String> openCode = Arrays.asList(systemOpenData.getPreOpenCode().split(","));
+                preTenballOpenData.setPreNum1(Integer.parseInt(openCode.get(0)));
+                preTenballOpenData.setPreNum2(Integer.parseInt(openCode.get(1)));
+                preTenballOpenData.setPreNum3(Integer.parseInt(openCode.get(2)));
+                preTenballOpenData.setPreNum4(Integer.parseInt(openCode.get(3)));
+                preTenballOpenData.setPreNum5(Integer.parseInt(openCode.get(4)));
+                preTenballOpenData.setPreNum6(Integer.parseInt(openCode.get(5)));
+                preTenballOpenData.setPreNum7(Integer.parseInt(openCode.get(6)));
+                preTenballOpenData.setPreNum8(Integer.parseInt(openCode.get(7)));
+                preTenballOpenData.setPreNum9(Integer.parseInt(openCode.get(8)));
+                preTenballOpenData.setPreNum10(Integer.parseInt(openCode.get(9)));
+                preTenballOpenData.setStatus("1");
+                preTenballOpenData.setPreTime(systemOpenData.getPreTime());
+
+                if(currentTime.after(calendar.getTime())){
+                    beforeOpenDataTime = new Date();
+                }
+                preTenballOpenData.setCreateBy("TASK");
+
+                gameTenballOpenDataService.insertGameTenballOpenData(preTenballOpenData);
+            }
+        }
+        tenBallLotteryService.createTenballData(gameInfo);
+    }
+
 
     //重新获取3球开奖数据
     public void updateThreeballKjAndCodeTable(SysGame sysGame){

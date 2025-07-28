@@ -122,6 +122,10 @@ public class GameTenballOpenData extends BaseEntity
     @Excel(name = "预开奖号码10")
     private Integer preNum10;
 
+    /** 是否手动开奖区分(N否 Y是) */
+    @Excel(name = "是否手动开奖区分(N否 Y是)")
+    private String handOpenFlg;
+
     /** 开奖数据状态(0已开奖,1预开奖号码) */
     @Excel(name = "开奖数据状态(0已开奖,1预开奖号码)")
     private String status;
@@ -343,6 +347,14 @@ public class GameTenballOpenData extends BaseEntity
     public Integer getPreNum10()
     {
         return preNum10;
+    }
+
+    public String getHandOpenFlg() {
+        return handOpenFlg;
+    }
+
+    public void setHandOpenFlg(String handOpenFlg) {
+        this.handOpenFlg = handOpenFlg;
     }
 
     public String getStatus() {

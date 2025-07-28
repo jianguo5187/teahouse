@@ -31,6 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="preNum8"    column="pre_num8"    />
         <result property="preNum9"    column="pre_num9"    />
         <result property="preNum10"    column="pre_num10"    />
+        <result property="handOpenFlg"    column="hand_open_flg"    />
         <result property="status"    column="status"    />
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
@@ -40,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectGameTenballOpenDataVo">
-        select id, periods, game_id, game_name, time, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, pre_time, pre_num1, pre_num2, pre_num3, pre_num4, pre_num5, pre_num6, pre_num7, pre_num8, pre_num9, pre_num10, status, create_by, create_time, update_by, update_time, remark from game_tenball_open_data
+        select id, periods, game_id, game_name, time, num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, pre_time, pre_num1, pre_num2, pre_num3, pre_num4, pre_num5, pre_num6, pre_num7, pre_num8, pre_num9, pre_num10, hand_open_flg, status, create_by, create_time, update_by, update_time, remark from game_tenball_open_data
     </sql>
 
     <select id="selectGameTenballOpenDataList" parameterType="GameTenballOpenData" resultMap="GameTenballOpenDataResult">
@@ -71,6 +72,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="preNum8 != null "> and pre_num8 = #{preNum8}</if>
             <if test="preNum9 != null "> and pre_num9 = #{preNum9}</if>
             <if test="preNum10 != null "> and pre_num10 = #{preNum10}</if>
+            <if test="handOpenFlg != null  and handOpenFlg != ''"> and hand_open_flg = #{handOpenFlg}</if>
             <if test="status != null  and status != ''"> and status = #{status}</if>
         </where>
     </select>
@@ -107,6 +109,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="preNum8 != null">pre_num8,</if>
             <if test="preNum9 != null">pre_num9,</if>
             <if test="preNum10 != null">pre_num10,</if>
+            <if test="handOpenFlg != null">hand_open_flg,</if>
             <if test="status != null">status,</if>
             <if test="createBy != null">create_by,</if>
         create_time
@@ -136,6 +139,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="preNum8 != null">#{preNum8},</if>
             <if test="preNum9 != null">#{preNum9},</if>
             <if test="preNum10 != null">#{preNum10},</if>
+            <if test="handOpenFlg != null">#{handOpenFlg},</if>
             <if test="status != null">#{status},</if>
             <if test="createBy != null">#{createBy},</if>
         sysdate()
@@ -167,6 +171,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="preNum8 != null">pre_num8 = #{preNum8},</if>
             <if test="preNum9 != null">pre_num9 = #{preNum9},</if>
             <if test="preNum10 != null">pre_num10 = #{preNum10},</if>
+            <if test="handOpenFlg != null">hand_open_flg = #{handOpenFlg},</if>
             <if test="status != null">status = #{status},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
             update_time = sysdate()

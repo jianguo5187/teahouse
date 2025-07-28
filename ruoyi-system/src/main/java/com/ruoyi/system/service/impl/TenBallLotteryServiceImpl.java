@@ -492,112 +492,122 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
 
             }
 
-            if(betMoney.compareTo(0f) > 0) {
+            if(StringUtils.equals(gameTenballOpenData.getHandOpenFlg(),"N") && betMoney.compareTo(0f) > 0) {
                 String systemGameWinRate = configService.selectConfigByKey("sys.game.winRate");
                 // 有设置了盈利比 才去重新计算是否需要重开奖
                 Float gameWinRate = 0f;
-                if (StringUtils.isNotEmpty(systemGameWinRate)) {
+                if (StringUtils.isNotEmpty(systemGameWinRate) && !StringUtils.equals(systemGameWinRate,"-1")) {
                     gameWinRate = Float.valueOf(systemGameWinRate);
 
-                    // 期望支出=投注额−期望利润
-                    Float willWinMoney = betMoney - betMoney * gameWinRate / 100;
-                    if(willWinMoney.compareTo(winMoney) < 0){
+//                    // 期望支出=投注额−期望利润
+//                    Float willWinMoney = betMoney - betMoney * gameWinRate / 100;
+//                    if(willWinMoney.compareTo(winMoney) < 0){
                         // 低于期望盈利比例，重新开奖一次
                         // 获取所有投注信息
-                        List<OptimalBetRecord> bets = new ArrayList<>();
-                        for(BetRecord betRecord : betRecordList){
+                    List<OptimalBetRecord> bets = new ArrayList<>();
+                    for(BetRecord betRecord : betRecordList){
 //                            OptimalBetRecord optimalBetRecord = new OptimalBetRecord();
 //                            optimalBetRecord.setEmployee(betRecord.getUserId() + "");
-                            int position = Integer.valueOf(betRecord.getBetType()) - 1;
+                        int position = Integer.valueOf(betRecord.getBetType()) - 1;
 //                            optimalBetRecord.setPosition(position);
 
-                            if(StringUtils.equals("大",betRecord.getBetNumber())){
+                        if(StringUtils.equals("大",betRecord.getBetNumber())){
 
-                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
-                                        ,position
-                                        ,OptimalBetRecord.BetType.BIG
-                                        ,betRecord.getMoney()
-                                        ,getOddFromMapByOddKey(betItemMap,"big" + position)));
+                            bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                    ,position
+                                    ,OptimalBetRecord.BetType.BIG
+                                    ,betRecord.getMoney()
+                                    ,getOddFromMapByOddKey(betItemMap,"big" + position)));
 //                                optimalBetRecord.setBigBet(betRecord.getMoney());
 //                                optimalBetRecord.setBigPayoutRate(getOddFromMapByOddKey(betItemMap,"big" + position));
-                            }else if(StringUtils.equals("小",betRecord.getBetNumber())){
-                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
-                                        ,position
-                                        ,OptimalBetRecord.BetType.SMALL
-                                        ,betRecord.getMoney()
-                                        ,getOddFromMapByOddKey(betItemMap,"small" + position)));
+                        }else if(StringUtils.equals("小",betRecord.getBetNumber())){
+                            bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                    ,position
+                                    ,OptimalBetRecord.BetType.SMALL
+                                    ,betRecord.getMoney()
+                                    ,getOddFromMapByOddKey(betItemMap,"small" + position)));
 //                                optimalBetRecord.setSmallBet(betRecord.getMoney());
 //                                optimalBetRecord.setSmallPayoutRate(getOddFromMapByOddKey(betItemMap,"small" + position));
-                            }else if(StringUtils.equals("单",betRecord.getBetNumber())){
-                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
-                                        ,position
-                                        ,OptimalBetRecord.BetType.ODD
-                                        ,betRecord.getMoney()
-                                        ,getOddFromMapByOddKey(betItemMap,"single" + position)));
+                        }else if(StringUtils.equals("单",betRecord.getBetNumber())){
+                            bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                    ,position
+                                    ,OptimalBetRecord.BetType.ODD
+                                    ,betRecord.getMoney()
+                                    ,getOddFromMapByOddKey(betItemMap,"single" + position)));
 //                                optimalBetRecord.setOddBet(betRecord.getMoney());
 //                                optimalBetRecord.setOddPayoutRate(getOddFromMapByOddKey(betItemMap,"single" + position));
-                            }else if(StringUtils.equals("双",betRecord.getBetNumber())){
-                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
-                                        ,position
-                                        ,OptimalBetRecord.BetType.EVEN
-                                        ,betRecord.getMoney()
-                                        ,getOddFromMapByOddKey(betItemMap,"double" + position)));
+                        }else if(StringUtils.equals("双",betRecord.getBetNumber())){
+                            bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                    ,position
+                                    ,OptimalBetRecord.BetType.EVEN
+                                    ,betRecord.getMoney()
+                                    ,getOddFromMapByOddKey(betItemMap,"double" + position)));
 //                                optimalBetRecord.setEvenBet(betRecord.getMoney());
 //                                optimalBetRecord.setEvenPayoutRate(getOddFromMapByOddKey(betItemMap,"double" + position));
-                            }else if(position == 1){
-                                //  猜冠军
-                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
-                                        ,OptimalBetRecord.BetType.CHAMPION_NUMBER
-                                        ,Integer.valueOf(betRecord.getBetNumber())
-                                        ,betRecord.getMoney()
-                                        ,getOddFromMapByOddKey(betItemMap,"num1Under" + (position))));
-                            }else if(position == 2){
-                                //  猜季军
-                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
-                                        ,OptimalBetRecord.BetType.RUNNER_UP_NUMBER
-                                        ,Integer.valueOf(betRecord.getBetNumber())
-                                        ,betRecord.getMoney()
-                                        ,getOddFromMapByOddKey(betItemMap,"num2Under" + (position))));
-                            }else if(position == 3){
-                                //  猜冠军
-                                bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
-                                        ,OptimalBetRecord.BetType.THIRD_PLACE_NUMBER
-                                        ,Integer.valueOf(betRecord.getBetNumber())
-                                        ,betRecord.getMoney()
-                                        ,getOddFromMapByOddKey(betItemMap,"num3Under" + (position))));
-                            }
-//                            bets.add(optimalBetRecord);
+                        }else if(position == 1){
+                            //  猜冠军
+                            bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                    ,OptimalBetRecord.BetType.CHAMPION_NUMBER
+                                    ,Integer.valueOf(betRecord.getBetNumber())
+                                    ,betRecord.getMoney()
+                                    ,getOddFromMapByOddKey(betItemMap,"num1Under" + (position))));
+                        }else if(position == 2){
+                            //  猜季军
+                            bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                    ,OptimalBetRecord.BetType.RUNNER_UP_NUMBER
+                                    ,Integer.valueOf(betRecord.getBetNumber())
+                                    ,betRecord.getMoney()
+                                    ,getOddFromMapByOddKey(betItemMap,"num2Under" + (position))));
+                        }else if(position == 3){
+                            //  猜冠军
+                            bets.add(new OptimalBetRecord(betRecord.getUserId() + ""
+                                    ,OptimalBetRecord.BetType.THIRD_PLACE_NUMBER
+                                    ,Integer.valueOf(betRecord.getBetNumber())
+                                    ,betRecord.getMoney()
+                                    ,getOddFromMapByOddKey(betItemMap,"num3Under" + (position))));
                         }
-
-                        // 生成最优排序
-                        int[] ranking = RaceRankingUtil.generateOptimalRanking(bets);
-
-                        gameTenballOpenData.setNum1(ranking[0]);
-                        gameTenballOpenData.setNum2(ranking[1]);
-                        gameTenballOpenData.setNum3(ranking[2]);
-                        gameTenballOpenData.setNum4(ranking[3]);
-                        gameTenballOpenData.setNum5(ranking[4]);
-                        gameTenballOpenData.setNum6(ranking[5]);
-                        gameTenballOpenData.setNum7(ranking[6]);
-                        gameTenballOpenData.setNum8(ranking[7]);
-                        gameTenballOpenData.setNum9(ranking[8]);
-                        gameTenballOpenData.setNum10(ranking[9]);
-                        gameTenballOpenData.setPreNum1(ranking[0]);
-                        gameTenballOpenData.setPreNum2(ranking[1]);
-                        gameTenballOpenData.setPreNum3(ranking[2]);
-                        gameTenballOpenData.setPreNum4(ranking[3]);
-                        gameTenballOpenData.setPreNum5(ranking[4]);
-                        gameTenballOpenData.setPreNum6(ranking[5]);
-                        gameTenballOpenData.setPreNum7(ranking[6]);
-                        gameTenballOpenData.setPreNum8(ranking[7]);
-                        gameTenballOpenData.setPreNum9(ranking[8]);
-                        gameTenballOpenData.setPreNum10(ranking[9]);
-                        gameTenballOpenData.setUpdateBy("PREOPEN");
-
-                        gameTenballOpenDataService.updateGameTenballOpenData(gameTenballOpenData);
-
-                        gameTenballKj = setGameTenballKj(gameTenballKj,gameTenballOpenData);
+//                            bets.add(optimalBetRecord);
                     }
+
+                    System.out.println("=== 所有投注信息（共" + bets.size() + "条） ===");
+                    for (int i = 0; i < bets.size(); i++) {
+                        System.out.printf("%d. %s\n", i+1, bets.get(i).toString());
+                    }
+                    // 生成最优排序
+                    int[] ranking = RaceRankingUtil.generateOptimalRanking(bets,gameWinRate);
+                    System.out.println("\n=== 赛车最终排序 ===");
+                    System.out.println("冠军: " + ranking[0] + "号车");
+                    System.out.println("亚军: " + ranking[1] + "号车");
+                    System.out.println("季军: " + ranking[2] + "号车");
+                    System.out.println("4-10名: " +
+                            Arrays.toString(Arrays.copyOfRange(ranking, 3, ranking.length)));
+
+                    gameTenballOpenData.setNum1(ranking[0]);
+                    gameTenballOpenData.setNum2(ranking[1]);
+                    gameTenballOpenData.setNum3(ranking[2]);
+                    gameTenballOpenData.setNum4(ranking[3]);
+                    gameTenballOpenData.setNum5(ranking[4]);
+                    gameTenballOpenData.setNum6(ranking[5]);
+                    gameTenballOpenData.setNum7(ranking[6]);
+                    gameTenballOpenData.setNum8(ranking[7]);
+                    gameTenballOpenData.setNum9(ranking[8]);
+                    gameTenballOpenData.setNum10(ranking[9]);
+                    gameTenballOpenData.setPreNum1(ranking[0]);
+                    gameTenballOpenData.setPreNum2(ranking[1]);
+                    gameTenballOpenData.setPreNum3(ranking[2]);
+                    gameTenballOpenData.setPreNum4(ranking[3]);
+                    gameTenballOpenData.setPreNum5(ranking[4]);
+                    gameTenballOpenData.setPreNum6(ranking[5]);
+                    gameTenballOpenData.setPreNum7(ranking[6]);
+                    gameTenballOpenData.setPreNum8(ranking[7]);
+                    gameTenballOpenData.setPreNum9(ranking[8]);
+                    gameTenballOpenData.setPreNum10(ranking[9]);
+                    gameTenballOpenData.setUpdateBy("PREOPEN");
+
+                    gameTenballOpenDataService.updateGameTenballOpenData(gameTenballOpenData);
+
+                    gameTenballKj = setGameTenballKj(gameTenballKj,gameTenballOpenData);
+//                    }
                 }
 
 //                Float winRate = (betMoney - winMoney) / betMoney * 100;
