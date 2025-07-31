@@ -691,6 +691,7 @@ public class SysAppServiceImpl implements ISysAppService {
         updateAndInsertConfigInfo("玩家端聊天地址", "sys.im.appUrl",vo.getAppImUrl());
         updateAndInsertConfigInfo("二维码服务器IP", "sys.web.qrServer",vo.getQrServerUrl());
         updateAndInsertConfigInfo("自开彩种赢亏比率", "sys.game.winRate",vo.getSystemGameWinRate().toString());
+        updateAndInsertConfigInfo("作弊开关", "sys.game.gameWinFlg",vo.getGameWinFlg().toString());
 
         updateAndInsertConfigInfo("阿里云IP查询AppCode", "sys.ali.cloudApiCode",vo.getAliCloudApiCode());
         updateAndInsertConfigInfo("拒绝访问省份", "sys.refuse.province",vo.getRefuseProvince());

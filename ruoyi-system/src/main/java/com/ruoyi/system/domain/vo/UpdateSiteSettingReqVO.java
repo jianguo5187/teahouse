@@ -5,6 +5,9 @@ public class UpdateSiteSettingReqVO {
     //站点开关
     private Boolean siteOpenFlg;
 
+    //作弊开关
+    private Boolean gameWinFlg;
+
     //最小充值金额
     private Integer minChargeMoney;
 
@@ -263,5 +266,13 @@ public class UpdateSiteSettingReqVO {
 
     public void setQqChatImg(String qqChatImg) {
         this.qqChatImg = qqChatImg;
+    }
+
+    public Boolean getGameWinFlg() {
+        return gameWinFlg;
+    }
+
+    public void setGameWinFlg(Boolean gameWinFlg) {
+        this.gameWinFlg = gameWinFlg;
     }
 }

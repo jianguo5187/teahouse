@@ -360,6 +360,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         order by br.bet_id desc
     </select>
 
+    <resultMap type="com.ruoyi.system.domain.vo.SummaryBetRealTimeRespVO" id="SummaryBetRealTimeListResult">
+        <result property="gameId"    column="game_id"    />
+        <result property="gameName"    column="game_name"    />
+        <result property="periods"    column="periods"    />
+        <result property="playType"    column="play_type"    />
+        <result property="playDetail"    column="play_detail"    />
+        <result property="money"    column="money"    />
+    </resultMap>
+    <select id="selectSummaryBetRealTimeResult" parameterType="com.ruoyi.system.domain.vo.BetRealTimeReqVO" resultMap="SummaryBetRealTimeListResult">
+        select
+             br.game_id as game_id
+            ,br.game_name as game_name
+            ,br.periods as periods
+            ,br.play_type as play_type
+            ,br.play_detail as  play_detail
+            ,sum(br.money) as money
+        from  bet_record br
+        where br.is_robot = 0
+        and br.game_id = #{gameId}
+        and br.periods = #{periods}
+        and br.is_delete = '0'
+        group by br.game_id
+        ,br.game_name
+        ,br.periods
+        ,br.play_type
+        ,br.play_detail
+        order by play_type,play_detail
+    </select>
+
     <select id="selectBetToalAmount" resultType="Float">
         select
             sum(bet.money)

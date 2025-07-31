@@ -390,6 +390,7 @@ public class SysAppController extends BaseController {
         ajax.put("appImUrl",configService.selectConfigByKey("sys.im.appUrl") );
         ajax.put("qrServerUrl",configService.selectConfigByKey("sys.web.qrServer") );
         ajax.put("systemGameWinRate",configService.selectConfigByKey("sys.game.winRate") );
+        ajax.put("gameWinFlg",configService.selectConfigByKey("sys.game.gameWinFlg") );
 
         ajax.put("aliCloudApiCode",configService.selectConfigByKey("sys.ali.cloudApiCode") );
         ajax.put("refuseProvince",configService.selectConfigByKey("sys.refuse.province") );

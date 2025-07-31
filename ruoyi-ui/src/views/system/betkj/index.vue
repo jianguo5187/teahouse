@@ -87,6 +87,13 @@
             v-if="scope.row.systemOpenType == 'Y' && scope.row.status == '0'"
             @click="handleSleepOpenCode(scope.row)"
           >延迟</el-button>
+
+          <el-button
+            size="mini"
+            type="danger"
+            round
+            @click="showBetSummaryDetailList(scope.row)"
+          >状况</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -98,12 +105,34 @@
       :limit.sync="queryParams.pageSize"
       @pagination="getList"
     />
+
+    <el-dialog :title="periodsBetTimerInfo.title" :visible.sync="periodsBetTimerInfo.open" width="1400px" append-to-body>
+      <div class="app-container">
+
+        <el-table v-loading="periodsBetTimerInfo.loading" :data="betRealTimeList">
+          <el-table-column label="游戏名" align="center" prop="gameName" />
+          <el-table-column label="期号" align="center" prop="periods" width="120"/>
+          <el-table-column label="玩法" align="center" prop="playType" width="120"/>
+          <el-table-column label="内容" align="center" prop="playDetail" width="80"/>
+          <el-table-column label="投注金额" align="center" prop="money" />
+        </el-table>
+
+<!--        <pagination-->
+<!--          v-show="periodsBetTimerInfo.total>0"-->
+<!--          :total="periodsBetTimerInfo.total"-->
+<!--          :page.sync="periodsBetTimerInfo.queryParams.pageNum"-->
+<!--          :limit.sync="periodsBetTimerInfo.queryParams.pageSize"-->
+<!--          @pagination="getList"-->
+<!--        />-->
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
 import {listBetkj, sleepOpenCode, reOpen, editOpenCode, getLastNoOpenRecord} from "@/api/system/betkj";
 import {getValidGame} from "@/api/system/game";
+import {listSummaryBetRealTime} from "@/api/system/bet";
 
 export default {
   name: "Betkj",
@@ -124,6 +153,7 @@ export default {
       total: 0,
       // 开奖表格数据
       betkjList: [],
+      betRealTimeList: [],
       gameListOptions:[],
       // 弹出层标题
       title: "",
@@ -149,6 +179,27 @@ export default {
       betTime: undefined,
       showBetTime: undefined,
       betTimer: null,
+      periodsBetTimerInfo: {
+        // 遮罩层
+        loading: true,
+        // 弹出层标题
+        title: "",
+        // 总条数
+        total: 0,
+        // 是否显示弹出层
+        open: false,
+        // 查询参数
+        queryParams: {
+          pageNum: 1,
+          pageSize: 2000,
+          gameId: undefined,
+          periods: undefined
+        },
+        user: {
+          gameId: undefined,
+          periods: undefined
+        },
+      },
     };
   },
   created() {
@@ -280,6 +331,20 @@ export default {
           this.$modal.msgSuccess("修改成功");
         });
       }).catch(() => {});
+    },
+    showBetSummaryDetailList(row){
+      this.periodsBetTimerInfo.open = true;
+      this.periodsBetTimerInfo.title = "投注记录";
+      this.periodsBetTimerInfo.queryParams.gameId = row.gameId;
+      this.periodsBetTimerInfo.queryParams.periods = row.periods;
+
+      this.periodsBetTimerInfo.loading = true;
+      listSummaryBetRealTime(this.periodsBetTimerInfo.queryParams).then(response => {
+        this.betRealTimeList = response.rows;
+        this.periodsBetTimerInfo.total = response.total;
+        this.periodsBetTimerInfo.loading = false;
+      });
+
     },
   }
 };

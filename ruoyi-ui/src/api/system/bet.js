@@ -9,6 +9,15 @@ export function listBetRealTime(query) {
   })
 }
 
+// 查询实时投注列表
+export function listSummaryBetRealTime(query) {
+  return request({
+    url: '/system/betRecord/listSummaryBetRealTime',
+    method: 'get',
+    params: query
+  })
+}
+
 // 删除游戏投注项
 export function adminCancelBetRecord(betRecordId) {
   return request({

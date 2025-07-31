@@ -108,8 +108,15 @@
       </el-row>
       <el-row>
         <el-col :span="12">
-          <el-form-item label="自开彩种赢亏比率" prop="systemGameWinRate">
-            <el-input-number v-model="siteSetting.form.systemGameWinRate" :min="-1" :max="100" placeholder="请输入自开彩种赢亏比率"/> -1~100【-1：关闭该功能  0：赔付最多（公司亏损最大）  100：通吃（公司盈利最大）】
+          <el-form-item label="开关" prop="gameWinFlg">
+            <el-switch v-model="siteSetting.form.gameWinFlg"></el-switch>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="最低盈利比例" prop="systemGameWinRate">
+            <el-input-number v-model="siteSetting.form.systemGameWinRate" :disabled="!siteSetting.form.gameWinFlg" :min="-1" :max="100" placeholder="请输入盈利比例设置"/> -1~100【-1：全赔】
           </el-form-item>
         </el-col>
       </el-row>
@@ -207,6 +214,7 @@ export default {
           kefuImUrl: undefined,
           appImUrl: undefined,
           qrServerUrl: undefined,
+          gameWinFlg: true,
 
           aliCloudApiCode: undefined,
           refuseProvince: undefined,
@@ -222,6 +230,9 @@ export default {
         rules: {
           siteOpenFlg: [
             { required: true, message: "站点开关不能为空", trigger: "blur" }
+          ],
+          gameWinFlg:[
+            { required: true, message: "开关不能为空", trigger: "blur" }
           ],
           minChargeMoney: [
             { required: true, message: "最小充值金额不能为空", trigger: "blur" }
@@ -304,6 +315,7 @@ export default {
       // }
       getSiteSetting().then(response => {
         this.siteSetting.form.siteOpenFlg = Boolean(response.siteOpenFlg);
+        this.siteSetting.form.gameWinFlg = Boolean(response.gameWinFlg);
 
         if(response.minChargeMoney != undefined){
           this.siteSetting.form.minChargeMoney = response.minChargeMoney;

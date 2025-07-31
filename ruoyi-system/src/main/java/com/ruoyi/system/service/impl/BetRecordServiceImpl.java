@@ -12,6 +12,7 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.BetRealTimeReqVO;
 import com.ruoyi.system.domain.vo.BetRealTimeRespVO;
+import com.ruoyi.system.domain.vo.SummaryBetRealTimeRespVO;
 import com.ruoyi.system.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -135,6 +136,11 @@ public class BetRecordServiceImpl implements IBetRecordService
     @Override
     public List<BetRealTimeRespVO> selectBetRealTimeList(BetRealTimeReqVO vo) {
         return betRecordMapper.selectBetRealTimeList(vo);
+    }
+
+    @Override
+    public List<SummaryBetRealTimeRespVO> selectSummaryBetRealTimeResult(BetRealTimeReqVO vo){
+        return betRecordMapper.selectSummaryBetRealTimeResult(vo);
     }
 
     @Override

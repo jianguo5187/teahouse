@@ -75,4 +75,6 @@ public interface BetRecordMapper
     public List<WeeKGameBetRespVO> selectWeekGameBetList();
 
     public List<VirtuallyGameRecordRespVO> getVirtuallyRecordList(@Param("gameId") Long gameId, @Param("periods") Long periods, @Param("lastBetRecordId") Long lastBetRecordId);
+
+    public List<SummaryBetRealTimeRespVO> selectSummaryBetRealTimeResult(BetRealTimeReqVO betRealTimeReqVO);
 }

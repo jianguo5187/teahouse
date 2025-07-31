@@ -4,6 +4,7 @@ import java.util.List;
 import com.ruoyi.system.domain.BetRecord;
 import com.ruoyi.system.domain.vo.BetRealTimeReqVO;
 import com.ruoyi.system.domain.vo.BetRealTimeRespVO;
+import com.ruoyi.system.domain.vo.SummaryBetRealTimeRespVO;
 
 /**
  * 投注单Service接口
@@ -71,4 +72,6 @@ public interface IBetRecordService
     public Float selectUserTodayBetAmountTotal(Long userId);
 
     public void adminCancelNoSettleBetRecord(Long userId, BetRecord searchBetRecord);
+
+    public List<SummaryBetRealTimeRespVO> selectSummaryBetRealTimeResult(BetRealTimeReqVO vo);
 }

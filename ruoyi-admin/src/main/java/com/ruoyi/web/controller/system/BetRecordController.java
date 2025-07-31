@@ -7,6 +7,7 @@ import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.utils.SecurityUtils;
 import com.ruoyi.system.domain.vo.BetRealTimeReqVO;
 import com.ruoyi.system.domain.vo.BetRealTimeRespVO;
+import com.ruoyi.system.domain.vo.SummaryBetRealTimeRespVO;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -115,6 +116,16 @@ public class BetRecordController extends BaseController
     {
         startPage();
         List<BetRealTimeRespVO> list = betRecordService.selectBetRealTimeList(vo);
+        return getDataTable(list);
+    }
+
+    /**
+     * 查询实时投注统计列表
+     */
+    @GetMapping("/listSummaryBetRealTime")
+    public TableDataInfo listSummaryBetRealTime(BetRealTimeReqVO vo)
+    {
+        List<SummaryBetRealTimeRespVO> list = betRecordService.selectSummaryBetRealTimeResult(vo);
         return getDataTable(list);
     }
 

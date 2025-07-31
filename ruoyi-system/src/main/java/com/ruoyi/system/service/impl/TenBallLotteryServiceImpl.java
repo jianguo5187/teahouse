@@ -8,12 +8,15 @@ import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.EntityMapTransUtils;
 import com.ruoyi.common.utils.RaceRankingUtil;
 import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.utils.ip.AddressUtils;
 import com.ruoyi.system.domain.*;
 import com.ruoyi.system.domain.vo.RecordSumRespVo;
 import com.ruoyi.system.domain.vo.TenBallsAddMultiBetRecordReqVO;
 import com.ruoyi.system.domain.vo.TenBallsMultiBetRecordReqVO;
 import com.ruoyi.system.domain.vo.TenBallsOddsReqVO;
 import com.ruoyi.system.service.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -75,6 +78,8 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
 
     @Autowired
     private WebSocketMessageService webSocketMessageService;
+
+    private static final Logger log = LoggerFactory.getLogger(AddressUtils.class);
 
     @Override
     public void lotteryTenBall(String gameCode) {
@@ -494,9 +499,10 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
 
             if(StringUtils.equals(gameTenballOpenData.getHandOpenFlg(),"N") && betMoney.compareTo(0f) > 0) {
                 String systemGameWinRate = configService.selectConfigByKey("sys.game.winRate");
+                String gameWinFlg = configService.selectConfigByKey("sys.game.gameWinFlg");
                 // 有设置了盈利比 才去重新计算是否需要重开奖
                 Float gameWinRate = 0f;
-                if (StringUtils.isNotEmpty(systemGameWinRate) && !StringUtils.equals(systemGameWinRate,"-1")) {
+                if (StringUtils.isNotEmpty(gameWinFlg) && Boolean.parseBoolean(gameWinFlg)) {
                     gameWinRate = Float.valueOf(systemGameWinRate);
 
 //                    // 期望支出=投注额−期望利润
@@ -568,13 +574,21 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                         }
 //                            bets.add(optimalBetRecord);
                     }
-
+//                    log.error("=== 所有投注信息（共" + bets.size() + "条） ===");
                     System.out.println("=== 所有投注信息（共" + bets.size() + "条） ===");
                     for (int i = 0; i < bets.size(); i++) {
+//                        log.error("%d. %s\n", i+1, bets.get(i).toString());
                         System.out.printf("%d. %s\n", i+1, bets.get(i).toString());
                     }
                     // 生成最优排序
                     int[] ranking = RaceRankingUtil.generateOptimalRanking(bets,gameWinRate);
+//                    log.error("\n=== 赛车最终排序 ===");
+//                    log.error("冠军: " + ranking[0] + "号车");
+//                    log.error("亚军: " + ranking[1] + "号车");
+//                    log.error("季军: " + ranking[2] + "号车");
+//                    log.error("4-10名: " +
+//                            Arrays.toString(Arrays.copyOfRange(ranking, 3, ranking.length)));
+
                     System.out.println("\n=== 赛车最终排序 ===");
                     System.out.println("冠军: " + ranking[0] + "号车");
                     System.out.println("亚军: " + ranking[1] + "号车");
