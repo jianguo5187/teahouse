@@ -166,7 +166,7 @@ public class WebSocketServer {
             gameMap.remove(userId);
         }
 
-        if(gameSessionMap.size() == 0){
+        if(gameSessionMap != null && gameSessionMap.size() == 0){
             gameUserIdAndSessionMap.remove(gameId);
             gameUserIdMap.remove(gameId);
         }

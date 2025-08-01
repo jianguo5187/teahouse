@@ -90,10 +90,24 @@ public final class RaceRankingUtil {
     /**
      * 查找极端情况（最大/最小赔付）
      */
+    /**
+     * 查找极端情况（最大/最小赔付）
+     */
     private static int[] findExtremeRanking(List<OptimalBetRecord> bets, boolean findMin) {
         int[] extremeRanking = null;
         float extremePayout = findMin ? Float.MAX_VALUE : -Float.MAX_VALUE;
 
+        // 先检查理论上的最大赔付情况（1,2,3...10）
+        if (!findMin) {
+            int[] theoreticalMax = IntStream.range(1, 11).toArray();
+            float payout = calculateTotalPayout(bets, theoreticalMax);
+            if (payout > extremePayout) {
+                extremePayout = payout;
+                extremeRanking = theoreticalMax;
+            }
+        }
+
+        // 再随机搜索其他可能性（保持原有逻辑）
         for (int i = 0; i < TOTAL_PERMUTATIONS; i++) {
             int[] ranking = generateRandomRanking();
             float payout = calculateTotalPayout(bets, ranking);
@@ -105,6 +119,21 @@ public final class RaceRankingUtil {
         }
         return extremeRanking;
     }
+//    private static int[] findExtremeRanking(List<OptimalBetRecord> bets, boolean findMin) {
+//        int[] extremeRanking = null;
+//        float extremePayout = findMin ? Float.MAX_VALUE : -Float.MAX_VALUE;
+//
+//        for (int i = 0; i < TOTAL_PERMUTATIONS; i++) {
+//            int[] ranking = generateRandomRanking();
+//            float payout = calculateTotalPayout(bets, ranking);
+//
+//            if ((findMin && payout < extremePayout) || (!findMin && payout > extremePayout)) {
+//                extremePayout = payout;
+//                extremeRanking = ranking;
+//            }
+//        }
+//        return extremeRanking;
+//    }
 
     /**
      * 计算总投注金额

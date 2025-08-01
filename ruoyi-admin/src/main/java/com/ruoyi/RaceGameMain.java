@@ -15,14 +15,23 @@ public class RaceGameMain {
         // 1. 生成50条随机投注（每条记录只包含一个投注）
 //        List<OptimalBetRecord> bets = generateRandomBets(50);
         List<OptimalBetRecord> bets = new ArrayList<>();
-        bets.add(new OptimalBetRecord("3", 1, OptimalBetRecord.BetType.BIG, 200f, 1.96f));
-        bets.add(new OptimalBetRecord("3", 2, OptimalBetRecord.BetType.ODD, 300f, 1.96f));
-        bets.add(new OptimalBetRecord("3", 1, OptimalBetRecord.BetType.EVEN, 300f, 1.96f));
-        bets.add(new OptimalBetRecord("3", 2, OptimalBetRecord.BetType.SMALL, 400f, 1.96f));
+        bets.add(new OptimalBetRecord("3", 1, OptimalBetRecord.BetType.SMALL, 20000f, 1.96f));
+//        bets.add(new OptimalBetRecord("3", 2, OptimalBetRecord.BetType.ODD, 300f, 1.96f));
+//        bets.add(new OptimalBetRecord("3", 1, OptimalBetRecord.BetType.EVEN, 300f, 1.96f));
+//        bets.add(new OptimalBetRecord("3", 2, OptimalBetRecord.BetType.SMALL, 400f, 1.96f));
 ////        bets.add(new OptimalBetRecord("3", 1, OptimalBetRecord.BetType.BIG, 100f, 1.96f));
 ////        bets.add(new OptimalBetRecord("3", 4, OptimalBetRecord.BetType.BIG, 100f, 1.96f));
 ////        bets.add(new OptimalBetRecord("3", 5, OptimalBetRecord.BetType.BIG, 100f, 1.96f));
-//        bets.add(new OptimalBetRecord("3", OptimalBetRecord.BetType.RUNNER_UP_NUMBER, 2, 200f, 9.80f));
+        bets.add(new OptimalBetRecord("3", OptimalBetRecord.BetType.CHAMPION_NUMBER, 9, 200f, 9.80f));
+        bets.add(new OptimalBetRecord("3", OptimalBetRecord.BetType.RUNNER_UP_NUMBER, 2, 200f, 9.80f));
+        bets.add(new OptimalBetRecord("3", OptimalBetRecord.BetType.THIRD_PLACE_NUMBER, 4, 200f, 9.80f));
+        bets.add(new OptimalBetRecord("3", OptimalBetRecord.BetType.FOURTH_PLACE_NUMBER, 3, 200f, 9.80f));
+        bets.add(new OptimalBetRecord("3", OptimalBetRecord.BetType.FIFTH_PLACE_NUMBER, 6, 200f, 9.80f));
+        bets.add(new OptimalBetRecord("3", OptimalBetRecord.BetType.SIXTH_PLACE_NUMBER, 5, 200f, 9.80f));
+        bets.add(new OptimalBetRecord("3", OptimalBetRecord.BetType.SEVENTH_PLACE_NUMBER, 7, 200f, 9.80f));
+        bets.add(new OptimalBetRecord("3", OptimalBetRecord.BetType.EIGHTH_PLACE_NUMBER, 1, 200f, 9.80f));
+        bets.add(new OptimalBetRecord("3", OptimalBetRecord.BetType.NINTH_PLACE_NUMBER, 8, 200f, 9.80f));
+        bets.add(new OptimalBetRecord("3", OptimalBetRecord.BetType.TENTH_PLACE_NUMBER, 10, 200f, 9.80f));
 
         // 2. 打印所有投注信息
         printAllBets(bets);
@@ -32,7 +41,7 @@ public class RaceGameMain {
         System.out.printf("\n所有员工总投注金额: %.2f元\n", totalBetAmount);
 
         // 4. 生成最优排序
-        int[] ranking = RaceRankingUtil.generateOptimalRanking(bets,40f);
+        int[] ranking = RaceRankingUtil.generateOptimalRanking(bets,-1f);
         printRanking(ranking);
 
         // 5. 计算赔付详情
@@ -65,7 +74,7 @@ public class RaceGameMain {
         } else {
             // 号码预测
             OptimalBetRecord.BetType type = OptimalBetRecord.BetType.values()[
-                    random.nextInt(3) + 4]; // CHAMPION_NUMBER/RUNNER_UP_NUMBER/THIRD_PLACE_NUMBER
+                    random.nextInt(10) + 4]; // CHAMPION_NUMBER到TENTH_PLACE_NUMBER
             int number = random.nextInt(10) + 1;
             Float amount = round(random.nextFloat() * 100 + 10); // 10-110元
             Float rate = 9.8f; // 5-10倍

@@ -13,9 +13,9 @@
             ></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item>
-          <el-button type="success" icon="el-icon-edit" size="mini" @click="handleGameUpdate">编辑</el-button>
-        </el-form-item>
+<!--        <el-form-item>-->
+<!--          <el-button type="success" icon="el-icon-edit" size="mini" @click="handleGameUpdate">编辑</el-button>-->
+<!--        </el-form-item>-->
       </el-row>
       <el-row :gutter="20">
         <el-form-item label="游戏投注类型" prop="betItemType">

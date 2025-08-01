@@ -13,7 +13,14 @@ public class OptimalBetRecord {
         EVEN,    // 双
         CHAMPION_NUMBER,    // 冠军号码
         RUNNER_UP_NUMBER,   // 亚军号码
-        THIRD_PLACE_NUMBER  // 季军号码
+        THIRD_PLACE_NUMBER,  // 季军号码
+        FOURTH_PLACE_NUMBER, // 第四名号码
+        FIFTH_PLACE_NUMBER,  // 第五名号码
+        SIXTH_PLACE_NUMBER,  // 第六名号码
+        SEVENTH_PLACE_NUMBER, // 第七名号码
+        EIGHTH_PLACE_NUMBER,  // 第八名号码
+        NINTH_PLACE_NUMBER,   // 第九名号码
+        TENTH_PLACE_NUMBER    // 第十名号码
     }
 
     private String employee;
@@ -76,6 +83,20 @@ public class OptimalBetRecord {
                 return predictedNumber == ranking[1] ? betAmount * payoutRate : 0f;
             case THIRD_PLACE_NUMBER:
                 return predictedNumber == ranking[2] ? betAmount * payoutRate : 0f;
+            case FOURTH_PLACE_NUMBER:
+                return predictedNumber == ranking[3] ? betAmount * payoutRate : 0f;
+            case FIFTH_PLACE_NUMBER:
+                return predictedNumber == ranking[4] ? betAmount * payoutRate : 0f;
+            case SIXTH_PLACE_NUMBER:
+                return predictedNumber == ranking[5] ? betAmount * payoutRate : 0f;
+            case SEVENTH_PLACE_NUMBER:
+                return predictedNumber == ranking[6] ? betAmount * payoutRate : 0f;
+            case EIGHTH_PLACE_NUMBER:
+                return predictedNumber == ranking[7] ? betAmount * payoutRate : 0f;
+            case NINTH_PLACE_NUMBER:
+                return predictedNumber == ranking[8] ? betAmount * payoutRate : 0f;
+            case TENTH_PLACE_NUMBER:
+                return predictedNumber == ranking[9] ? betAmount * payoutRate : 0f;
             default:
                 return 0f;
         }
@@ -111,6 +132,13 @@ public class OptimalBetRecord {
                 case CHAMPION_NUMBER: positionName = "冠军"; break;
                 case RUNNER_UP_NUMBER: positionName = "亚军"; break;
                 case THIRD_PLACE_NUMBER: positionName = "季军"; break;
+                case FOURTH_PLACE_NUMBER: positionName = "第四名"; break;
+                case FIFTH_PLACE_NUMBER: positionName = "第五名"; break;
+                case SIXTH_PLACE_NUMBER: positionName = "第六名"; break;
+                case SEVENTH_PLACE_NUMBER: positionName = "第七名"; break;
+                case EIGHTH_PLACE_NUMBER: positionName = "第八名"; break;
+                case NINTH_PLACE_NUMBER: positionName = "第九名"; break;
+                case TENTH_PLACE_NUMBER: positionName = "第十名"; break;
             }
             return String.format("%s 预测%s %d号 %.2f元(%.1f倍)",
                     employee, positionName, predictedNumber, betAmount, payoutRate);
