@@ -29,10 +29,13 @@ public final class RaceRankingUtil {
         float totalBetAmount = calculateTotalBetAmount(bets);
         float targetRatio = profitTarget / 100f;
 
-        int[] bestRanking = null;
-        float bestProfitDiff = Float.MAX_VALUE;
-        float bestProfitRatio = -1f;
-        boolean foundAboveTarget = false;
+        int[] bestRankingAbove = null;
+        float bestProfitDiffAbove = Float.MAX_VALUE;
+        float bestProfitRatioAbove = -1f;
+
+        int[] bestRankingBelow = null;
+        float bestProfitDiffBelow = Float.MAX_VALUE;
+        float bestProfitRatioBelow = -1f;
 
         // 主循环尝试所有可能排列
         for (int i = 0; i < TOTAL_PERMUTATIONS; i++) {
@@ -44,39 +47,92 @@ public final class RaceRankingUtil {
             float currentDiff = profitRatio - targetRatio;
             float absDiff = Math.abs(currentDiff);
 
-            // 优先匹配高于目标的
-            if (!foundAboveTarget) {
-                if (currentDiff >= 0) { // 高于或等于目标
-                    if (absDiff < bestProfitDiff) {
-                        bestProfitDiff = absDiff;
-                        bestProfitRatio = profitRatio;
-                        bestRanking = ranking;
-                        foundAboveTarget = true;
-                    }
-                } else { // 低于目标
-                    if (bestProfitRatio < targetRatio && absDiff < bestProfitDiff) {
-                        bestProfitDiff = absDiff;
-                        bestProfitRatio = profitRatio;
-                        bestRanking = ranking;
-                    }
+            if (currentDiff >= 0) { // 高于或等于目标
+                if (absDiff < bestProfitDiffAbove) {
+                    bestProfitDiffAbove = absDiff;
+                    bestProfitRatioAbove = profitRatio;
+                    bestRankingAbove = ranking;
+
+                    // 找到精确匹配时提前返回
+                    if (absDiff < 0.0001f) break;
                 }
-            } else {
-                // 已经找到高于目标的，只考虑高于目标的情况
-                if (currentDiff >= 0 && absDiff < bestProfitDiff) {
-                    bestProfitDiff = absDiff;
-                    bestProfitRatio = profitRatio;
-                    bestRanking = ranking;
+            } else { // 低于目标
+                if (absDiff < bestProfitDiffBelow) {
+                    bestProfitDiffBelow = absDiff;
+                    bestProfitRatioBelow = profitRatio;
+                    bestRankingBelow = ranking;
                 }
             }
-
-            // 找到精确匹配时提前返回
-            if (absDiff < 0.0001f) break;
         }
 
-        System.out.printf("实际盈利比例: %.2f%% (目标: %.2f%%)\n",
-                bestProfitRatio * 100, profitTarget);
-        return bestRanking != null ? bestRanking : generateRandomRanking();
+        // 优先返回高于目标的解，如果没有则返回最接近的低于目标的解
+        if (bestRankingAbove != null) {
+            System.out.printf("实际盈利比例: %.2f%% (目标: ≥%.2f%%)\n",
+                    bestProfitRatioAbove * 100, profitTarget);
+            return bestRankingAbove;
+        } else {
+            System.out.printf("警告: 未找到满足最低盈利目标的解，使用最接近的 %.2f%% (目标: ≥%.2f%%)\n",
+                    bestProfitRatioBelow * 100, profitTarget);
+            return bestRankingBelow != null ? bestRankingBelow : generateRandomRanking();
+        }
     }
+//    public static int[] generateOptimalRanking(List<OptimalBetRecord> bets, float profitTarget) {
+//        // 处理全赔特殊情况
+//        if (profitTarget == -1) {
+//            return findExtremeRanking(bets, false); // 最大赔付
+//        }
+//
+//        float totalBetAmount = calculateTotalBetAmount(bets);
+//        float targetRatio = profitTarget / 100f;
+//
+//        int[] bestRanking = null;
+//        float bestProfitDiff = Float.MAX_VALUE;
+//        float bestProfitRatio = -1f;
+//        boolean foundAboveTarget = false;
+//
+//        // 主循环尝试所有可能排列
+//        for (int i = 0; i < TOTAL_PERMUTATIONS; i++) {
+//            int[] ranking = generateRandomRanking();
+//            float payout = calculateTotalPayout(bets, ranking);
+//            float profitRatio = (totalBetAmount - payout) / totalBetAmount;
+//
+//            // 计算与目标的差异
+//            float currentDiff = profitRatio - targetRatio;
+//            float absDiff = Math.abs(currentDiff);
+//
+//            // 优先匹配高于目标的
+//            if (!foundAboveTarget) {
+//                if (currentDiff >= 0) { // 高于或等于目标
+//                    if (absDiff < bestProfitDiff) {
+//                        bestProfitDiff = absDiff;
+//                        bestProfitRatio = profitRatio;
+//                        bestRanking = ranking;
+//                        foundAboveTarget = true;
+//                    }
+//                } else { // 低于目标
+//                    if (bestProfitRatio < targetRatio && absDiff < bestProfitDiff) {
+//                        bestProfitDiff = absDiff;
+//                        bestProfitRatio = profitRatio;
+//                        bestRanking = ranking;
+//                    }
+//                }
+//            } else {
+//                // 已经找到高于目标的，只考虑高于目标的情况
+//                if (currentDiff >= 0 && absDiff < bestProfitDiff) {
+//                    bestProfitDiff = absDiff;
+//                    bestProfitRatio = profitRatio;
+//                    bestRanking = ranking;
+//                }
+//            }
+//
+//            // 找到精确匹配时提前返回
+//            if (absDiff < 0.0001f) break;
+//        }
+//
+//        System.out.printf("实际盈利比例: %.2f%% (目标: %.2f%%)\n",
+//                bestProfitRatio * 100, profitTarget);
+//        return bestRanking != null ? bestRanking : generateRandomRanking();
+//    }
 
     /**
      * 生成随机排序
