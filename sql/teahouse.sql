@@ -11,7 +11,7 @@
  Target Server Version : 50726 (5.7.26)
  File Encoding         : 65001
 
- Date: 01/08/2025 21:05:20
+ Date: 07/08/2025 00:14:45
 */
 
 SET NAMES utf8mb4;
@@ -9694,7 +9694,7 @@ CREATE TABLE `sys_admin_action_log`  (
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `id`(`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 406 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '管理员操作记录表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 407 CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '管理员操作记录表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_admin_action_log
@@ -10104,6 +10104,7 @@ INSERT INTO `sys_admin_action_log` VALUES (402, '1', 2, '平台管理员', '182.
 INSERT INTO `sys_admin_action_log` VALUES (403, '1', 2, '平台管理员', '112.48.51.212', '2', NULL, NULL, '平台管理员', '2025-08-01 18:59:10', NULL, NULL, '[平台管理员]管理员登录。');
 INSERT INTO `sys_admin_action_log` VALUES (404, '2', 4, '平台管理员', '112.48.51.212', '4', NULL, NULL, '平台管理员', '2025-08-01 20:59:27', NULL, NULL, '[平台管理员]管理员登录。');
 INSERT INTO `sys_admin_action_log` VALUES (405, '2', 4, '平台管理员', '112.48.51.212', '4', NULL, NULL, '平台管理员', '2025-08-01 21:01:48', NULL, NULL, '[平台管理员]管理员登录。');
+INSERT INTO `sys_admin_action_log` VALUES (406, '1', 2, '平台管理员', '127.0.0.1', '2', NULL, NULL, '平台管理员', '2025-08-06 23:45:45', NULL, NULL, '[平台管理员]管理员登录。');
 
 -- ----------------------------
 -- Table structure for sys_admin_record
@@ -11650,13 +11651,13 @@ CREATE TABLE `sys_calendar`  (
   `calendar_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '日历表ID',
   `calendar_date` datetime NULL DEFAULT NULL COMMENT '日历时间',
   PRIMARY KEY (`calendar_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 989 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '日历表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1208 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '日历表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_calendar
 -- ----------------------------
-INSERT INTO `sys_calendar` VALUES (987, '2025-07-31 00:00:00');
-INSERT INTO `sys_calendar` VALUES (988, '2025-08-01 00:00:00');
+INSERT INTO `sys_calendar` VALUES (1206, '2025-08-06 00:00:00');
+INSERT INTO `sys_calendar` VALUES (1207, '2025-08-07 00:00:00');
 
 -- ----------------------------
 -- Table structure for sys_chat
@@ -11716,7 +11717,7 @@ CREATE TABLE `sys_config`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`config_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 98 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '参数配置表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 99 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '参数配置表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_config
@@ -11727,35 +11728,35 @@ INSERT INTO `sys_config` VALUES (3, '主框架页-侧边栏主题', 'sys.index.s
 INSERT INTO `sys_config` VALUES (4, '账号自助-验证码开关', 'sys.account.captchaEnabled', 'false', 'Y', 'admin', '2024-03-05 21:03:11', 'admin', '2025-07-24 22:46:05', '是否开启验证码功能（true开启，false关闭）');
 INSERT INTO `sys_config` VALUES (5, '账号自助-是否开启用户注册功能', 'sys.account.registerUser', 'false', 'Y', 'admin', '2024-03-05 21:03:11', '', NULL, '是否开启注册用户功能（true开启，false关闭）');
 INSERT INTO `sys_config` VALUES (6, '用户登录-黑名单列表', 'sys.login.blackIPList', '', 'Y', 'admin', '2024-03-05 21:03:11', '', NULL, '设置登录IP黑名单限制，多个匹配项以;分隔，支持匹配（*通配、网段）');
-INSERT INTO `sys_config` VALUES (7, '充值最小金额', 'sys.change.min', '10', 'Y', 'admin', '2024-04-23 20:12:13', 'sharkadmin', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (8, '提现最小金额', 'sys.postal.min', '10', 'Y', 'admin', '2024-04-23 21:27:38', 'admin', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (9, '每日提现次数', 'sys.postal.maxCnt', '3', 'Y', 'admin', '2024-04-23 21:29:58', '', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (13, 'app首页公告内容', 'sys.app.home.notice', '本台交易支持，微信，支付宝，银联，USDT,上分前请先私聊台子上的在线客服，不要乱转哦，谢谢配合', 'Y', 'admin', '2024-05-26 20:09:01', 'admin', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (14, '获取官方开奖结果的URL', 'sys.opengame.url', 'http://api.pbservice-wpi.top/home/api/getCodeData?code=', 'Y', 'admin', '2024-05-27 20:11:29', 'admin', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (15, 'LOGO图片地址', 'sys.logo.img', '/profile/upload/2025/01/06/e258421354bea68c00b71f77d0902e07_20250106214043A013.png', 'Y', '', '2024-06-09 17:42:34', '', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (16, '微信客服图片地址', 'sys.wechat.img', '/profile/upload/2025/01/06/a8e7668ff5b44ae7dfcede76b15efe76_20250106214109A014.png', 'Y', '', '2024-06-19 21:21:09', '', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (17, 'QQ客服图片地址', 'sys.qqchat.img', '/profile/upload/2025/01/06/a8e7668ff5b44ae7dfcede76b15efe76_20250106214112A015.png', 'Y', '', '2024-06-19 21:21:09', 'sharkadmin', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (18, '站点开关', 'sys.site.openFlg', 'true', 'Y', 'admin', '2024-07-23 18:55:09', 'admin', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (19, '网站类型', 'sys.web.type', '9007', 'Y', 'admin', '2024-08-04 02:11:49', 'admin', '2025-08-01 20:51:32', '二维码服务器webType（唯一）');
-INSERT INTO `sys_config` VALUES (20, '网站名', 'sys.web.name', '超级幸运', 'Y', 'admin', '2024-08-04 02:12:40', '', '2025-08-01 20:51:32', '网站名');
-INSERT INTO `sys_config` VALUES (21, '微信小程序appId', 'sys.wechat.appId', 'wx5c39c26d383d4b93', 'Y', 'admin', '2024-08-05 21:03:18', 'admin', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (22, '微信小程序密钥', 'sys.wechat.appSecret', '1dbf25077623d8456e84c6f70994a6ee', 'Y', 'admin', '2024-08-05 21:04:24', '', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (23, '自开彩种赢亏比率', 'sys.game.winRate', '60.0', 'Y', '', '2024-08-13 14:24:24', '', '2025-08-01 20:51:32', NULL);
+INSERT INTO `sys_config` VALUES (7, '充值最小金额', 'sys.change.min', '10', 'Y', 'admin', '2024-04-23 20:12:13', 'sharkadmin', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (8, '提现最小金额', 'sys.postal.min', '10', 'Y', 'admin', '2024-04-23 21:27:38', 'admin', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (9, '每日提现次数', 'sys.postal.maxCnt', '3', 'Y', 'admin', '2024-04-23 21:29:58', '', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (13, 'app首页公告内容', 'sys.app.home.notice', '本台交易支持，微信，支付宝，银联，USDT,上分前请先私聊台子上的在线客服，不要乱转哦，谢谢配合', 'Y', 'admin', '2024-05-26 20:09:01', 'admin', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (14, '获取官方开奖结果的URL', 'sys.opengame.url', 'http://api.pbservice-wpi.top/home/api/getCodeData?code=', 'Y', 'admin', '2024-05-27 20:11:29', 'admin', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (15, 'LOGO图片地址', 'sys.logo.img', '/profile/upload/2025/01/06/e258421354bea68c00b71f77d0902e07_20250106214043A013.png', 'Y', '', '2024-06-09 17:42:34', '', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (16, '微信客服图片地址', 'sys.wechat.img', '/profile/upload/2025/01/06/a8e7668ff5b44ae7dfcede76b15efe76_20250106214109A014.png', 'Y', '', '2024-06-19 21:21:09', '', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (17, 'QQ客服图片地址', 'sys.qqchat.img', '/profile/upload/2025/01/06/a8e7668ff5b44ae7dfcede76b15efe76_20250106214112A015.png', 'Y', '', '2024-06-19 21:21:09', 'sharkadmin', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (18, '站点开关', 'sys.site.openFlg', 'true', 'Y', 'admin', '2024-07-23 18:55:09', 'admin', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (19, '网站类型', 'sys.web.type', '9007', 'Y', 'admin', '2024-08-04 02:11:49', 'admin', '2025-08-07 00:07:33', '二维码服务器webType（唯一）');
+INSERT INTO `sys_config` VALUES (20, '网站名', 'sys.web.name', '超级幸运', 'Y', 'admin', '2024-08-04 02:12:40', '', '2025-08-07 00:07:33', '网站名');
+INSERT INTO `sys_config` VALUES (21, '微信小程序appId', 'sys.wechat.appId', 'wx5c39c26d383d4b93', 'Y', 'admin', '2024-08-05 21:03:18', 'admin', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (22, '微信小程序密钥', 'sys.wechat.appSecret', '1dbf25077623d8456e84c6f70994a6ee', 'Y', 'admin', '2024-08-05 21:04:24', '', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (23, '自开彩种赢亏比率', 'sys.game.winRate', '60.0', 'Y', '', '2024-08-13 14:24:24', '', '2025-08-07 00:07:33', NULL);
 INSERT INTO `sys_config` VALUES (24, '授权域名', 'sys.wechat.authUrl', 'http://djhsq.sfvef.cn', 'Y', '', '2024-08-14 22:42:57', 'admin', '2024-12-31 20:51:56', NULL);
-INSERT INTO `sys_config` VALUES (25, '客服端聊天地址', 'sys.im.kefuUrl', 'http://103.100.170.126:81', 'Y', '', '2024-08-23 22:18:53', '', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (26, '玩家端聊天地址', 'sys.im.appUrl', 'http://103.100.170.126:81/h5', 'Y', '', '2024-08-23 22:18:53', '', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (27, '二维码服务器IP', 'sys.web.qrServer', 'http://101.32.52.232', 'Y', '', '2024-08-23 22:18:53', '', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (28, '阿里云IP查询AppCode', 'sys.ali.cloudApiCode', 'fb9847d600ab4eccaac76f57facdd52f', 'N', '', '2024-09-26 21:10:17', '', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (31, '拒绝访问服务商', 'sys.refuse.isp', '腾讯云,华数传媒,华数传媒/联通,Oracle,Google,Amazon/EC2,阿里云/阿里巴巴,阿里云', 'N', '', '2024-09-26 21:10:17', '', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (42, '微信拦截状态接口Code', 'sys.wxAutoCheck.apiCode', 'e15f1ab30cf671b1b75763ef10945418', 'N', '', '2024-10-12 12:35:27', '', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (53, 'app首页公告内容', 'sys.app.home.appHomeAnnouncement', '平台下方有在线客服，有什么问题请联系客服!平台上分实名制，\n上下分必须要同名同姓，一天提两次。每隔三小时提一次，\n有什么不清楚可以联系在线客服了解，祝各位老板娱乐愉快!\n注册账号建议:为保护个人隐私，请不要填写真实手机号码', 'N', '', '2024-11-03 16:31:44', '', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (60, '拒绝访问省份', 'sys.refuse.province', '加利福尼亚州,弗吉尼亚州,俄亥俄州,魁北克省', 'N', '', '2024-11-05 16:13:48', '', '2025-08-01 20:51:32', NULL);
+INSERT INTO `sys_config` VALUES (25, '客服端聊天地址', 'sys.im.kefuUrl', 'http://103.100.170.126:81', 'Y', '', '2024-08-23 22:18:53', '', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (26, '玩家端聊天地址', 'sys.im.appUrl', 'http://103.100.170.126:81/h5', 'Y', '', '2024-08-23 22:18:53', '', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (27, '二维码服务器IP', 'sys.web.qrServer', 'http://101.32.52.232', 'Y', '', '2024-08-23 22:18:53', '', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (28, '阿里云IP查询AppCode', 'sys.ali.cloudApiCode', 'fb9847d600ab4eccaac76f57facdd52f', 'N', '', '2024-09-26 21:10:17', '', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (31, '拒绝访问服务商', 'sys.refuse.isp', '腾讯云,华数传媒,华数传媒/联通,Oracle,Google,Amazon/EC2,阿里云/阿里巴巴,阿里云', 'N', '', '2024-09-26 21:10:17', '', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (42, '微信拦截状态接口Code', 'sys.wxAutoCheck.apiCode', 'e15f1ab30cf671b1b75763ef10945418', 'N', '', '2024-10-12 12:35:27', '', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (53, 'app首页公告内容', 'sys.app.home.appHomeAnnouncement', '平台下方有在线客服，有什么问题请联系客服!平台上分实名制，\n上下分必须要同名同姓，一天提两次。每隔三小时提一次，\n有什么不清楚可以联系在线客服了解，祝各位老板娱乐愉快!\n注册账号建议:为保护个人隐私，请不要填写真实手机号码', 'N', '', '2024-11-03 16:31:44', '', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (60, '拒绝访问省份', 'sys.refuse.province', '加利福尼亚州,弗吉尼亚州,俄亥俄州,魁北克省', 'N', '', '2024-11-05 16:13:48', '', '2025-08-07 00:07:33', NULL);
 INSERT INTO `sys_config` VALUES (67, '佣金转出设置', 'sys.commission.transfer.flag', '1', 'Y', 'admin', '2024-11-14 22:11:34', '', NULL, '0:直接转入余额 1：需要转出设置');
 INSERT INTO `sys_config` VALUES (78, '二维码服务器端口', 'sys.qrweb.port', '6678', 'Y', 'admin', '2025-01-06 21:58:47', 'admin', '2025-01-06 22:07:37', NULL);
 INSERT INTO `sys_config` VALUES (79, '二维码服务器同步端口', 'sys.qrweb.api.port', '6678', 'Y', 'admin', '2025-01-06 23:24:39', '', NULL, NULL);
 INSERT INTO `sys_config` VALUES (81, '1', '1', '1', 'Y', 'admin', '2025-01-20 19:11:31', '', NULL, NULL);
-INSERT INTO `sys_config` VALUES (87, '作弊开关', 'sys.game.gameWinFlg', 'true', 'N', '', '2025-07-31 22:34:26', '', '2025-08-01 20:51:32', NULL);
-INSERT INTO `sys_config` VALUES (97, '拒绝访问城市', 'sys.refuse.city', '', 'N', '', '2025-08-01 20:51:32', '', NULL, NULL);
+INSERT INTO `sys_config` VALUES (87, '作弊开关', 'sys.game.gameWinFlg', 'true', 'N', '', '2025-07-31 22:34:26', '', '2025-08-07 00:07:33', NULL);
+INSERT INTO `sys_config` VALUES (98, '开奖起始期号', 'sys.start.periods', '2', 'Y', 'admin', '2025-08-06 23:12:11', '', '2025-08-07 00:13:24', '开奖起始期号');
 
 -- ----------------------------
 -- Table structure for sys_dept
@@ -12837,13 +12838,13 @@ CREATE TABLE `sys_user`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 65551 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户信息表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户信息表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 0, 'admin', '平台管理员', NULL, '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '112.48.51.212', '2025-08-01 18:54:41', 0.00, 0.00, 'a12c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100.00, 100.00, 100.00, 100.00, 100.00, 100.00, '1', 'admin', '2024-03-05 21:03:10', '', '2025-08-01 18:54:41', '管理员');
-INSERT INTO `sys_user` VALUES (2, 100, 'teahouseadmin', '平台管理员', NULL, '01', 'ry@qq.com', '15666666666', '1', '', '$2a$10$6AO5Mx33xFDoAJ61aQC8F.Tpyc1W/1zCBh9EdE8RTXiFhlAsRdQmK', '0', '0', '112.48.51.212', '2025-08-01 18:59:10', 0.00, 0.00, '789c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100.00, 100.00, 100.00, 100.00, 100.00, 100.00, '1', 'admin', '2024-03-05 21:03:10', 'admin', '2025-08-01 18:59:10', '测试员');
+INSERT INTO `sys_user` VALUES (1, 0, 'admin', '平台管理员', NULL, '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2025-08-06 23:08:04', 0.00, 0.00, 'a12c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100.00, 100.00, 100.00, 100.00, 100.00, 100.00, '1', 'admin', '2024-03-05 21:03:10', '', '2025-08-06 23:08:04', '管理员');
+INSERT INTO `sys_user` VALUES (2, 100, 'teahouseadmin', '平台管理员', NULL, '01', 'ry@qq.com', '15666666666', '1', '', '$2a$10$6AO5Mx33xFDoAJ61aQC8F.Tpyc1W/1zCBh9EdE8RTXiFhlAsRdQmK', '0', '0', '127.0.0.1', '2025-08-06 23:45:45', 0.00, 0.00, '789c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100.00, 100.00, 100.00, 100.00, 100.00, 100.00, '1', 'admin', '2024-03-05 21:03:10', 'admin', '2025-08-06 23:45:45', '测试员');
 INSERT INTO `sys_user` VALUES (4, 100, 'qiantai', '平台管理员', NULL, '01', 'ry@qq.com', '15666666666', '1', '', '$2a$10$6AO5Mx33xFDoAJ61aQC8F.Tpyc1W/1zCBh9EdE8RTXiFhlAsRdQmK', '0', '0', '112.48.51.212', '2025-08-01 21:01:48', 0.00, 0.00, '789c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 100.00, 100.00, 100.00, 100.00, 100.00, 100.00, '1', 'admin', '2024-03-05 21:03:10', 'admin', '2025-08-01 21:01:48', '测试员');
 
 -- ----------------------------
@@ -13092,6 +13093,69 @@ BEGIN
 		insert into sys_calendar (calendar_date) values (DATE_ADD(beginDate,INTERVAL i DAY));
 		SET i=i+1;
 	END WHILE ;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for truncate_all_tables
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `truncate_all_tables`;
+delimiter ;;
+CREATE PROCEDURE `truncate_all_tables`()
+BEGIN
+    -- 删除表数据
+    DELETE FROM bet_record;
+    DELETE FROM game_fiveball_kj;
+    DELETE FROM game_fiveball_open_data;
+    DELETE FROM game_fiveball_record;
+    DELETE FROM game_tenball_kj;
+    DELETE FROM game_tenball_open_data;
+    DELETE FROM game_tenball_record;
+    DELETE FROM game_threeball_kj;
+    DELETE FROM game_threeball_open_data;
+    DELETE FROM game_threeball_record;
+    DELETE FROM usermoney;
+    DELETE FROM userwin;
+    DELETE FROM sys_job_log;
+    DELETE FROM sys_oper_log;
+    DELETE FROM adminwin;
+    DELETE FROM sys_logininfor;
+    DELETE FROM sys_admin_record;
+    DELETE FROM game_system_open_data;
+    DELETE FROM im_private_message;
+    DELETE FROM im_friend;
+    DELETE FROM im_user WHERE id > 2;
+    DELETE FROM game_auto_bet_record;
+    DELETE FROM sys_calendar WHERE date_format(calendar_date,'%Y%m%d') < DATE_FORMAT(SUBDATE(CURDATE(), INTERVAL 1 DAY), '%Y%m%d');
+    DELETE FROM sys_user_commission;
+
+    -- 重置自增ID
+    ALTER TABLE bet_record AUTO_INCREMENT = 1;
+    ALTER TABLE game_fiveball_kj AUTO_INCREMENT = 1;
+    ALTER TABLE game_fiveball_open_data AUTO_INCREMENT = 1;
+    ALTER TABLE game_fiveball_record AUTO_INCREMENT = 1;
+    ALTER TABLE game_tenball_kj AUTO_INCREMENT = 1;
+    ALTER TABLE game_tenball_open_data AUTO_INCREMENT = 1;
+    ALTER TABLE game_tenball_record AUTO_INCREMENT = 1;
+    ALTER TABLE game_threeball_kj AUTO_INCREMENT = 1;
+    ALTER TABLE game_threeball_open_data AUTO_INCREMENT = 1;
+    ALTER TABLE game_threeball_record AUTO_INCREMENT = 1;
+    ALTER TABLE usermoney AUTO_INCREMENT = 1;
+    ALTER TABLE userwin AUTO_INCREMENT = 1;
+    ALTER TABLE sys_job_log AUTO_INCREMENT = 1;
+    ALTER TABLE sys_oper_log AUTO_INCREMENT = 1;
+    ALTER TABLE adminwin AUTO_INCREMENT = 1;
+    ALTER TABLE sys_logininfor AUTO_INCREMENT = 1;
+    ALTER TABLE sys_admin_record AUTO_INCREMENT = 1;
+    ALTER TABLE game_system_open_data AUTO_INCREMENT = 1;
+    ALTER TABLE im_private_message AUTO_INCREMENT = 1;
+    ALTER TABLE im_friend AUTO_INCREMENT = 1;
+    ALTER TABLE im_user AUTO_INCREMENT = 1;
+    ALTER TABLE game_auto_bet_record AUTO_INCREMENT = 1;
+    ALTER TABLE sys_user_commission AUTO_INCREMENT = 1;
+    
+    SELECT 'All tables have been truncated and auto-increment values reset.' AS message;
 END
 ;;
 delimiter ;

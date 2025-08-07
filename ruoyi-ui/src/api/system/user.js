@@ -264,6 +264,15 @@ export function updateSiteSetting(data) {
   })
 }
 
+// 重置起始期号
+export function updateStartPeriods(data) {
+  return request({
+    url: '/system/app/updateStartPeriods',
+    method: 'post',
+    data: data
+  })
+}
+
 // 新增子管理员用户
 export function addChildAdminUser(data) {
   return request({

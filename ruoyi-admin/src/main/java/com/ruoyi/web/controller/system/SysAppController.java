@@ -402,6 +402,7 @@ public class SysAppController extends BaseController {
         ajax.put("logoImg",configService.selectConfigByKey("sys.logo.img") );
         ajax.put("wechatImg",configService.selectConfigByKey("sys.wechat.img") );
         ajax.put("qqChatImg",configService.selectConfigByKey("sys.qqchat.img") );
+        ajax.put("startPeriods",configService.selectConfigByKey("sys.start.periods") );
         return ajax;
     }
 
@@ -410,6 +411,14 @@ public class SysAppController extends BaseController {
     {
         AjaxResult ajax = AjaxResult.success();
         sysAppService.updateSiteSetting(vo);
+        return ajax;
+    }
+
+    @PostMapping("/updateStartPeriods")
+    public AjaxResult updateStartPeriods(@RequestBody UpdateStartPeriodsReqVO vo)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        sysAppService.updateStartPeriods(vo);
         return ajax;
     }
 

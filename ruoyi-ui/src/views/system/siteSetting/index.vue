@@ -180,11 +180,34 @@
         <el-button type="primary" size="mini" @click="submitForm">确认修改</el-button>
       </el-form-item>
     </el-form>
+
+    <el-row>
+      <b>------------------------------------------------------------------------------------------------------------------------------------------------</b>
+    </el-row>
+
+    <el-form ref="initPeriodsForm" :model="initPeriodsForm.form" :rules="initPeriodsForm.rules" label-width="200px">
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="起始期数" prop="startPeriods">
+            <el-input-number v-model="initPeriodsForm.form.startPeriods"/>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row style="color: red">
+        <b>【注意：重置起始期数后开奖信息以及投注信息都将清空。清空后，约5s执行期间。】</b>
+      </el-row>
+      <el-row style="color: red">
+        <b>【   ：清空后，等待5~10s，后生效】</b>
+      </el-row>
+      <el-form-item>
+        <el-button type="primary" size="mini" @click="submitPeriodsForm">确认修改起始期数</el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
 <script>
-import {getSiteSetting, updateSiteSetting} from "@/api/system/user";
+import {getSiteSetting, updateSiteSetting, updateStartPeriods} from "@/api/system/user";
 
 export default {
   name: "SiteSetting",
@@ -303,6 +326,20 @@ export default {
           ],
         }
       },
+      initPeriodsForm:{
+
+        // 表单参数
+        form: {
+          startPeriods: undefined,
+        },
+
+        // 表单校验
+        rules: {
+          startPeriods: [
+            {required: true, message: "起始期数不能为空", trigger: "blur"}
+          ],
+        }
+      },
     };
   },
   created() {
@@ -387,6 +424,10 @@ export default {
         if(response.qqChatImg != undefined){
           this.siteSetting.form.qqChatImg = response.qqChatImg;
         }
+        if(response.startPeriods != undefined){
+          this.initPeriodsForm.form.startPeriods = response.startPeriods;
+        }
+
         console.log("getSiteSetting");
       });
     },
@@ -394,6 +435,15 @@ export default {
       this.$refs["siteSettingForm"].validate(valid => {
         if (valid) {
           updateSiteSetting(this.siteSetting.form).then(response => {
+            this.$modal.msgSuccess("更新成功");
+          });
+        }
+      });
+    },
+    submitPeriodsForm(){
+      this.$refs["initPeriodsForm"].validate(valid => {
+        if (valid) {
+          updateStartPeriods(this.initPeriodsForm.form).then(response => {
             this.$modal.msgSuccess("更新成功");
           });
         }

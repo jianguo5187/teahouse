@@ -35,6 +35,8 @@ public interface ISysAppService {
 
     public void updateSiteSetting(UpdateSiteSettingReqVO vo);
 
+    public void updateStartPeriods(UpdateStartPeriodsReqVO vo);
+
     public String checkIpAddressValid(CheckIpAddressValidReqVO vo);
 
     public void autoModifyValidDomainUrl();

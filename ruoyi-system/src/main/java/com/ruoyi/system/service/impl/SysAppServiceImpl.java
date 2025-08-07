@@ -86,6 +86,9 @@ public class SysAppServiceImpl implements ISysAppService {
     @Value("${wx.autoCheck.apiUrl}")
     private String apiUrl;
 
+    @Autowired
+    private IBetkjService betkjService;
+
     @Override
     public List<GameListRespVO> gameRecordList(Long userId, GameListReqVO vo) {
 
@@ -705,6 +708,37 @@ public class SysAppServiceImpl implements ISysAppService {
         updateAndInsertConfigInfo("QQ客服图片地址", "sys.qqchat.img",vo.getQqChatImg());
         // 刷新缓存
         configService.resetConfigCache();
+    }
+
+
+    @Override
+    public void updateStartPeriods(UpdateStartPeriodsReqVO vo) {
+        SysGame sysGame = new SysGame();
+        sysGame.setStatus("0"); //有效
+        sysGame.setSystemOpenType("Y"); //本系统开奖
+
+        updateAndInsertConfigInfo("开奖起始期号", "sys.start.periods",vo.getStartPeriods().toString());
+        // 刷新缓存
+        configService.resetConfigCache();
+
+        // 清空投注信息
+        betkjMapper.CallTruncateAllTables();
+
+        // 重新生成开奖信息
+        List<SysGame> gameList = sysGameService.selectSysGameList(sysGame);
+        for(SysGame gameInfo : gameList) {
+            //系统开奖
+            if(StringUtils.equals(gameInfo.getGameType(),"3")){
+                // 3球
+                betkjService.openThreeBallSystemExpectData(gameInfo);
+            }else if(StringUtils.equals(gameInfo.getGameType(),"5")){
+                // 5球
+                betkjService.openFiveBallSystemExpectData(gameInfo);
+            }else if(StringUtils.equals(gameInfo.getGameType(),"10")){
+                // 10球
+                betkjService.openTenBallSystemExpectData(gameInfo);
+            }
+        }
     }
 
     public void updateAndInsertConfigInfo(String configName, String configKey, String configValue){

@@ -4,6 +4,7 @@ import com.ruoyi.system.domain.vo.BetkjRespVo;
 import com.ruoyi.system.domain.vo.GameDetailRespVO;
 import com.ruoyi.system.domain.vo.GameListRespVO;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -34,4 +35,7 @@ public interface BetkjMapper
     public int updateGameRecordDeductType(@Param("betRecordTableName") String betRecordTableName, @Param("id") Long id,@Param("isDeduct") String isDeduct);
 
     public int deleteAllOldRobotBet();
+
+    @Update("CALL truncate_all_tables()")
+    public void CallTruncateAllTables();
 }

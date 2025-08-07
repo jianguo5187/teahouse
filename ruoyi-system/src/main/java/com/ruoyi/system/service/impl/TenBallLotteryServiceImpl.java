@@ -1225,7 +1225,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                 Float amount = amountObject!=null?(Float) amountObject:0f;
 
                 if(amount > 0){
-                    money += amount * getOddFromMapByOddKey(betItemMap,"num" + x + "Under" + (x+1));
+                    money += amount * getOddFromMapByOddKey(betItemMap,"num" + kjNum + "Under" + (x));
                 }
 
                 // 大的金额计算
