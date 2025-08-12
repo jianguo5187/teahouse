@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-form ref="siteSettingForm" :model="siteSetting.form" :rules="siteSetting.rules" label-width="200px">
-      <el-row>
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="站点开关" prop="siteOpenFlg">
             <el-switch v-model="siteSetting.form.siteOpenFlg"></el-switch>
@@ -29,7 +29,7 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="首页弹窗公告" prop="appHomeAnnouncement">
             <el-input v-model="siteSetting.form.appHomeAnnouncement" type="textarea" :rows="6" placeholder="请输入首页弹窗公告"></el-input>
@@ -43,14 +43,14 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row v-show="loginUserId == 1 || loginUserId == 3">
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="官方开奖URL" prop="openRecordUrl">
             <el-input v-model="siteSetting.form.openRecordUrl" placeholder="请输入官方开奖URL"/>
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row v-show="loginUserId == 1 || loginUserId == 3">
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="网站唯一标识ID" prop="webType">
             <el-input v-model="siteSetting.form.webType" placeholder="请输入网站唯一标识ID"/> 二维码网站跳转唯一识别key
@@ -64,14 +64,14 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row v-show="loginUserId == 1 || loginUserId == 3">
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="微信appId" prop="wechatAppId">
             <el-input v-model="siteSetting.form.wechatAppId" placeholder="请输入微信appId"/>
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row v-show="loginUserId == 1 || loginUserId == 3">
+      <el-row v-show="loginUserId == 1">
         <el-col :span="12">
           <el-form-item label="微信appSecret" prop="wechatAppSecret">
             <el-input v-model="siteSetting.form.wechatAppSecret" placeholder="请输入微信appSecret"/>
@@ -350,9 +350,22 @@ export default {
       // this.siteSetting.form = {
       //   siteOpenFlg: false
       // }
-      getSiteSetting().then(response => {
-        this.siteSetting.form.siteOpenFlg = Boolean(response.siteOpenFlg);
-        this.siteSetting.form.gameWinFlg = Boolean(response.gameWinFlg);
+      getSiteSetting().then(response => {console.log(123);
+        // this.siteSetting.form.siteOpenFlg = Boolean(response.siteOpenFlg);
+
+        if(response.siteOpenFlg != undefined && response.siteOpenFlg ==  'true'){
+          this.siteSetting.form.siteOpenFlg = true;
+        }else{
+          this.siteSetting.form.siteOpenFlg = false;
+        }
+
+        if(response.gameWinFlg != undefined && response.gameWinFlg ==  'true'){
+          this.siteSetting.form.gameWinFlg = true;
+        }else{
+          this.siteSetting.form.gameWinFlg = false;
+        }
+
+        // this.siteSetting.form.gameWinFlg = Boolean(response.gameWinFlg);
 
         if(response.minChargeMoney != undefined){
           this.siteSetting.form.minChargeMoney = response.minChargeMoney;

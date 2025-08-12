@@ -2,19 +2,19 @@
   <div class="app-container">
     <el-form :model="queryParams" :rules="rules"  ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="88px">
       <el-row :gutter="20">
-<!--        <el-form-item label="用户" prop="userId">-->
-<!--          <treeselect-->
-<!--            v-model="queryParams.userId"-->
-<!--            :options="userListOptions"-->
-<!--            :normalizer="normalizer"-->
-<!--            :show-count="true"-->
-<!--            placeholder="请选择用户"-->
-<!--            style="width: 320px;"/>-->
-<!--        </el-form-item>-->
-        <el-form-item label="用户ID" prop="userId">
-          <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}">
-          </el-input>
+        <el-form-item label="用户" prop="userId">
+          <treeselect
+            v-model="queryParams.userId"
+            :options="userListOptions"
+            :normalizer="normalizer"
+            :show-count="true"
+            placeholder="请选择用户"
+            style="width: 320px;"/>
         </el-form-item>
+<!--        <el-form-item label="用户ID" prop="userId">-->
+<!--          <el-input v-model="queryParams.userId" placeholder="请输入用户ID" clearable :style="{width: '100%'}">-->
+<!--          </el-input>-->
+<!--        </el-form-item>-->
       </el-row>
 
       <el-row :gutter="20">
@@ -97,17 +97,17 @@ export default {
     };
   },
   created() {
-    // this.getUserList();
+    this.getUserList();
   },
   methods: {
-    // getUserList(){
-    //   selectAllUser().then(response => {
-    //     this.userListOptions = [];
-    //     const menu = { userId: this.loginUserId, nickName: this.loginUserName, children: [] };
-    //     menu.children = this.handleTree(response.rows, "userId", "parentUserId");
-    //     this.userListOptions.push(menu);
-    //   });
-    // },
+    getUserList(){
+      selectAllUser().then(response => {
+        this.userListOptions = [];
+        const menu = { userId: this.loginUserId, userName: this.loginUserName, nickName: this.loginUserName, children: [] };
+        menu.children = this.handleTree(response.rows, "userId", "parentUserId");
+        this.userListOptions.push(menu);
+      });
+    },
     /** 转换菜单数据结构 */
     normalizer(node) {
       if (node.children && !node.children.length) {
@@ -115,7 +115,7 @@ export default {
       }
       return {
         id: node.userId,
-        label: node.nickName,
+        label: node.userId + "(" + node.userName + ")",
         children: node.children
       };
     },

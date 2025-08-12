@@ -44,8 +44,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         select
               kj.periods as periods
             , kj.status as status
-            , case when kj.status = '1' then kj.bet_time
-                when g.system_open_type = 'Y'
+            , case when g.system_open_type = 'Y'
                     then c.pre_time
                 else kj.pre_time end as bet_open_time
             , case when kj.status = '1'

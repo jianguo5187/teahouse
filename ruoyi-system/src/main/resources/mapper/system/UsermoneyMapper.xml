@@ -442,7 +442,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         WHERE
             date_format( um.cash_time, '%y%m%d' ) >= date_format( CURDATE() - INTERVAL 6 DAY, '%y%m%d' )
         AND um.type = #{type}
-        GROUP BY um.cash_time
+        GROUP BY date_format( um.cash_time, '%m-%d' )
     </select>
 
     <select id="selectUserMoneyDetailList" parameterType="Usermoney" resultMap="UserMoneyDetailListResult">

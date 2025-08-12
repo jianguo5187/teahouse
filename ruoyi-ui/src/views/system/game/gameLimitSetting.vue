@@ -146,14 +146,14 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注冠亚和特殊号码总额度" prop="tenBallBetSpecialNumAmount">
             <el-input-number v-model="gameLimitSetting.form.tenBallBetSpecialNumAmount" :min="0" placeholder="请输入投注冠亚和特殊号码总额度"/> 0不限制投注个数(特殊号码：3,4,18,19)
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
+      <el-row v-show="false">
         <el-col :span="24">
           <el-form-item label="投注冠亚和其他号码总额度" prop="tenBallBetOtherNumAmount">
             <el-input-number v-model="gameLimitSetting.form.tenBallBetOtherNumAmount" :min="0" placeholder="请输入投注冠亚和其他号码总额度"/> 0不限制投注个数(其他号码：除特殊号码外的数字)
@@ -162,8 +162,8 @@
       </el-row>
       <el-row>
         <el-col :span="24">
-          <el-form-item label="投注大小单双龙虎限额" prop="tenBallBetDxdslhAmount">
-            <el-input-number v-model="gameLimitSetting.form.tenBallBetDxdslhAmount" :min="0" placeholder="请输入投注大小单双龙虎限额"/> 0不限制投注个数
+          <el-form-item label="投注大小单双限额" prop="tenBallBetDxdslhAmount">
+            <el-input-number v-model="gameLimitSetting.form.tenBallBetDxdslhAmount" :min="0" placeholder="请输入投注大小单双限额"/> 0不限制投注个数
           </el-form-item>
         </el-col>
       </el-row>

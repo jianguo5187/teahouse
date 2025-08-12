@@ -1044,10 +1044,200 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
                         (existing, replacement) -> existing // 保留现有的值，忽略替换值
                 ));
         if(gameTenballRecord == null){
-            return;
+            gameTenballRecord = new GameTenballRecord();
+            gameTenballRecord.setCountMoney(0f);
+            gameTenballRecord.setCountMoney(0f);
+            gameTenballRecord.setWinMoney(0f);
+            gameTenballRecord.setType1Big(0f);
+            gameTenballRecord.setType1Small(0f);
+            gameTenballRecord.setType1Single(0f);
+            gameTenballRecord.setType1Double(0f);
+            gameTenballRecord.setType1Num3(0f);
+            gameTenballRecord.setType1Num4(0f);
+            gameTenballRecord.setType1Num5(0f);
+            gameTenballRecord.setType1Num6(0f);
+            gameTenballRecord.setType1Num7(0f);
+            gameTenballRecord.setType1Num8(0f);
+            gameTenballRecord.setType1Num9(0f);
+            gameTenballRecord.setType1Num10(0f);
+            gameTenballRecord.setType1Num11(0f);
+            gameTenballRecord.setType1Num12(0f);
+            gameTenballRecord.setType1Num13(0f);
+            gameTenballRecord.setType1Num14(0f);
+            gameTenballRecord.setType1Num15(0f);
+            gameTenballRecord.setType1Num16(0f);
+            gameTenballRecord.setType1Num17(0f);
+            gameTenballRecord.setType1Num18(0f);
+            gameTenballRecord.setType1Num19(0f);
+            gameTenballRecord.setType2Big(0f);
+            gameTenballRecord.setType2Small(0f);
+            gameTenballRecord.setType2Single(0f);
+            gameTenballRecord.setType2Double(0f);
+            gameTenballRecord.setType2Loong(0f);
+            gameTenballRecord.setType2Tiger(0f);
+            gameTenballRecord.setType2Num1(0f);
+            gameTenballRecord.setType2Num2(0f);
+            gameTenballRecord.setType2Num3(0f);
+            gameTenballRecord.setType2Num4(0f);
+            gameTenballRecord.setType2Num5(0f);
+            gameTenballRecord.setType2Num6(0f);
+            gameTenballRecord.setType2Num7(0f);
+            gameTenballRecord.setType2Num8(0f);
+            gameTenballRecord.setType2Num9(0f);
+            gameTenballRecord.setType2Num10(0f);
+            gameTenballRecord.setType3Big(0f);
+            gameTenballRecord.setType3Small(0f);
+            gameTenballRecord.setType3Single(0f);
+            gameTenballRecord.setType3Double(0f);
+            gameTenballRecord.setType3Loong(0f);
+            gameTenballRecord.setType3Tiger(0f);
+            gameTenballRecord.setType3Num1(0f);
+            gameTenballRecord.setType3Num2(0f);
+            gameTenballRecord.setType3Num3(0f);
+            gameTenballRecord.setType3Num4(0f);
+            gameTenballRecord.setType3Num5(0f);
+            gameTenballRecord.setType3Num6(0f);
+            gameTenballRecord.setType3Num7(0f);
+            gameTenballRecord.setType3Num8(0f);
+            gameTenballRecord.setType3Num9(0f);
+            gameTenballRecord.setType3Num10(0f);
+            gameTenballRecord.setType4Big(0f);
+            gameTenballRecord.setType4Small(0f);
+            gameTenballRecord.setType4Single(0f);
+            gameTenballRecord.setType4Double(0f);
+            gameTenballRecord.setType4Loong(0f);
+            gameTenballRecord.setType4Tiger(0f);
+            gameTenballRecord.setType4Num1(0f);
+            gameTenballRecord.setType4Num2(0f);
+            gameTenballRecord.setType4Num3(0f);
+            gameTenballRecord.setType4Num4(0f);
+            gameTenballRecord.setType4Num5(0f);
+            gameTenballRecord.setType4Num6(0f);
+            gameTenballRecord.setType4Num7(0f);
+            gameTenballRecord.setType4Num8(0f);
+            gameTenballRecord.setType4Num9(0f);
+            gameTenballRecord.setType4Num10(0f);
+            gameTenballRecord.setType5Big(0f);
+            gameTenballRecord.setType5Small(0f);
+            gameTenballRecord.setType5Single(0f);
+            gameTenballRecord.setType5Double(0f);
+            gameTenballRecord.setType5Loong(0f);
+            gameTenballRecord.setType5Tiger(0f);
+            gameTenballRecord.setType5Num1(0f);
+            gameTenballRecord.setType5Num2(0f);
+            gameTenballRecord.setType5Num3(0f);
+            gameTenballRecord.setType5Num4(0f);
+            gameTenballRecord.setType5Num5(0f);
+            gameTenballRecord.setType5Num6(0f);
+            gameTenballRecord.setType5Num7(0f);
+            gameTenballRecord.setType5Num8(0f);
+            gameTenballRecord.setType5Num9(0f);
+            gameTenballRecord.setType5Num10(0f);
+            gameTenballRecord.setType6Big(0f);
+            gameTenballRecord.setType6Small(0f);
+            gameTenballRecord.setType6Single(0f);
+            gameTenballRecord.setType6Double(0f);
+            gameTenballRecord.setType6Loong(0f);
+            gameTenballRecord.setType6Tiger(0f);
+            gameTenballRecord.setType6Num1(0f);
+            gameTenballRecord.setType6Num2(0f);
+            gameTenballRecord.setType6Num3(0f);
+            gameTenballRecord.setType6Num4(0f);
+            gameTenballRecord.setType6Num5(0f);
+            gameTenballRecord.setType6Num6(0f);
+            gameTenballRecord.setType6Num7(0f);
+            gameTenballRecord.setType6Num8(0f);
+            gameTenballRecord.setType6Num9(0f);
+            gameTenballRecord.setType6Num10(0f);
+            gameTenballRecord.setType7Big(0f);
+            gameTenballRecord.setType7Small(0f);
+            gameTenballRecord.setType7Single(0f);
+            gameTenballRecord.setType7Double(0f);
+            gameTenballRecord.setType7Loong(0f);
+            gameTenballRecord.setType7Tiger(0f);
+            gameTenballRecord.setType7Num1(0f);
+            gameTenballRecord.setType7Num2(0f);
+            gameTenballRecord.setType7Num3(0f);
+            gameTenballRecord.setType7Num4(0f);
+            gameTenballRecord.setType7Num5(0f);
+            gameTenballRecord.setType7Num6(0f);
+            gameTenballRecord.setType7Num7(0f);
+            gameTenballRecord.setType7Num8(0f);
+            gameTenballRecord.setType7Num9(0f);
+            gameTenballRecord.setType7Num10(0f);
+            gameTenballRecord.setType8Big(0f);
+            gameTenballRecord.setType8Small(0f);
+            gameTenballRecord.setType8Single(0f);
+            gameTenballRecord.setType8Double(0f);
+            gameTenballRecord.setType8Loong(0f);
+            gameTenballRecord.setType8Tiger(0f);
+            gameTenballRecord.setType8Num1(0f);
+            gameTenballRecord.setType8Num2(0f);
+            gameTenballRecord.setType8Num3(0f);
+            gameTenballRecord.setType8Num4(0f);
+            gameTenballRecord.setType8Num5(0f);
+            gameTenballRecord.setType8Num6(0f);
+            gameTenballRecord.setType8Num7(0f);
+            gameTenballRecord.setType8Num8(0f);
+            gameTenballRecord.setType8Num9(0f);
+            gameTenballRecord.setType8Num10(0f);
+            gameTenballRecord.setType9Big(0f);
+            gameTenballRecord.setType9Small(0f);
+            gameTenballRecord.setType9Single(0f);
+            gameTenballRecord.setType9Double(0f);
+            gameTenballRecord.setType9Loong(0f);
+            gameTenballRecord.setType9Tiger(0f);
+            gameTenballRecord.setType9Num1(0f);
+            gameTenballRecord.setType9Num2(0f);
+            gameTenballRecord.setType9Num3(0f);
+            gameTenballRecord.setType9Num4(0f);
+            gameTenballRecord.setType9Num5(0f);
+            gameTenballRecord.setType9Num6(0f);
+            gameTenballRecord.setType9Num7(0f);
+            gameTenballRecord.setType9Num8(0f);
+            gameTenballRecord.setType9Num9(0f);
+            gameTenballRecord.setType9Num10(0f);
+            gameTenballRecord.setType10Big(0f);
+            gameTenballRecord.setType10Small(0f);
+            gameTenballRecord.setType10Single(0f);
+            gameTenballRecord.setType10Double(0f);
+            gameTenballRecord.setType10Loong(0f);
+            gameTenballRecord.setType10Tiger(0f);
+            gameTenballRecord.setType10Num1(0f);
+            gameTenballRecord.setType10Num2(0f);
+            gameTenballRecord.setType10Num3(0f);
+            gameTenballRecord.setType10Num4(0f);
+            gameTenballRecord.setType10Num5(0f);
+            gameTenballRecord.setType10Num6(0f);
+            gameTenballRecord.setType10Num7(0f);
+            gameTenballRecord.setType10Num8(0f);
+            gameTenballRecord.setType10Num9(0f);
+            gameTenballRecord.setType10Num10(0f);
+            gameTenballRecord.setType11Big(0f);
+            gameTenballRecord.setType11Small(0f);
+            gameTenballRecord.setType11Single(0f);
+            gameTenballRecord.setType11Double(0f);
+            gameTenballRecord.setType11Loong(0f);
+            gameTenballRecord.setType11Tiger(0f);
+            gameTenballRecord.setType11Num1(0f);
+            gameTenballRecord.setType11Num2(0f);
+            gameTenballRecord.setType11Num3(0f);
+            gameTenballRecord.setType11Num4(0f);
+            gameTenballRecord.setType11Num5(0f);
+            gameTenballRecord.setType11Num6(0f);
+            gameTenballRecord.setType11Num7(0f);
+            gameTenballRecord.setType11Num8(0f);
+            gameTenballRecord.setType11Num9(0f);
+            gameTenballRecord.setType11Num10(0f);
+            gameTenballRecord.setBigSingle(0f);
+            gameTenballRecord.setBigDouble(0f);
+            gameTenballRecord.setSmallSingle(0f);
+            gameTenballRecord.setSmallDouble(0f);
+
+//            return;
         }
         if(getLimitAmountByKey(limitAmountMap,"sum_max").compareTo(gameTenballRecord.getCountMoney() + money * betNumberArg.length) < 0){
-            throw new ServiceException("单期投注总金额不可以大于" + getLimitAmountByKey(limitAmountMap,"small_num"));
+            throw new ServiceException("单期投注总金额不可以大于" + getLimitAmountByKey(limitAmountMap,"sum_max"));
         }
 
         if(money.compareTo(getLimitAmountByKey(limitAmountMap,"small_num"))<0){
@@ -1164,13 +1354,13 @@ public class GameTenBallsServiceImpl implements IGameTenBallsService {
             }
 
             // 判断投注赛道个数
-            if(typeNumCountMap.size()> numCount){
+            if(numCount >0 && typeNumCountMap.size()> numCount){
                 throw new ServiceException("投注赛道号码个数不可以大于" + numCount);
             }
 
             // 判断投注赛道号码个数
             for(String key : typeNumCountMap.keySet()) {
-                if(typeNumCountMap.get(key).size()> numCount){
+                if(numCount >0 && typeNumCountMap.get(key).size()> numCount){
                     throw new ServiceException("投注赛道号码个数不可以大于" + numCount);
                 }
             }

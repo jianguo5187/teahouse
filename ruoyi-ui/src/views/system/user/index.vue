@@ -14,6 +14,15 @@
             />
           </el-form-item>
 
+          <el-form-item label="用户账号" prop="userName">
+            <el-input
+              v-model="queryParams.userName"
+              placeholder="请输入用户昵称"
+              clearable
+              style="width: 240px"
+              @keyup.enter.native="handleQuery"
+            />
+          </el-form-item>
           <el-form-item label="用户昵称" prop="nickName">
             <el-input
               v-model="queryParams.nickName"
@@ -90,7 +99,7 @@
 <!--          <el-table-column type="selection" width="50" align="center" />-->
           <el-table-column label="用户ID" align="center" key="userId" prop="userId" width="80" sortable="custom"/>
           <!--          <el-table-column label="用户编号" align="center" key="userId" prop="userId" v-if="columns[0].visible" />-->
-<!--          <el-table-column label="登录账号" align="center" key="userName" prop="userName" :show-overflow-tooltip="true" />-->
+          <el-table-column label="账号" align="center" key="userName" prop="userName" :show-overflow-tooltip="true" />
           <el-table-column label="用户昵称" align="center" key="nickName" prop="nickName" :show-overflow-tooltip="true" />
           <el-table-column label="用户备注名" align="center" key="remarkName" prop="remarkName" :show-overflow-tooltip="true">
             <template slot-scope="scope">
@@ -196,6 +205,7 @@
                 circle
                 size="small"
                 icon="el-icon-money"
+                v-show="false"
                 @click="handleMergeUser(scope.row)"
               ></el-button>
             </template>
@@ -234,7 +244,7 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row>
+        <el-row v-show="false">
           <el-col :span="12">
             <el-form-item label="邮箱" prop="email">
               <el-input v-model="form.email" placeholder="请输入邮箱" maxlength="50" />
@@ -339,7 +349,7 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row>
+        <el-row v-show="false">
           <el-col :span="12">
             <el-form-item label="测试用户">
               <el-radio-group v-model="form.isTest">

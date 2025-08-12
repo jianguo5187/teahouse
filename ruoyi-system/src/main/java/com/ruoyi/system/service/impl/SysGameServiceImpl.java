@@ -339,9 +339,26 @@ public class SysGameServiceImpl implements ISysGameService
                 preTenballOpenData.setCreateBy("TASK");
 
                 gameTenballOpenDataService.insertGameTenballOpenData(preTenballOpenData);
+
+                // 修改开奖数据
+                GameTenballKj newGameTenballKj = new GameTenballKj();
+                newGameTenballKj.setPeriods(newPeriods);
+                newGameTenballKj.setGameId(gameInfo.getGameId());
+                newGameTenballKj.setGameName(gameInfo.getGameName());
+                newGameTenballKj.setStatus("0");
+                newGameTenballKj.setCreateBy("createFiveBallData");
+                newGameTenballKj.setPreTime(systemOpenData.getPreTime());
+
+                Calendar betCalendar = Calendar.getInstance();
+                betCalendar.setTime(systemOpenData.getPreTime());
+                //封盘投注截止时间
+                betCalendar.add(Calendar.SECOND, gameInfo.getEndTime()*-1);
+                newGameTenballKj.setBetTime(betCalendar.getTime());
+
+                gameTenballKjService.insertGameTenballKj(newGameTenballKj);
             }
         }
-        tenBallLotteryService.createTenballData(gameInfo);
+//        tenBallLotteryService.createTenballData(gameInfo);
     }
 
 
