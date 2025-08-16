@@ -207,6 +207,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                 return ;
     //            throw new ServiceException("createTenballData return false4");
             }
+            newGameTenballKj.setCreateBy("createTenballData1");
             gameTenballKjService.insertGameTenballKj(newGameTenballKj);
             createTenballData(gameInfo);
         }else{
@@ -273,7 +274,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                     newGameTenballKj.setGameId(gameInfo.getGameId());
                     newGameTenballKj.setGameName(gameInfo.getGameName());
                     newGameTenballKj.setStatus("0");
-                    newGameTenballKj.setCreateBy("createFiveBallData");
+                    newGameTenballKj.setCreateBy("createFiveBallData2");
 
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTime(beforeOpenDataTime);
@@ -297,6 +298,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
                     calendar.add(Calendar.SECOND, gameInfo.getEndTime()*-1);
                     newGameTenballKj.setBetTime(calendar.getTime());
 
+                    newGameTenballKj.setCreateBy("createTenballData2");
                     gameTenballKjService.insertGameTenballKj(newGameTenballKj);
                 }
             }
@@ -335,6 +337,7 @@ public class TenBallLotteryServiceImpl implements ITenBallLotteryService {
             calendar.add(Calendar.SECOND, gameInfo.getEndTime()*-1);
             newGameTenballKj.setBetTime(calendar.getTime());
 
+            newGameTenballKj.setCreateBy("createTenballData3");
             gameTenballKjService.insertGameTenballKj(newGameTenballKj);
         }
 

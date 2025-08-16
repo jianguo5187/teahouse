@@ -310,7 +310,7 @@ public class SysGameServiceImpl implements ISysGameService
                     }else{
                         systemOpenData.setPreTime(calendar.getTime());
                     }
-                    systemOpenData.setCreateBy("TASK");
+                    systemOpenData.setCreateBy("updateSystemGameTenballKjAndCodeTable");
                     gameSystemOpenDataService.insertGameSystemOpenData(systemOpenData);
                 }
 
@@ -336,7 +336,7 @@ public class SysGameServiceImpl implements ISysGameService
                 if(currentTime.after(calendar.getTime())){
                     beforeOpenDataTime = new Date();
                 }
-                preTenballOpenData.setCreateBy("TASK");
+                preTenballOpenData.setCreateBy("updateSystemGameTenballKjAndCodeTable");
 
                 gameTenballOpenDataService.insertGameTenballOpenData(preTenballOpenData);
 
@@ -346,7 +346,7 @@ public class SysGameServiceImpl implements ISysGameService
                 newGameTenballKj.setGameId(gameInfo.getGameId());
                 newGameTenballKj.setGameName(gameInfo.getGameName());
                 newGameTenballKj.setStatus("0");
-                newGameTenballKj.setCreateBy("createFiveBallData");
+                newGameTenballKj.setCreateBy("updateSystemGameTenballKjAndCodeTable");
                 newGameTenballKj.setPreTime(systemOpenData.getPreTime());
 
                 Calendar betCalendar = Calendar.getInstance();
